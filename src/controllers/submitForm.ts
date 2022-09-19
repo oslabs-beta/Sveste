@@ -1,17 +1,18 @@
 const submitForm = {};
-const url = '/test'
+const url = '/test';
 
-export async function POST(body: string): Promise<string> {
+export async function POST(url, body) {
   try {
     const res = await fetch(url, {
+      method: 'POST',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/json',
       },
-      body
+      body,
     });
     const data = await res.json();
     return data.body;
-  } catch(err) {
+  } catch (err) {
     console.log(err);
   }
 }
