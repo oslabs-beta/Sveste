@@ -2,7 +2,17 @@
   import { POST } from "../controllers/submitForm";
   let selected;
   let options = ["Render", "Event"];
-
+  //req Params - testType: Render
+  //req Body
+  /**
+   * 
+   Req Body = {
+    componentName: String;
+    relativePath: String;
+    testName: String;
+    expectedResult: String;
+   }
+   */
   function handleSubmit(event) {
     const formData = new FormData(event.target);
     const testParam = new URLSearchParams();
