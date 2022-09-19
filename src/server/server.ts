@@ -1,4 +1,3 @@
-// server boilerplate here.
 import express from "express";
 import type { Express, Request, Response } from "express";
 
@@ -12,3 +11,6 @@ app.get("/", (req: Request, res: Response) => {
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
+
+//the below command runs this server:
+//ts-node-esm src/server/server.ts
