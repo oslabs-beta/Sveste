@@ -15,49 +15,23 @@
   }
 </script>
 
-<label
-  >Test Type: <select bind:value={selected}>
-    {#each options as value}
-      <option {value}>{value}</option>
-    {/each}
-  </select></label
+<form
+  class="form-container"
+  on:submit|preventDefault={(event) => handleSubmit(event)}
 >
-{#if selected === "Render"}
-  <form
-    class="form-container"
-    on:submit|preventDefault={(event) => handleSubmit(event)}
-  >
-    <label
-      >Component Name: <input
-        type="text"
-        name="componentName"
-        placeholder="ex. paragraph"
-      /></label
-    >
-    <label
-      >Relative Path: <input
-        type="text"
-        name="relativePath"
-        placeholder="/tests"
-      /></label
-    >
+  <label for="componentName">Component Name:</label>
+  <input required type="text" name="componentName" placeholder="Header" />
 
-    <label
-      >Test Name: <input
-        name="testName"
-        placeholder="shows proper text when rendered..."
-      /></label
-    >
+  <label for="relativePath">Relative Path:</label>
+  <input required type="text" name="relativePath" placeholder="/tests" />
 
-    <label
-      >Expected Result: <input
-        name="expectedResult"
-        placeholder="Hello World"
-      />
-    </label>
-    <input type="submit" />
-  </form>
-{/if}
+  <label for="testName">Test Name:</label>
+  <input required type="text" name="testName" placeholder="Header rendered" />
+
+  <label for="expectedResult">Expected Result:</label>
+  <input required type="text" name="expectedResult" placeholder="Hello World" />
+  <input type="submit" value="Submit" />
+</form>
 
 <style>
   .form-container {
