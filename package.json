@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.2",
@@ -20,9 +21,13 @@
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "fs": "^0.0.1-security",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "mongoose": "^6.6.1",
     "nodemon": "^2.0.20",
     "path": "^0.12.7",
+    "prettier": "^2.7.1",
+    "prettier-plugin-svelte": "^2.7.0",
     "svelte": "^3.49.0",
     "svelte-check": "^2.8.1",
     "svelte-preprocess": "^4.10.7",
@@ -30,5 +35,8 @@
     "typescript": "^4.8.3",
     "vite": "^3.1.0",
     "vitest": "^0.23.4"
+  },
+  "lint-staged": {
+    "*.{js,ts,html,svelte,css,md}": "prettier --write"
   }
 }

@@ -1,6 +1,6 @@
 // server boilerplate here.
 
-import * as express from 'express';
+import express from 'express';
 //above may require the below in tsconfig
 //"allowSyntheticDefaultImports": true 
 import type { Express, Request, Response } from 'express';
