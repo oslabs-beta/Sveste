@@ -1,24 +1,30 @@
-import { render, screen, within } from "@testing-library/svelte";
-import TestFormData from "../src/components/TestFormData.svelte";
+import { render, screen, fireEvent } from "@testing-library/svelte";
+import { beforeEach, describe, expect, it } from "vitest";
+import userEvent from "@testing-library/user-event";
 // import { setupServer } from 'msw/node';
 // import { rest } from 'msw';
-import { beforeAll, beforeEach, describe, expect, it, test } from "vitest";
-// check if form rendered as expected
+import TestFormData from "../src/components/TestFormData.svelte";
 
 describe("TestFormData component", () => {
   let subject: HTMLElement;
   beforeEach(async () => {
     const { container } = await render(TestFormData);
-    subject = container.querySelector("form");
+    subject = await container.querySelector("form");
   });
 
   it("renders a form", () => {
-    expect(subject).toBeTruthy();
+    expect(screen.findByRole("form")).toBeTruthy();
   });
 
   describe("if form data is valid", () => {
-    it("send's data to server on click", () => {});
-
+    beforeEach(async () => {
+      const inputs = await subject.querySelectorAll("input");
+      inputs.forEach((input) => {
+        fireEvent.input(input, { target: { value: "this is a test" } });
+      });
+    });
+    it("renders values", async () => {});
+    it("send's input values to server on click", () => {});
     it("receives a 200 response", () => {});
   });
 

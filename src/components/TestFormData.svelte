@@ -17,6 +17,7 @@
     name="componentName"
     id="componentName"
     placeholder="Header"
+    value=""
   />
 
   <label for="relativePath">Relative Path</label>
@@ -26,6 +27,7 @@
     name="relativePath"
     id="relativePath"
     placeholder="/tests"
+    value=""
   />
 
   <label for="testName">Test Name</label>
@@ -35,6 +37,7 @@
     name="testName"
     id="testName"
     placeholder="Header rendered"
+    value=""
   />
 
   <label for="expectedResult">Expected Result</label>
@@ -44,6 +47,7 @@
     name="expectedResult"
     id="expectedResult"
     placeholder="Hello World"
+    value=""
   />
   <button type="submit">Submit</button>
 </form>
