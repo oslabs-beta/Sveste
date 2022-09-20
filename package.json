@@ -45,5 +45,8 @@
   },
   "lint-staged": {
     "*.{js,ts,html,svelte,css,md}": "prettier --write"
+  },
+  "dependencies": {
+    "svelte-copy-to-clipboard": "^0.2.5"
   }
 }
