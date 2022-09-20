@@ -1,7 +1,7 @@
 <script lang="ts">
-  import FormData from "../components/FormData.svelte";
+  import TestFormData from "../components/TestFormData.svelte";
 </script>
 
 <div>
-  <FormData />
+  <TestFormData />
 </div>
