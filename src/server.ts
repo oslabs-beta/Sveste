@@ -13,4 +13,4 @@ app.listen(port, () => {
 });
 
 //the below command runs this server:
-//ts-node-esm src/server/server.ts
+//ts-node-esm src/server.ts
