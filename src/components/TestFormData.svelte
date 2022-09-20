@@ -2,7 +2,11 @@
   import { handleFormSubmission } from "../controllers/submitForm";
 </script>
 
-<form class="form-container" on:submit|preventDefault={handleFormSubmission}>
+<form
+  id="testForm"
+  name="testForm"
+  on:submit|preventDefault={handleFormSubmission}
+>
   <label for="htmlTag">HTML Tag</label>
   <input required type="text" name="htmlTag" id="htmlTag" placeholder="h1" />
 
@@ -45,7 +49,7 @@
 </form>
 
 <style>
-  .form-container {
+  form {
     display: flex;
     flex-direction: column;
   }
