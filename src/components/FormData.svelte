@@ -1,24 +1,8 @@
 <script lang="ts">
-  import { POST } from "../controllers/submitForm";
-  let htmlTag = "body";
-
-  function handleSubmit() {
-    const form = document.querySelector("form");
-    const formData = new FormData(form);
-    const testParam = new URLSearchParams();
-    const testBody = {};
-    for (const [key, value] of formData) {
-      if (key === "htmlTag" && typeof value === "string") {
-        testParam.append(key, value);
-      } else {
-        testBody[key] = value;
-      }
-    }
-    let response = POST("/test?" + testParam, JSON.stringify(testBody));
-  }
+  import { handleFormSubmission } from "../controllers/submitForm";
 </script>
 
-<form class="form-container" on:submit|preventDefault={handleSubmit}>
+<form class="form-container" on:submit|preventDefault={handleFormSubmission}>
   <label for="htmlTag">HTML Tag</label>
   <input required type="text" name="htmlTag" placeholder="h1" />
 
