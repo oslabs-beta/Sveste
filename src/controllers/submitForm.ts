@@ -1,12 +1,12 @@
 const submitForm = {};
-const url = '/test';
+const url = "/test";
 
 export async function POST(url, body) {
   try {
     const res = await fetch(url, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body,
     });
