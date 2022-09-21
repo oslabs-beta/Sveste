@@ -5,7 +5,50 @@ class textBoxController {
 
   constructor() {}
   public createTests = (req: express.Request, res: express.Response) => {
-    res.status(200).send("Sending a response");
+    const { text, componentName, path } = req.body; //pull text of text box + path
+
+    let stringResponse = "";
+    //Formulate import statements in header
+    stringResponse +=
+      "import { describe, expect, it } from 'vitest';" +
+      "\n" +
+      "import { render } from '@testing-library/svelte';" +
+      "\n" +
+      `import ${componentName} from ${path};` +
+      "\n\n";
+
+    //Add code block for tests
+    stringResponse +=
+      "describe('textBox component', function() {" +
+      "\n" +
+      "  beforeEach(() => {" +
+      "\n" +
+      "    const host = document.createElement('div');" +
+      "\n" +
+      "    document.body.appendChild(host);" +
+      "\n" +
+      `    const instance = new ${componentName}({ target: host });` +
+      "\n" +
+      "  });" +
+      "\n" +
+      "  it('creates an instance', function () {" +
+      "\n" +
+      "    expect(instance).toBeTruthy();" +
+      "\n" +
+      "  });" +
+      "\n" +
+      "  it('renders', function () {" +
+      "\n" +
+      `    const {getByText} = render(\'${path}\');` +
+      "\n" +
+      `    expect(() => getByText(\'${text}\')).not.toThrow();` +
+      "\n" +
+      `    expect(instance.innerHTML).toContain(${text});` +
+      "\n" +
+      "  });" +
+      "\n" +
+      "});";
+    res.status(200).send(stringResponse);
     //this works by changing module in tsconfig.json to commonjs from esnext
     //also removed type: module from package.json
   };

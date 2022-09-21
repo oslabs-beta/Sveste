@@ -3,7 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "ts-node-esm ./src/server.ts",
+    "dev": "concurrently 'vite' 'ts-node-esm src/server.ts'",
+    "vite": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
@@ -44,6 +45,7 @@
     "@babel/plugin-transform-modules-commonjs": "^7.18.6",
     "body-parser": "^1.20.0",
     "svelte-copy-to-clipboard": "^0.2.5",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "typings": "^2.1.1"
   }
 }

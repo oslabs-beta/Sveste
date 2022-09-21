@@ -1,10 +1,14 @@
 {
   "extends": "@tsconfig/svelte/tsconfig.json",
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  },
   "compilerOptions": {
     "moduleResolution": "node",
-    "target": "ESNext",
     "useDefineForClassFields": true,
-    "module": "commonjs",
+    "module": "esnext",
     "resolveJsonModule": true,
     "baseUrl": ".",
     "strict": false,
@@ -31,4 +35,5 @@
   "exclude": [
     "node_modules"
   ]
+  
 }
