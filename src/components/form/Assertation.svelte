@@ -17,7 +17,7 @@
   }
 </script>
 
-<label {id}>it(<input type="text" placeholder="renders..." />)</label>
+<label {id}>expect(<input type="text" placeholder="renders..." />)</label>
 <select on:change={(value) => handleChange(value)}>
   <option value="" disabled selected>Add</option>
   {#each addOptions as value}

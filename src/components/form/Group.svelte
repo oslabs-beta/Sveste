@@ -1,29 +1,18 @@
 <script lang="ts">
   export let id;
-  import Event from "./Event.svelte";
-  import Assertation from "./Assertation.svelte";
-
-  // let events = [];
-  let assertations = [];
-  // let eid = 0;
-  let aid = 0;
-  let addOptions = ["Event", "Mock", "Assertation", "Query"];
+  import ItStatement from "./ItStatement.svelte";
+  let addOptions = ["Mock", "Statement"];
+  let statements = [];
+  let sid = 0;
   function handleChange(type) {
-    // if(type.target.value === 'Event') {
-    //     console.log('creating event')
-    //     const newEvent = {
-    //         id: 'E1'
-    //     }
-    //     // const id = eid++
-    //     newEvent.id = `E${eid++}`
-    //     events = [...events, newEvent];
-    // }
-    if (type.target.value === "Assertation") {
-      const newAssertation = {
-        id: "A1",
+    if (type.target.value === "Statement") {
+      console.log("creating event");
+      const newStatement = {
+        id: "S1",
       };
-      newAssertation.id = `A${aid++}`;
-      assertations = [...assertations, newAssertation];
+      // const id = eid++
+      newStatement.id = `S${sid++}`;
+      statements = [...statements, newStatement];
     }
   }
 </script>
@@ -40,10 +29,7 @@
       </option>
     {/each}
   </select>
-  <!-- {#each events as event (event.id)}
-<Event id={event.id}/>
-{/each} -->
-  {#each assertations as assertation (assertation.id)}
-    <Assertation id={assertation.id} />
+  {#each statements as statement (statement.id)}
+    <ItStatement id={statement.id} />
   {/each}
 </div>
