@@ -2,9 +2,8 @@
   "name": "sveste",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "ts-node-esm ./src/server.ts",
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
@@ -15,16 +14,10 @@
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.2",
     "@testing-library/svelte": "^3.2.1",
-    "@testing-library/user-event": "^14.4.3",
     "@tsconfig/svelte": "^3.0.0",
     "@types/express": "^4.17.14",
     "@types/node": "^18.7.18",
-    "@typescript-eslint/eslint-plugin": "^5.38.0",
-    "@typescript-eslint/parser": "^5.38.0",
     "cors": "^2.8.5",
-    "eslint": "^8.23.1",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-testing-library": "^5.6.4",
     "express": "^4.18.1",
     "fs": "^0.0.1-security",
     "husky": "^8.0.1",
@@ -48,6 +41,9 @@
     "*.{js,ts,html,svelte,css,md}": "prettier --write"
   },
   "dependencies": {
-    "svelte-copy-to-clipboard": "^0.2.5"
+    "@babel/plugin-transform-modules-commonjs": "^7.18.6",
+    "body-parser": "^1.20.0",
+    "svelte-copy-to-clipboard": "^0.2.5",
+    "ts-node": "^10.9.1"
   }
 }
