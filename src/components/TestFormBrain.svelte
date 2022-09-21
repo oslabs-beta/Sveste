@@ -1,6 +1,5 @@
 <script lang="ts">
   import Group from "./form/Group.svelte";
-
   // HTTP Request/Response Logic Here
   //handles button logic
   let groups = [];
@@ -71,7 +70,7 @@
 <!-- Test subject (special variable- defines what your UNIT is) -->
 
 <!-- Rules -->
-<!-- Only one test subject per Group -->
 
+<!-- Only one test subject per Group -->
 <style>
 </style>
