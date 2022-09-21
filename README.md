@@ -20,3 +20,13 @@ Sveste was built with Kent Dodd’s advice in mind. Especially the [Testing Trop
 ## What Makes a Test?
 
 <!-- define parts of a test eg. Assertions, mocking, queries, etc. -->
+  <!-- Mock Data (eg. input = 'string') -->
+  <!-- Events (eg. user.types(words)) -->
+  <!-- Assertions (eg. it('description, () => expect(a thing).tobe(a thing))) -->
+  <!-- Description (eg. it('renders...' () => {...})) -->
+  <!-- Expectation (eg. expect(a thing))-->
+<!-- Primitives-->
+  <!-- JS variables -->
+  <!-- User component/method -->
+  <!-- Queries (eg. variable.getByText('string'))-->
+  <!-- Test subject (special variable- defines what your UNIT is) -->
