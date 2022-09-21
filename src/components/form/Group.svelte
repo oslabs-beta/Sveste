@@ -1,6 +1,7 @@
 <script lang="ts">
   export let id;
   import ItStatement from "./ItStatement.svelte";
+  import DescribeBlock from "./DescribeBlock.svelte";
   let addOptions = ["Mock", "Statement"];
   let statements = [];
   let sid = 0;
@@ -18,9 +19,7 @@
 </script>
 
 <div {id} class="group">
-  <label for="describe">
-    describe...<input type="text" name="describe" /></label
-  >
+  <DescribeBlock />
   <select placeholder="Add" on:change={(value) => handleChange(value)}>
     <option value="" disabled selected>Add</option>
     {#each addOptions as value}
