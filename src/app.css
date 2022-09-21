@@ -8,4 +8,6 @@ html {
 }
 body {
   margin: 0;
+  background: var(--background);
+  color: var(--primary);
 }
