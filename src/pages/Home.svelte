@@ -6,7 +6,7 @@
 </script>
 
 <App>
-  <Header />
+  <!-- <Header /> -->
   <FormDisplay />
-  <CodeDisplay />
+  <!-- <CodeDisplay /> -->
 </App>
