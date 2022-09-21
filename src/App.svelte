@@ -7,9 +7,8 @@
 
 <style>
   .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+    display: flex;
+    flex-direction: column;
     width: 100vw;
     height: 100vh;
   }

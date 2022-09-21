@@ -5,3 +5,9 @@
 <div>
   <TestFormData />
 </div>
+
+<style>
+  div {
+    grid-area: form;
+  }
+</style>
