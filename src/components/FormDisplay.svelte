@@ -6,3 +6,9 @@
 <div>
   <TestFormBrain />
 </div>
+
+<style>
+  div {
+    grid-area: form;
+  }
+</style>
