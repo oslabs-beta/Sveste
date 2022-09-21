@@ -1,7 +1,6 @@
 <script lang="ts">
   import Group from "./form/Group.svelte";
   import { testStore } from "../store";
-  import test from "node:test";
   // HTTP Request/Response Logic Here
   //handles button logic
   let groups = [];
@@ -17,11 +16,13 @@
 
     groups = [...groups, newGroup];
     // add newGroup to Store
-    $testStore[newGroup.id] = newGroup;
-    console.log($testStore);
+    // $testStore[newGroup.id] = newGroup; <- this works, but its janky
+    testStore.addGroup(newGroup.id, newGroup);
   }
   function deleteGroup(group) {
     groups = groups.filter((g) => g !== group);
+    console.log(group.id);
+    testStore.deleteGroup(group.id);
   }
 </script>
 
@@ -75,7 +76,7 @@
 <!-- Test subject (special variable- defines what your UNIT is) -->
 
 <!-- Rules -->
-<!-- Only one test subject per Group -->
 
+<!-- Only one test subject per Group -->
 <style>
 </style>
