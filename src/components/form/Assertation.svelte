@@ -17,15 +17,19 @@
   }
 </script>
 
-<label {id}>expect(<input type="text" placeholder="renders..." />)</label>
-<select on:change={(value) => handleChange(value)}>
-  <option value="" disabled selected>Add</option>
-  {#each addOptions as value}
-    <option {value}>
-      {value}
-    </option>
+<div class="assertation">
+  <h4>Assertation</h4>
+  <select on:change={(value) => handleChange(value)}>
+    <option value="" disabled selected>Add</option>
+    {#each addOptions as value}
+      <option {value}>
+        {value}
+      </option>
+    {/each}
+  </select>
+  <label {id}>expect(<input type="text" placeholder="renders..." />)</label>
+
+  {#each events as event (event.id)}
+    <Event id={event.id} />
   {/each}
-</select>
-{#each events as event (event.id)}
-  <Event id={event.id} />
-{/each}
+</div>
