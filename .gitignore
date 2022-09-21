@@ -7,9 +7,6 @@ dist
 dist-ssr
 *.local
 
-dev_ignore
-.package-lock.json
-
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
