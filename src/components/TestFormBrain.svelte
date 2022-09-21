@@ -56,7 +56,6 @@
   <
 </Group> -->
 </form>
-
 <!-- Mock Data (eg. input = 'string') -->
 
 <!-- Events (eg. user.types(words)) -->
@@ -73,3 +72,6 @@
 
 <!-- Rules -->
 <!-- Only one test subject per Group -->
+
+<style>
+</style>
