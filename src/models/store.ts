@@ -27,16 +27,6 @@ function createTestStore() {
   return {
     subscribe,
     data,
-    // findById: (id: string) => {
-    //   const search = (node) => {
-    //     if (!node.id) throw `Error: node with id ${id} not found`;
-    //     if (node.id === id) return node;
-    //     for (const child of node.children) {
-    //       search(child);
-    //     }
-    //   };
-    //   return search(data);
-    // },
     addBlock: (block: Block) => {
       update(() => {
         const target = block.parent || testStore.data;
@@ -64,7 +54,6 @@ function createTestStore() {
     },
   };
 }
-export const idStore = createIdStore();
 
+export const idStore = createIdStore();
 export const testStore = createTestStore();
-console.log(testStore);

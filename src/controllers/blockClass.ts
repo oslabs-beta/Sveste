@@ -3,7 +3,6 @@ import { idStore, testStore } from "../models/store";
 export class Block {
   id: string;
   type: string;
-  // parentId: string;
   parent: Block;
   children: Block[];
   value: string;
@@ -11,7 +10,7 @@ export class Block {
   constructor(type, parentId = "root0") {
     this.id = idStore.newId(type);
     this.type = type;
-    this.parent = type === "root" ? null : this.findById(parentId); // need to change this to refer to the actual Block
+    this.parent = type === "root" ? null : this.findById(parentId);
     this.children = [];
     this.value = "";
   }
