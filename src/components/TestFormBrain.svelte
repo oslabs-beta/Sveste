@@ -1,6 +1,6 @@
 <script lang="ts">
   import Group from "./form/Group.svelte";
-  import { store } from "../store";
+  import { testStore } from "../store";
   // HTTP Request/Response Logic Here
   //handles button logic
   let groups = [];
@@ -12,12 +12,12 @@
     };
     const id = gid++;
     newGroup.id = `G${id}`;
-    store.addGroup(newGroup.id, newGroup);
+    testStore.addGroup(newGroup.id, newGroup);
     groups = [...groups, newGroup];
   }
   function deleteGroup(group) {
     groups = groups.filter((g) => g !== group);
-    store.deleteGroup(group.id);
+    testStore.deleteGroup(group.id);
   }
 </script>
 
