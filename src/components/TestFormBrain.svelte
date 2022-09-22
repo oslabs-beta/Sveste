@@ -1,23 +1,18 @@
 <script lang="ts">
   import AddButton from "../components/form/AddButton.svelte";
+  import DeleteButton from "../components/form/DeleteButton.svelte";
   import Group from "./form/Group.svelte";
   import { testStore } from "../models/store";
-  import { Block } from "../controllers/blockClass";
-
-  function deleteGroup(group) {
-    testStore.deleteBlock(group);
-  }
+  import AddButtonMenu from "./form/AddButtonMenu.svelte";
 </script>
 
 <form>
   <AddButton />
   {#if $testStore["children"]}
-    {#each $testStore["children"] as group (group.id)}
-      <Group id={group.id} />
+    {#each $testStore["children"] as block, id (block.id)}
+      <Group {id} {...block} />
       <AddButton />
-      <button on:click|preventDefault={() => deleteGroup(group)}
-        >Delete Group</button
-      >
+      <DeleteButton />
     {/each}
   {/if}
   <!-- <button on:click|preventDefault={addGroup}>Add Group</button> -->
