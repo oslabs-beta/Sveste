@@ -48,8 +48,8 @@ class textBoxController {
       "  });" +
       "\n" +
       "});";
-    // res.status(200).send(stringResponse);
-    return res.status(200).send("this request is working");
+    res.status(200).send(stringResponse);
+    // return res.status(200).send("this request is working");
     //this works by changing module in tsconfig.json to commonjs from esnext
     //also removed type: module from package.json
   };

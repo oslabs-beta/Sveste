@@ -22,10 +22,10 @@
   async function handleSubmit() {
     const body = {
       componentName: "Test Component",
-      // text: 'Hello World',
-      // path: '/components/Header.svelte'
+      text: "Hello World",
+      path: "/components/Header.svelte",
     };
-    const response = await POST("/tests", JSON.stringify(body));
+    const response = await POST("/tests", body);
     console.log(response);
   }
 </script>

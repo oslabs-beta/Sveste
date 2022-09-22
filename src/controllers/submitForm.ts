@@ -1,17 +1,38 @@
 // const url = '/test';
+import axios from "axios";
 
+// export async function POST(url, body) {
+//   try {
+//     const res = await fetch(url, {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body,
+//     });
+//     const data = await res;
+//     console.log(data.body);
+//     return data;
+//   } catch (err) {
+//     console.log(err);
+//   }
+// }
+// export function POST(url, body) {
+//   axios
+//     .post(url, {
+//       body,
+//     })
+//     .then((response) => console.log(response.data))
+//     .then((response) => {
+//       return response;
+//     });
+// }
 export async function POST(url, body) {
   try {
-    const res = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+    const response = await axios.post(url, {
       body,
     });
-    const data = await res;
-    console.log(data.body);
-    return data;
+    return response.data;
   } catch (err) {
     console.log(err);
   }
