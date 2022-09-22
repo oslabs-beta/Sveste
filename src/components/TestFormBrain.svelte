@@ -11,12 +11,15 @@
 
 <form>
   <AddButton />
-  {#each $testStore["children"] as group (group.id)}
-    <Group id={group.id} />
-    <button on:click|preventDefault={() => deleteGroup(group)}
-      >Delete Group</button
-    >
-  {/each}
+  {#if $testStore["children"]}
+    {#each $testStore["children"] as group (group.id)}
+      <Group id={group.id} />
+      <AddButton />
+      <button on:click|preventDefault={() => deleteGroup(group)}
+        >Delete Group</button
+      >
+    {/each}
+  {/if}
   <!-- <button on:click|preventDefault={addGroup}>Add Group</button> -->
 </form>
 
