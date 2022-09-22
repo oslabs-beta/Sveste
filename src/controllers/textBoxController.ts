@@ -6,7 +6,7 @@ class textBoxController {
   constructor() {}
   public createTests = (req: express.Request, res: express.Response) => {
     const { text, componentName, path } = req.body; //pull text of text box + path
-
+    console.log(text, componentName, path);
     let stringResponse = "";
     //Formulate import statements in header
     stringResponse +=

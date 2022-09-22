@@ -25,7 +25,7 @@
       text: "Hello World",
       path: "/components/Header.svelte",
     };
-    const response = await POST("/tests", body);
+    const response = await POST("/tests", JSON.stringify(body));
     console.log(response);
   }
 </script>

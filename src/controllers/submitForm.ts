@@ -29,8 +29,10 @@ import axios from "axios";
 // }
 export async function POST(url, body) {
   try {
-    const response = await axios.post(url, {
-      body,
+    const response = await axios.post(url, body, {
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
     return response.data;
   } catch (err) {
