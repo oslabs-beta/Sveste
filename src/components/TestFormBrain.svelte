@@ -3,7 +3,6 @@
   import DeleteButton from "../components/form/DeleteButton.svelte";
   import Group from "./form/Group.svelte";
   import { testStore } from "../models/store";
-  import AddButtonMenu from "./form/AddButtonMenu.svelte";
 </script>
 
 <form>

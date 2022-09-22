@@ -1,10 +1,11 @@
 <script>
   import { testStore } from "../../models/store";
   import { Block } from "../../controllers/blockClass";
+  import { blockTypes } from "../../controllers/blockTypes";
   let isVisible = true;
 
-  function addGroup() {
-    const newGroup = new Block("group");
+  function addBlock(blockType) {
+    const newGroup = new Block(blockType);
     testStore.addBlock(newGroup);
     isVisible = false;
   }
@@ -12,7 +13,11 @@
 
 <menu class:visible={isVisible}>
   <h3>Add new...</h3>
-  <button on:click|preventDefault={addGroup}>Group</button>
+  {#each blockTypes as blockType (blockType)}
+    <button on:click|preventDefault={() => addBlock(blockType)}
+      >{blockType}</button
+    >
+  {/each}
 </menu>
 
 <style>

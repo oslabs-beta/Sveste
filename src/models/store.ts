@@ -31,6 +31,7 @@ function createTestStore() {
       update(() => {
         const target = block.parent || testStore.data;
         target.children.push(block);
+        console.log(testStore.data);
         return data;
       });
     },
@@ -48,7 +49,6 @@ function createTestStore() {
             .slice(0, i)
             .concat(target.children.slice(i + 1));
         }
-        console.log(testStore.data);
         return data;
       });
     },
