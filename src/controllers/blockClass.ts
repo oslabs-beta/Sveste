@@ -18,7 +18,6 @@ export class Block {
   findById = (id: string) => {
     const search = (node) => {
       if (!node.id) throw `Error: node with id ${id} not found`;
-      console.log(node.id === id);
       if (node.id === id) return node;
       for (const child of node.children) {
         search(child);
