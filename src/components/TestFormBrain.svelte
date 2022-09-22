@@ -1,5 +1,6 @@
 <script lang="ts">
   import Group from "./form/Group.svelte";
+  import { POST } from "../controllers/submitForm";
   // HTTP Request/Response Logic Here
   //handles button logic
   let groups = [];
@@ -18,6 +19,15 @@
   function deleteGroup(group) {
     groups = groups.filter((g) => g !== group);
   }
+  async function handleSubmit() {
+    const body = {
+      componentName: "Test Component",
+      // text: 'Hello World',
+      // path: '/components/Header.svelte'
+    };
+    const response = await POST("/tests", JSON.stringify(body));
+    console.log(response);
+  }
 </script>
 
 <!-- in each section, a "addComponent button" -->
@@ -29,7 +39,7 @@
 <!-- User specified components -->
 
 <!-- Groups (eg. describe('a thing')) -->
-<form>
+<form on:submit|preventDefault={handleSubmit}>
   {#each groups as group (group.id)}
     <Group id={group.id} />
     <button on:click|preventDefault={() => deleteGroup(group)}
@@ -37,6 +47,7 @@
     >
   {/each}
   <button on:click|preventDefault={addGroup}>Add Group</button>
+  <input type="submit" />
 
   <!-- <Group>
   <MockData>

@@ -1,4 +1,4 @@
-const url = "/test";
+// const url = '/test';
 
 export async function POST(url, body) {
   try {
@@ -9,24 +9,25 @@ export async function POST(url, body) {
       },
       body,
     });
-    const data = await res.json();
-    return data.body;
+    const data = await res;
+    console.log(data.body);
+    return data;
   } catch (err) {
     console.log(err);
   }
 }
 
-export function handleFormSubmission() {
-  const form = document.querySelector("form");
-  const formData = new FormData(form);
-  const testParam = new URLSearchParams();
-  const testBody = {};
-  for (const [key, value] of formData) {
-    if (key === "htmlTag" && typeof value === "string") {
-      testParam.append(key, value);
-    } else {
-      testBody[key] = value;
-    }
-  }
-  let response = POST("/test?" + testParam, JSON.stringify(testBody));
-}
+// export function handleFormSubmission() {
+//   const form = document.querySelector('form');
+//   const formData = new FormData(form);
+//   const testParam = new URLSearchParams();
+//   const testBody = {};
+//   for (const [key, value] of formData) {
+//     if (key === 'htmlTag' && typeof value === 'string') {
+//       testParam.append(key, value);
+//     } else {
+//       testBody[key] = value;
+//     }
+//   }
+//   let response = POST('/test?' + testParam, JSON.stringify(testBody));
+// }
