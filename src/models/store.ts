@@ -27,26 +27,26 @@ function createTestStore() {
   return {
     subscribe,
     data,
-    findById: (id: string) => {
-      const search = (node) => {
-        if (!node.id) throw `Error: node with id ${id} not found`;
-        if (node.id === id) return node;
-        for (const child of node.children) {
-          search(child);
-        }
-      };
-      return search(data);
-    },
+    // findById: (id: string) => {
+    //   const search = (node) => {
+    //     if (!node.id) throw `Error: node with id ${id} not found`;
+    //     if (node.id === id) return node;
+    //     for (const child of node.children) {
+    //       search(child);
+    //     }
+    //   };
+    //   return search(data);
+    // },
     addBlock: (block: Block) => {
       update(() => {
-        const target = testStore.findById(block.parentId);
+        const target = block.parent || testStore.data;
         target.children.push(block);
         return data;
       });
     },
     deleteBlock: (block: Block) => {
       update(() => {
-        const target = testStore.findById(block.parentId);
+        const target = block.parent || testStore.data;
         const i = target.children.indexOf(block);
         console.log(i);
         if (i === 0) {
@@ -67,3 +67,4 @@ function createTestStore() {
 export const idStore = createIdStore();
 
 export const testStore = createTestStore();
+console.log(testStore);

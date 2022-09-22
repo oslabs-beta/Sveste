@@ -6,7 +6,7 @@
   let groups = [];
 
   function addGroup() {
-    const newGroup = new Block("group", "root0");
+    const newGroup = new Block("group");
     testStore.addBlock(newGroup);
     console.log($testStore);
     groups = [...groups, newGroup];
