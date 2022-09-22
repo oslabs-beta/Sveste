@@ -1,5 +1,5 @@
 <script>
-  import { testStore, idStore } from "../../store";
+  import { testStore, idStore } from "../../models/store";
   function handleClick() {}
 </script>
 

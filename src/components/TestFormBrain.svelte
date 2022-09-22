@@ -1,22 +1,25 @@
 <script lang="ts">
   import Group from "./form/Group.svelte";
-  import { testStore } from "../store";
+  import { testStore } from "../models/store";
+  import { Block } from "../controllers/blockClass";
 
   let groups = [];
 
   function addGroup() {
-    const newGroup = testStore.createGroup();
+    const newGroup = new Block("group", "root0");
+    testStore.addBlock(newGroup);
+    console.log($testStore);
     groups = [...groups, newGroup];
   }
   function deleteGroup(group) {
     groups = groups.filter((g) => g !== group);
-    testStore.deleteGroup(group.get("id"));
+    testStore.deleteBlock(group);
   }
 </script>
 
 <form>
-  {#each groups as group (group.get("id"))}
-    <Group id={group.get("id")} />
+  {#each groups as group (group.id)}
+    <Group id={group.id} />
     <button on:click|preventDefault={() => deleteGroup(group)}
       >Delete Group</button
     >
