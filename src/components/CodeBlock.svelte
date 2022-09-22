@@ -1,42 +1,28 @@
 <script>
+  // import { onMount } from "svelte/types/runtime/internal/lifecycle";
+  import { onMount } from "svelte";
   import { Prism } from "../assets/prism";
   import { compiledTestStore } from "../compiledTestStore";
-  // let mockData = `
-  //     import { render, screen, fireEvent } from "@testing-library/svelte";
-  //     import { beforeEach, describe, expect, it } from "vitest";
-  //     import HelloWorld from "../your/relative/path.svelte";
 
-  //     describe("header component", () => {
+  ///////----- Functionality to reload Prism on Change!!!!!!!!!----------///
+  //when mounted on on store change prism reruns on only the element <code>
+  let loaded = false;
+  onMount(() => (loaded = true));
 
-  //       let subject: HTMLElement;
-  //       async() => {
-  //         const { container } = render(HelloWorld);
-  //         subject = await container.querySelector('h1');
-  //       };
+  $: if (loaded && $compiledTestStore) handleChange();
 
-  //       it('renders "Hello World"', () => {
-  //         expect(screen.getByRole('heading')).toContain('Hello World');
-  //       })
-  //     })
-  // `;
-  let mockData;
-  compiledTestStore.subscribe((value) => {
-    mockData = value;
-  });
+  function handleChange() {
+    const block = document.getElementById("code");
+    Prism.highlightElement(block);
+  }
+  //////-----------------------------------//////////
 </script>
 
-{#key $compiledTestStore}
-  <pre>
-  <code class="language-typescript">
+<pre>
+  <code id="code" class="language-typescript">
     {$compiledTestStore}
   </code>
 </pre>
-{/key}
-<div>
-  <button on:click|preventDefault={() => console.log($compiledTestStore)}
-    >Click Me</button
-  >
-</div>
 
 <style>
   @import "../assets/prism.css";
