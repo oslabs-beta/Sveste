@@ -1,6 +1,6 @@
 // const url = '/test';
 import axios from "axios";
-
+import { compiledTestStore } from "../compiledTestStore";
 // export async function POST(url, body) {
 //   try {
 //     const res = await fetch(url, {
@@ -34,6 +34,7 @@ export async function POST(url, body) {
         "Content-Type": "application/json",
       },
     });
+    compiledTestStore.set(response.data);
     return response.data;
   } catch (err) {
     console.log(err);
