@@ -12,10 +12,23 @@ function createTestStore() {
   return {
     subscribe,
     data,
-    addGroup: (key, obj) => {
+    /**
+     * @method createGroup - creates a new Group with a unique ID in testStore.
+     * @returns {object} a new Group object.
+     */
+    createGroup: () => {
+      let key = idStore.newId("group");
+      let obj = new Map();
+      obj.set("id", key);
       update(() => data.set(key, obj));
       console.log(testStore);
+      return obj;
     },
+    /**
+     * @method deleteGroup - deletes a group from testStore.
+     * @arg key - the unique ID of the group.
+     * @returns {object} - a new Group object.
+     */
     deleteGroup: (key) => {
       update(() => data.delete(key));
       console.log(testStore);
@@ -37,15 +50,20 @@ function createIdStore() {
     subscribe,
     data,
     /**
-     * @method upsertID creates a new ID, or increments from the last one if
+     * @method nextId creates a new ID, or increments from the last one if
      * the component type already exists.
      * @param {string} type - the type of component you're creating an ID for.
+     * @return {string} - your new id.
      */
-    upsertID: (type) => {
+    newId: (type: string) => {
+      let id: number;
       update(() => {
         let val = data.has(type) ? data.get(type) : -1;
-        return data.set(type, val + 1);
+        data.set(type, val + 1);
+        id = data.get(type);
+        return "done";
       });
+      return type + id;
     },
   };
 }
