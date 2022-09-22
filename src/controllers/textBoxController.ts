@@ -6,8 +6,8 @@ class textBoxController {
   constructor() {}
   public createTests = (req: express.Request, res: express.Response) => {
     const { text, componentName, path } = req.body; //pull text of text box + path
-
-    let stringResponse = "";
+    console.log(text, componentName, path);
+    let stringResponse = ``;
     //Formulate import statements in header
     stringResponse +=
       "import { describe, expect, it } from 'vitest';" +
@@ -48,7 +48,9 @@ class textBoxController {
       "  });" +
       "\n" +
       "});";
-    res.status(200).send(stringResponse);
+
+    return res.status(200).send(stringResponse);
+
     //this works by changing module in tsconfig.json to commonjs from esnext
     //also removed type: module from package.json
   };
