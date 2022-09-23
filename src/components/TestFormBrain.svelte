@@ -1,20 +1,18 @@
 <script lang="ts">
   import AddButton from "../components/form/AddButton.svelte";
   import DeleteButton from "../components/form/DeleteButton.svelte";
-  import Group from "./form/Group.svelte";
+  import Block from "./form/Block.svelte";
   import { testStore } from "../models/store";
 </script>
 
 <form>
-  <AddButton />
+  <AddButton addToId="root0" />
   {#if $testStore["children"]}
-    {#each $testStore["children"] as block, id (block.id)}
-      <Group {id} {...block} />
-      <AddButton />
-      <DeleteButton />
+    {#each $testStore["children"] as block}
+      <Block id={block.id} parentId={block.parentId} />
     {/each}
+    <AddButton addToId="root0" />
   {/if}
-  <!-- <button on:click|preventDefault={addGroup}>Add Group</button> -->
 </form>
 
 <style>

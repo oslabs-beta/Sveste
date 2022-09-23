@@ -12,19 +12,19 @@ export class Block {
     this.id = idStore.newId(type);
     this.type = type;
     this.parentId = parentId;
-    this.parent = type === "root" ? null : this.findById(parentId);
+    this.parent = type === "root" ? null : testStore.findById(parentId);
     this.value = "";
     this.children = [];
   }
 
-  findById = (id: string) => {
+  findById = (targetId: string, root: Block) => {
     const search = (node) => {
-      if (!node.id) throw `Error: node with id ${id} not found`;
-      if (node.id === id) return node;
+      if (!node.id) throw `Error: node with id ${targetId} not found`;
+      if (node.id === targetId) return node;
       for (const child of node.children) {
         search(child);
       }
     };
-    return search(testStore.data);
+    return search(root);
   };
 }

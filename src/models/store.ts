@@ -27,28 +27,41 @@ function createTestStore() {
   return {
     subscribe,
     data,
+    findById: (id: string) => {
+      const search = (node: Block) => {
+        if (!node.id) throw `Error: node with id ${id} not found`;
+        if (node.id === id) return node;
+        for (let child of node.children) {
+          return search(child);
+        }
+      };
+      return search(testStore.data);
+    },
     addBlock: (block: Block) => {
       update(() => {
-        const target = block.parent || testStore.data;
-        target.children.push(block);
-        console.log(testStore.data);
+        const parent = testStore.findById(block.parentId) || testStore.data;
+        parent.children.push(block);
+        console.log(data);
         return data;
       });
     },
-    deleteBlock: (block: Block) => {
+    deleteBlock: (targetId, parentId) => {
       update(() => {
-        const target = block.parent || testStore.data;
-        const i = target.children.indexOf(block);
-        console.log(i);
+        let target = testStore.findById(targetId);
+        let parent = testStore.findById(parentId);
+        console.log(targetId, target);
+        console.log(parent);
+        const i = parent.children.indexOf(target);
         if (i === 0) {
-          target.children.shift();
-        } else if (i === target.children.length) {
-          target.children.pop();
+          parent.children.shift();
+        } else if (i === parent.children.length) {
+          parent.children.pop();
         } else {
-          target.children = target.children
+          parent.children = parent.children
             .slice(0, i)
-            .concat(target.children.slice(i + 1));
+            .concat(parent.children.slice(i + 1));
         }
+        console.log(data);
         return data;
       });
     },

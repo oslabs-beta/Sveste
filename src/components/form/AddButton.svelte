@@ -1,14 +1,15 @@
 <script lang="ts">
   import { testStore } from "../../models/store";
   import AddButtonMenu from "./AddButtonMenu.svelte";
-  let module = null;
+  export let addToId;
+  let menu = null;
   function handleClick() {
-    module = module === null ? AddButtonMenu : null;
+    menu = menu === null ? AddButtonMenu : null;
   }
 </script>
 
 <button on:click|preventDefault={handleClick}>+</button>
-<svelte:component this={module} />
+<svelte:component this={menu} {addToId} />
 
 <style>
   button {

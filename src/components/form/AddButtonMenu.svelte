@@ -2,10 +2,10 @@
   import { testStore } from "../../models/store";
   import { Block } from "../../controllers/blockClass";
   import { blockTypes } from "../../controllers/blockTypes";
+  export let addToId;
   let isVisible = true;
-
   function addBlock(blockType) {
-    const newGroup = new Block(blockType);
+    const newGroup = new Block(blockType, addToId);
     testStore.addBlock(newGroup);
     isVisible = false;
   }
