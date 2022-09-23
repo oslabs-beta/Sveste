@@ -41,7 +41,6 @@ function createTestStore() {
       update(() => {
         const parent = testStore.findById(block.parentId) || testStore.data;
         parent.children.push(block);
-        console.log(data);
         return data;
       });
     },
