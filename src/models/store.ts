@@ -50,9 +50,10 @@ function createTestStore() {
     data,
     findById: (id: string) => {
       const search = (node: Block) => {
-        if (!node.id) throw `Error: node with id ${id} not found`;
+        // if (!node.id) throw `Error: node with id ${id} not found`;
         if (node.id === id) return node;
         for (let child of node.children) {
+          // if (child.id === id) return node;
           return search(child);
         }
       };

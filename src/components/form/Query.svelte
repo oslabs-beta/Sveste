@@ -8,7 +8,7 @@
   function updateVal() {
     $blockStore[id][
       "value"
-    ] = `screen.${selectedQuery}.${selectedType}('${argument}')`;
+    ] = `screen.${selectedQuery}${selectedType}('${argument}')`;
   }
 
   const queries = [

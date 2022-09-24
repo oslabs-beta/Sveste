@@ -5,7 +5,7 @@
   let selectedQuery;
   let argument;
   function updateVal() {
-    $blockStore[id]["value"] = `screen.${selectedQuery}.('${argument}')`;
+    $blockStore[id]["value"] = `screen.${selectedQuery}('${argument}')`;
   }
 
   const queries = ["toContain", "toBe", "toBeTruthy"];
