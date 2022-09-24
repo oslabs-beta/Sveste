@@ -4,5 +4,5 @@
   let value = $blockStore[id]["value"];
 </script>
 
-<p>This is a describe block</p>
+<p>Describe:</p>
 <input bind:value={$blockStore[id]["value"]} />
