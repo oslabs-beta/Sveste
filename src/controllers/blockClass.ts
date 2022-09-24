@@ -17,14 +17,14 @@ export class Block {
     this.children = [];
   }
 
-  findById = (targetId: string, root: Block) => {
-    const search = (node) => {
-      if (!node.id) throw `Error: node with id ${targetId} not found`;
-      if (node.id === targetId) return node;
-      for (const child of node.children) {
-        search(child);
-      }
-    };
-    return search(root);
-  };
+  // findById = (targetId: string, root: Block) => {
+  //   const search = (node) => {
+  //     if (!node.id) throw `Error: node with id ${targetId} not found`;
+  //     if (node.id === targetId) return node;
+  //     for (const child of node.children) {
+  //       search(child);
+  //     }
+  //   };
+  //   return search(root);
+  // };
 }

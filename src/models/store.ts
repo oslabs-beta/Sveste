@@ -41,12 +41,13 @@ function createTestStore() {
     addBlock: (block: Block) => {
       update(() => {
         const parent = testStore.findById(block.parentId) || testStore.data;
+        console.log(parent);
         parent.children.push(block);
         return data;
       });
     },
 
-    deleteBlock: (targetId, parentId) => {
+    deleteBlock: (targetId: string, parentId: string) => {
       update(() => {
         let target = testStore.findById(targetId);
         let parent = testStore.findById(parentId);
@@ -69,5 +70,6 @@ function createTestStore() {
   };
 }
 
+export const blockStore = writable({});
 export const idStore = createIdStore();
 export const testStore = createTestStore();

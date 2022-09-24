@@ -14,14 +14,13 @@
       }
       return output;
     };
-    console.log($testStore);
     blocks = getChildren($testStore);
   }
 </script>
 
 <form>
   {#each blocks as block (block.id)}
-    <Block id={block.id} type={block.type} value={block.value} />
+    <Block id={block.id} type={block.type} />
   {/each}
   <AddButton addToId="root0" />
 </form>

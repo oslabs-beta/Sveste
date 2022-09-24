@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { testStore } from "../../models/store";
+  import { testStore, blockStore } from "../../models/store";
   import { Block } from "../../controllers/blockClass";
   import { blockRef } from "../../controllers/blockTypes";
   export let addToId: string;
@@ -9,6 +9,8 @@
   function addBlock(blockType: string) {
     const newBlock = new Block(blockType, addToId);
     testStore.addBlock(newBlock);
+    $blockStore[newBlock.id] = newBlock;
+    console.log($blockStore);
     menu = null;
   }
 </script>

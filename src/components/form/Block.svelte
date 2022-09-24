@@ -3,9 +3,8 @@
   import AddButton from "./AddButton.svelte";
   import DeleteButton from "./DeleteButton.svelte";
   import { blockRef } from "../../controllers/blockTypes";
-  export let id, value, type;
+  export let id, type;
   function getComponent() {
-    console.log($testStore);
     for (let ref of blockRef) {
       if (ref.type === type) return ref.component;
     }
@@ -13,7 +12,7 @@
 </script>
 
 <div>
-  <svelte:component this={getComponent()} {id} {value} />
+  <svelte:component this={getComponent()} {id} />
   <AddButton addToId={id} />
   <!-- <DeleteButton deleteId={id} deleteFromId={parentId} /> -->
 </div>
