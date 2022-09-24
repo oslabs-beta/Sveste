@@ -97,8 +97,8 @@ const testVariables = {
   import: componentImport,
   describe: describe,
   mock: mock,
-  renderedComponent: render,
-  queryStatement: query,
+  render: render,
+  query: query,
   test: testAssertion,
   expect: expect,
 };
@@ -109,7 +109,6 @@ export function processTestBlob(test) {
   let resultString = "";
   resultString += vitestImport;
   resultString += renderImport;
-  console.log(test);
   resultString += processRoot(test.children);
   return resultString;
 }
@@ -129,6 +128,7 @@ function processChildren(childArr, body = "") {
     const value = childArr[0].value;
     const type = childArr[0].type;
     const children = childArr[0].children;
+
     body += testVariables[type](value, processChildren(children));
     body = processChildren(childArr.slice(1), body);
   }
