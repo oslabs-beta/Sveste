@@ -31,11 +31,7 @@ function createBlockStore() {
     upsertBlock: (node: Block) => {
       update(() => {
         data[node.id] = node;
-        if (testStore.findById(node.id)) {
-          testStore.updateBlockVal(node.id, node.value);
-        } else {
-          testStore.addBlock(node);
-        }
+        testStore.addBlock(node);
         return data;
       });
     },
@@ -48,42 +44,20 @@ function createTestStore() {
   return {
     subscribe,
     data,
-    findById: (id: string) => {
-      const search = (node: Block) => {
-        // if (!node.id) throw `Error: node with id ${id} not found`;
-        if (node.id === id) return node;
-        for (let child of node.children) {
-          // if (child.id === id) return node;
-          return search(child);
-        }
-      };
-      return search(testStore.data);
-    },
-
-    updateBlockVal: (id: string, value: string) => {
-      update(() => {
-        const target = testStore.findById(id);
-        target.value = value;
-        console.log(testStore);
-        return data;
-      });
-    },
 
     addBlock: (block: Block) => {
       update(() => {
-        const parent = testStore.findById(block.parentId) || testStore.data;
+        const parent = block.parent || testStore.data;
         parent.children.push(block);
+        console.log(data);
         return data;
       });
     },
 
-    deleteBlock: (targetId: string, parentId: string) => {
+    deleteBlock: (node: Block) => {
       update(() => {
-        let target = testStore.findById(targetId);
-        let parent = testStore.findById(parentId);
-        console.log(targetId, target);
-        console.log(parent);
-        const i = parent.children.indexOf(target);
+        const parent = node.parent;
+        const i = parent.children.indexOf(node);
         if (i === 0) {
           parent.children.shift();
         } else if (i === parent.children.length) {
@@ -93,7 +67,6 @@ function createTestStore() {
             .slice(0, i)
             .concat(parent.children.slice(i + 1));
         }
-        console.log(data);
         return data;
       });
     },

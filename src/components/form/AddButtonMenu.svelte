@@ -9,7 +9,6 @@
   function addBlock(blockType: string) {
     const newBlock = new Block(blockType, addToId);
     blockStore.upsertBlock(newBlock);
-    console.log($testStore);
     menu = null;
   }
 </script>
