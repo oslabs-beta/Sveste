@@ -109,6 +109,7 @@ export function processTestBlob(test) {
   let resultString = "";
   resultString += vitestImport;
   resultString += renderImport;
+  console.log(test);
   resultString += processRoot(test.children);
   return resultString;
 }

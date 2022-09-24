@@ -1,14 +1,24 @@
+import { compiledTestStore } from "../compiledTestStore";
+import axios from "axios";
 const url = "/test";
 
 export async function POST(url, body) {
   try {
-    const response = await axios.post(url, body, {
+    let parsedBody = JSON.stringify(body, [
+      "id",
+      "type",
+      "parentId",
+      "value",
+      "children",
+    ]);
+
+    const response = await axios.post(url, parsedBody, {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(body),
     });
     compiledTestStore.set(response.data);
+
     return response.data;
   } catch (err) {
     console.log(err);

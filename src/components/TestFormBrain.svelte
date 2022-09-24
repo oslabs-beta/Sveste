@@ -5,8 +5,6 @@
   import { blockStore, testStore } from "../models/store";
   import { POST } from "../controllers/submitForm";
 
-  function submitForm() {}
-
   let blocks = [];
   $: if ($testStore["children"]) {
     let getChildren = (node, output = []) => {
@@ -20,7 +18,7 @@
   }
 </script>
 
-<form on:submit={() => POST("/", $testStore)}>
+<form on:submit|preventDefault={() => POST("/tests", $testStore)}>
   {#each blocks as block (block["id"])}
     <Block
       id={block["id"]}
