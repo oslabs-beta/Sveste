@@ -8,9 +8,8 @@
   let blockTypes = blockRef.map((obj) => obj.type);
   function addBlock(blockType: string) {
     const newBlock = new Block(blockType, addToId);
-    testStore.addBlock(newBlock);
-    $blockStore[newBlock.id] = newBlock;
-    console.log($blockStore);
+    blockStore.upsertBlock(newBlock);
+    console.log($testStore);
     menu = null;
   }
 </script>

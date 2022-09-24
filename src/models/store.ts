@@ -21,6 +21,27 @@ function createIdStore() {
   };
 }
 
+function createBlockStore() {
+  const data = {};
+  const { subscribe, set, update } = writable({});
+  return {
+    subscribe,
+    data,
+    set,
+    upsertBlock: (node: Block) => {
+      update(() => {
+        data[node.id] = node;
+        if (testStore.findById(node.id)) {
+          testStore.updateBlockVal(node.id, node.value);
+        } else {
+          testStore.addBlock(node);
+        }
+        return data;
+      });
+    },
+  };
+}
+
 function createTestStore() {
   const data = new Block("root");
   const { subscribe, set, update } = writable({});
@@ -38,10 +59,18 @@ function createTestStore() {
       return search(testStore.data);
     },
 
+    updateBlockVal: (id: string, value: string) => {
+      update(() => {
+        const target = testStore.findById(id);
+        target.value = value;
+        console.log(testStore);
+        return data;
+      });
+    },
+
     addBlock: (block: Block) => {
       update(() => {
         const parent = testStore.findById(block.parentId) || testStore.data;
-        console.log(parent);
         parent.children.push(block);
         return data;
       });
@@ -70,6 +99,6 @@ function createTestStore() {
   };
 }
 
-export const blockStore = writable({});
+export const blockStore = createBlockStore();
 export const idStore = createIdStore();
 export const testStore = createTestStore();

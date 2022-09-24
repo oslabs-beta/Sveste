@@ -2,10 +2,11 @@
   import AddButton from "../components/form/AddButton.svelte";
   import DeleteButton from "../components/form/DeleteButton.svelte";
   import Block from "./form/Block.svelte";
-  import { testStore } from "../models/store";
+  import { blockStore, testStore } from "../models/store";
+
+  function submitForm() {}
 
   let blocks = [];
-
   $: if ($testStore["children"]) {
     let getChildren = (node, output = []) => {
       if (!node.hasOwnProperty("children")) return output;
@@ -18,11 +19,16 @@
   }
 </script>
 
-<form>
-  {#each blocks as block (block.id)}
-    <Block id={block.id} type={block.type} />
+<form on:submit={() => submitForm()}>
+  {#each blocks as block (block["id"])}
+    <Block
+      id={block["id"]}
+      type={block["type"]}
+      on:change={() => blockStore.upsertBlock(block)}
+    />
   {/each}
   <AddButton addToId="root0" />
+  <!-- <button type="submit">Submit</button> -->
 </form>
 
 <style>
