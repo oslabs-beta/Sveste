@@ -1,6 +1,7 @@
 <script lang="ts">
   import Group from "./form/Group.svelte";
   import { POST } from "../controllers/submitForm";
+  import { testBody } from "../assets/mockTest";
   // HTTP Request/Response Logic Here
   //handles button logic
   let groups = [];
@@ -25,7 +26,7 @@
       text: "This is new added text to replace Hello World",
       path: "/components/Header.svelte",
     };
-    const response = await POST("/tests", JSON.stringify(body));
+    const response = await POST("/tests", JSON.stringify(testBody));
     console.log(typeof response);
   }
 </script>
