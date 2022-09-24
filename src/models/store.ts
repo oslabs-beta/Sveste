@@ -37,6 +37,7 @@ function createTestStore() {
       };
       return search(testStore.data);
     },
+
     addBlock: (block: Block) => {
       update(() => {
         const parent = testStore.findById(block.parentId) || testStore.data;
@@ -44,6 +45,7 @@ function createTestStore() {
         return data;
       });
     },
+
     deleteBlock: (targetId, parentId) => {
       update(() => {
         let target = testStore.findById(targetId);

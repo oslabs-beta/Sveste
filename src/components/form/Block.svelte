@@ -5,6 +5,7 @@
   import { blockRef } from "../../controllers/blockTypes";
   export let id, value, type;
   function getComponent() {
+    console.log($testStore);
     for (let ref of blockRef) {
       if (ref.type === type) return ref.component;
     }
@@ -16,3 +17,6 @@
   <AddButton addToId={id} />
   <!-- <DeleteButton deleteId={id} deleteFromId={parentId} /> -->
 </div>
+
+<style>
+</style>
