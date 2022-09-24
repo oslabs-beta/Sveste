@@ -1,0 +1,21 @@
+<script>
+  import { idStore, testStore } from "../../models/store";
+  import AddButton from "./AddButton.svelte";
+  import DeleteButton from "./DeleteButton.svelte";
+  import { blockRef } from "../../controllers/blockTypes";
+  export let id, type;
+  function getComponent() {
+    for (let ref of blockRef) {
+      if (ref.type === type) return ref.component;
+    }
+  }
+</script>
+
+<div>
+  <svelte:component this={getComponent()} {id} />
+  <AddButton addToId={id} />
+  <!-- <DeleteButton deleteId={id} deleteFromId={parentId} /> -->
+</div>
+
+<style>
+</style>
