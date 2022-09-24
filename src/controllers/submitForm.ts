@@ -7,7 +7,7 @@ export async function POST(url, body) {
       headers: {
         "Content-Type": "application/json",
       },
-      body,
+      body: JSON.stringify(body),
     });
     const data = await res.json();
     return data.body;
@@ -16,17 +16,9 @@ export async function POST(url, body) {
   }
 }
 
-export function handleFormSubmission() {
+export function handleFormSubmission(body) {
   const form = document.querySelector("form");
   const formData = new FormData(form);
-  const testParam = new URLSearchParams();
-  const testBody = {};
-  for (const [key, value] of formData) {
-    if (key === "htmlTag" && typeof value === "string") {
-      testParam.append(key, value);
-    } else {
-      testBody[key] = value;
-    }
-  }
-  let response = POST("/test?" + testParam, JSON.stringify(testBody));
+
+  let response = POST("/", JSON.stringify(body));
 }

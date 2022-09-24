@@ -3,6 +3,7 @@
   import DeleteButton from "../components/form/DeleteButton.svelte";
   import Block from "./form/Block.svelte";
   import { blockStore, testStore } from "../models/store";
+  import { POST } from "../controllers/submitForm";
 
   function submitForm() {}
 
@@ -19,7 +20,7 @@
   }
 </script>
 
-<form on:submit={() => submitForm()}>
+<form on:submit={() => POST("/", $testStore)}>
   {#each blocks as block (block["id"])}
     <Block
       id={block["id"]}
@@ -28,7 +29,7 @@
     />
   {/each}
   <AddButton addToId="root0" />
-  <!-- <button type="submit">Submit</button> -->
+  <button type="submit">Submit</button>
 </form>
 
 <style>
