@@ -77,7 +77,7 @@ const describe = (value, body) =>
 };` + "\n";
 //mock variables
 const mock = (value, body) =>
-  `${value}(async => {
+  `${value}(async () => {
 
     ${body}
 });` + "\n";
