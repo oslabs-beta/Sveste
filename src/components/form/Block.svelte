@@ -15,17 +15,13 @@
       if (ref.type === type) return ref.component;
     }
   }
-  let open = false;
-  function toggleOpen() {
-    open = !open;
-    console.log(children[0].id);
-  }
 </script>
 
 <div style="padding-left: {indent}em">
   {#if id}
     <svelte:component this={getComponent()} {id} />
     <AddButton addToId={id} />
+    <DeleteButton deleteId={id} />
 
     {#each children as child}
       <svelte:self {...child} indent={indent + 1} />
