@@ -28,8 +28,8 @@
     "src/**/*.ts",
     "src/**/*.js",
     "src/**/*.svelte",
-    "test/**/*.ts",
-    "test/**/*.js"
+    "tests/**/*.ts",
+    "tests/**/*.js"
   ],
   "references": [{ "path": "./tsconfig.node.json" }],
   "exclude": [

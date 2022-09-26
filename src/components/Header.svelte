@@ -1,12 +1,9 @@
-<script>
-</script>
-
-<div class="header">
+<header>
   <h1>Sveste</h1>
-</div>
+</header>
 
 <style>
-  div {
+  header {
     grid-area: header;
   }
 </style>

@@ -1,6 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/svelte";
 import { beforeEach, describe, expect, it } from "vitest";
-import userEvent from "@testing-library/user-event";
 // import { setupServer } from 'msw/node';
 // import { rest } from 'msw';
 import TestFormData from "../src/components/TestFormData.svelte";
