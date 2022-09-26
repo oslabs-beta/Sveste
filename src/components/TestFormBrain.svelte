@@ -33,7 +33,13 @@
 
 <!-- this should work with svelte:self -->
 <form>
-  <Block {...$testStore} />
+  <Block
+    id={$testStore["id"]}
+    type={$testStore["type"]}
+    parentId={$testStore["parentId"]}
+    value={$testStore["value"]}
+    children={$testStore["children"]}
+  />
 
   <AddButton addToId="root0" />
 </form>
