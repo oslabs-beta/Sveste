@@ -9,21 +9,22 @@
     $blockStore[id]["value"] = `${isNot}.${selectedAssertion}('${argument}')`;
   }
 
-  const nots = [".not", ""];
+  const nots = [".not", ".to"];
 
   const assertions = ["toBe", "toThrow", "toEqual", "toContain"];
 </script>
 
-<p>Query Screen:</p>
-<select bind:value={selectedAssertion} on:change={() => updateVal()}>
-  {#each assertions as value}
+<p>Comparison Method:</p>
+
+<select bind:value={isNot} on:change={() => updateVal()}>
+  {#each nots as value}
     <option {value}>
       {value}
     </option>
   {/each}
 </select>
-<select bind:value={isNot} on:change={() => updateVal()}>
-  {#each nots as value}
+<select bind:value={selectedAssertion} on:change={() => updateVal()}>
+  {#each assertions as value}
     <option {value}>
       {value}
     </option>

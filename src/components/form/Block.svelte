@@ -15,11 +15,6 @@
       if (ref.type === type) return ref.component;
     }
   }
-  let open = false;
-  function toggleOpen() {
-    open = !open;
-    console.log(children[0].id);
-  }
 </script>
 
 <div style="padding-left: {indent}em">
