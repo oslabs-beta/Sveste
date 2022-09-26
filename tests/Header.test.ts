@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/svelte";
-import Header from "../src/components/Header.svelte";
 import { describe, beforeEach, expect, it } from "vitest";
+import Header from "../src/components/Header.svelte";
 
-describe("site header", async () => {
+describe("site header", () => {
   beforeEach(async () => {
     const view = await render(Header);
     screen.getByRole("heading").innerHTML = "Test";
