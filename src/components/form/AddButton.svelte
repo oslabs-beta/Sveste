@@ -14,5 +14,7 @@
 <style>
   button {
     position: relative;
+    max-width: fit-content;
+    align-self: center;
   }
 </style>

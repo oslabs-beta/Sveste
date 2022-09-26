@@ -6,6 +6,8 @@
 </script>
 
 <form>
+  <h2>Test Code Builder</h2>
+  <p>Start crafting your test code by adding a describe block below:</p>
   <Block
     id={$testStore["id"]}
     type={$testStore["type"]}
@@ -13,9 +15,13 @@
     value={$testStore["value"]}
     children={$testStore["children"]}
   />
-
   <AddButton addToId="root0" />
 </form>
 
 <style>
+  form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
 </style>
