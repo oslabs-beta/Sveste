@@ -15,7 +15,7 @@ const mock = (value, body) =>
 
 const mockStatement = (value) => `${value};\n`;
 //query variables
-const query = (value, comparison) => `${value}${comparison};\n`;
+const query = (value, comparison) => `${value}${comparison}`;
 //render variables
 const render = (value) => `const view = await render(${value});\n`;
 //test variables
@@ -27,6 +27,10 @@ const test = (value, body) =>
 //if query is a child of expect query will populate
 const expect = (value, query, assertion) => `expect((${query})${value});\n`;
 const assertion = (value) => value;
+const event = (action, body) =>
+  `const user = userEvent.setup();
+     await user.${action}(${body})
+`;
 
 const testVariables = {
   componentImport,
@@ -38,6 +42,7 @@ const testVariables = {
   test,
   expect,
   assertion,
+  event,
 };
 
 //-----------------------------------------------------------------------

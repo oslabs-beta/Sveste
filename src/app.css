@@ -1,6 +1,7 @@
 :root {
   font-size: 16px;
   --primary: rgb(30, 30, 30);
+  --secondary: rgb(90, 90, 90);
   --tertiary: rgb(200, 200, 200);
   --background: rgb(250, 250, 250);
 }

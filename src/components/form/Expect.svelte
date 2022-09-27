@@ -11,7 +11,6 @@
   const queries = ["toContain", "toBe", "toBeTruthy"];
 </script>
 
-<p>Expect:</p>
 <p>expect...</p>
 <!-- <select bind:value={selectedQuery} on:change={() => updateVal()}>
   {#each queries as value}
@@ -28,5 +27,4 @@
   type="text"
   placeholder="ex. 'Hello World'"
   bind:value={argument}
-  on:change={() => updateVal()} -->
-<!-- /> -->
+  on:change={() => updateVal()} > -->

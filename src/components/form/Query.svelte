@@ -29,43 +29,90 @@
   const comparisons = [".innerHMTL", ".textContent"];
 </script>
 
-<p>Query Screen:</p>
-<select bind:value={selectedQuery} on:change={() => updateVal()}>
-  {#each queries as value}
-    <option {value}>
-      {value}
-    </option>
-  {/each}
-</select>
-<select bind:value={selectedType} on:change={() => updateVal()}>
-  {#each types as value}
-    <option {value}>
-      {value}
-    </option>
-  {/each}
-</select>
-<label for={id}>Argument: </label>
-<input
-  name={id}
-  type="text"
-  placeholder="ex. button"
-  bind:value={argument}
-  on:change={() => updateVal()}
-/>
-<!-- {#if parentIsMock}
-<select bind:value={comparisonType} on:change={() => updateVal()}>
-  {#each comparisons as value}
-    <option {value}>
-      {value}
-    </option>
-  {/each} -->
-<!-- </select> -->
-<!-- <label for={id}>value: </label>
-<input
-  name={id}
-  type="text"
-  placeholder="Test"
-  bind:value={modifier}
-  on:change={() => updateVal()}
-/>
-{/if} -->
+<div>
+  <select
+    required
+    id="queryInput"
+    name="queryInput"
+    bind:value={selectedQuery}
+    on:change={() => updateVal()}
+  >
+    {#each queries as value}
+      <option {value}>
+        {value}
+      </option>
+    {/each}
+  </select>
+  <label for="queryInput">Query</label>
+</div>
+<div>
+  <select
+    required
+    id="queryType"
+    name="queryType"
+    bind:value={selectedType}
+    on:change={() => updateVal()}
+  >
+    {#each types as value}
+      <option {value}>
+        {value}
+      </option>
+    {/each}
+  </select>
+  <label for="queryType">Type</label>
+</div>
+<div>
+  <input
+    required
+    id="argumentInput"
+    name="argumentInput"
+    bind:value={argument}
+  />
+  <label for="argumentInput">Argument</label>
+</div>
+
+<style>
+  div {
+    display: flex;
+    width: 100%;
+    position: relative;
+  }
+  select {
+    width: 100%;
+    height: 2.5rem;
+    font-size: 0.9rem;
+    padding-top: 0.5rem;
+    padding-left: 0.1rem;
+  }
+  option {
+    bottom: 0;
+    /* padding: 0.6rem 0 0 0.4rem; */
+  }
+  label {
+    position: absolute;
+    left: 0.5rem;
+    top: 0.75rem;
+    transform-origin: left top;
+    transition: transform 100ms ease-in-out;
+  }
+
+  select:focus + label,
+  select:valid + label {
+    transform: translateY(-50%) scale(0.7);
+    color: var(--secondary);
+  }
+
+  input {
+    width: 100%;
+    height: 1.5rem;
+    font-size: 0.9rem;
+    padding: 0.6rem 0 0 0.4rem;
+  }
+
+  input:focus + label,
+  input:valid + label {
+    transform: translateY(-50%) scale(0.7);
+    color: var(--secondary);
+    /* left: 0.1rem; */
+  }
+</style>
