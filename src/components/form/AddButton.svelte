@@ -15,9 +15,9 @@
 
 <style>
   button {
-    /* display: flex;
+    display: flex;
     width: fit-content;
     align-self: center;
-    margin: auto; */
+    margin: auto;
   }
 </style>

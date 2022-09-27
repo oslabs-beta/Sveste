@@ -12,7 +12,5 @@
 
 <style>
   button {
-    /* position: relative; */
-    grid-area: buttons;
   }
 </style>

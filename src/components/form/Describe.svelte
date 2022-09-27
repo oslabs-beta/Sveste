@@ -14,14 +14,25 @@
 
 <style>
   div {
+    display: flex;
+    width: 100%;
     position: relative;
   }
   input {
-    width: 80%;
+    width: 100%;
+    height: 1.2rem;
+    font-size: 1rem;
   }
+
   label {
     position: absolute;
-    left: 0.2rem;
-    z-index: 1;
+    left: 0.25rem;
+    top: 0.1rem;
+    /* transform: translateY(-50%); */
+    /* z-index: 1; */
   }
+  /* input:focus + label,
+  textarea:focus + label {
+    transform: translate(0, -150%);
+  } */
 </style>

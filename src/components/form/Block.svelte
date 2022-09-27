@@ -17,40 +17,32 @@
   }
 </script>
 
-<!-- {#if id} -->
-<div class="blockWrapper" style="padding-left: {indent}em">
-  <div />
-  <div class="buttonWrapper">
-    <!-- {#if id !== 'root0'} -->
-    <AddButton addToId={id} />
-    <!-- {/if} -->
-    <DeleteButton {id} />
-  </div>
+<div class="blockWrapper">
   <div class="inputWrapper">
     <svelte:component this={getComponent()} {id} />
-
-    {#each children as child}
-      <svelte:self {...child} indent={indent + 1} />
-    {/each}
+    <DeleteButton {id} />
   </div>
+
+  {#each children as child}
+    <svelte:self {...child} indent={indent + 1} />
+  {/each}
+
+  <AddButton addToId={id} />
 </div>
 
-<!-- {/if} -->
 <style>
   .blockWrapper {
-    display: grid;
-    grid-template-columns: 95% 5%;
-    grid-template-rows: auto;
-    /* grid-template-areas: '... buttons', 'input input'; */
-    /* gap: 0.5rem; */
+    display: flex;
+    flex-direction: column;
     border: 1px solid var(--tertiary);
-    /* margin: 0.5rem; */
+    margin: 0;
+    padding: 0.25rem 0;
+    gap: 0.25rem;
   }
   .inputWrapper {
-    /* grid-area: input; */
-  }
-  .buttonWrapper {
     display: flex;
+    width: 100%;
+    gap: 0.25rem;
     justify-content: end;
   }
 </style>

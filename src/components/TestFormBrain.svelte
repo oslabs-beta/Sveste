@@ -3,6 +3,7 @@
   import DeleteButton from "../components/form/DeleteButton.svelte";
   import Block from "./form/Block.svelte";
   import { testStore } from "../models/store";
+  import { POST } from "../controllers/submitForm";
 </script>
 
 <form on:submit|preventDefault={() => POST("/tests", $testStore)}>
