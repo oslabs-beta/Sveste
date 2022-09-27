@@ -4,7 +4,6 @@
 
   function handleClick(id) {
     let target = $blockStore[id];
-    console.log(target);
     blockStore.deleteBlock(target);
   }
 </script>

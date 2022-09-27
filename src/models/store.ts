@@ -43,25 +43,26 @@ function createBlockStore() {
         const targetId = node.id;
         // remove ref parent
         const parent = node.parent || testStore.data;
-        console.log(parent);
         let i = 0;
-        let target = 0;
-        while (i < parent.children.length) {
+        let target = -1;
+        while (target < 0) {
           let child = parent.children[i];
           if (child.id == targetId) {
             target = i;
           }
           i++;
         }
-        if (i === 0) {
+        console.log(parent);
+        if (target === 0) {
           parent.children.shift();
-        } else if (i === parent.children.length) {
+        } else if (target === parent.children.length) {
           parent.children.pop();
         } else {
           parent.children = parent.children
-            .slice(0, i)
+            .slice(0, target)
             .concat(parent.children.slice(i + 1));
         }
+        console.log(parent);
         testStore.update(() => testStore.data);
         data[targetId].id = `old_${targetId}`;
         console.log(data);
