@@ -10,7 +10,7 @@
   }
 </script>
 
-<button on:click|preventDefault={handleClick}>+</button>
+<button type="button" on:click|preventDefault={handleClick}>+</button>
 <svelte:component this={menu} {addToId} bind:menu />
 
 <style>

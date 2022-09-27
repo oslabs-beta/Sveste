@@ -8,7 +8,7 @@
   }
 </script>
 
-<button on:click|preventDefault={() => handleClick(id)}>-</button>
+<button type="button" on:click|preventDefault={() => handleClick(id)}>-</button>
 
 <style>
   button {
