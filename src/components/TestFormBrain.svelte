@@ -11,11 +11,9 @@
   <Block
     id={$testStore["id"]}
     type={$testStore["type"]}
-    parentId={$testStore["parentId"]}
-    value={$testStore["value"]}
     children={$testStore["children"]}
   />
-  <AddButton addToId="root0" />
+  <!-- <AddButton addToId="root0" /> -->
 </form>
 
 <style>

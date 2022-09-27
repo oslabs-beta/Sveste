@@ -4,14 +4,11 @@
 </script>
 
 <!-- key reloads the code block component on store change !important -->
-{#key $compiledTestStore}
-  <div>
+<div>
+  {#key $compiledTestStore}
     <CodeBlock />
-  </div>
-{/key}
+  {/key}
+</div>
 
 <style>
-  div {
-    grid-area: code;
-  }
 </style>

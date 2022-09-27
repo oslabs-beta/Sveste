@@ -12,8 +12,7 @@
 
 <style>
   button {
-    position: relative;
-    max-width: fit-content;
-    align-self: center;
+    /* position: relative; */
+    grid-area: buttons;
   }
 </style>

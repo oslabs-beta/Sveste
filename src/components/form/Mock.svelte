@@ -4,9 +4,9 @@
   let options = ["beforeEach", "beforeAll"];
 </script>
 
-<p>Mock:</p>
+<label for="mockInput">Mock</label>
 
-<select bind:value={$blockStore[id]["value"]}>
+<select id="mockInput" name="mockInput" bind:value={$blockStore[id]["value"]}>
   {#each options as option}
     <option value={option}>{option}</option>
   {/each}

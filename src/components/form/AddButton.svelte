@@ -13,8 +13,9 @@
 
 <style>
   button {
-    position: relative;
-    max-width: fit-content;
+    /* display: flex;
+    width: fit-content;
     align-self: center;
+    margin: auto; */
   }
 </style>

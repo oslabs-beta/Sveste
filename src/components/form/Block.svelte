@@ -6,8 +6,8 @@
   import AddButtonMenu from "./AddButtonMenu.svelte";
   export let id,
     type,
-    parentId,
-    value,
+    // parentId,
+    // value,
     children = [],
     indent = 0;
   function getComponent() {
@@ -17,34 +17,40 @@
   }
 </script>
 
-{#if id}
-  <div class="blockWrapper" style="padding-left: {indent}em">
+<!-- {#if id} -->
+<div class="blockWrapper" style="padding-left: {indent}em">
+  <div />
+  <div class="buttonWrapper">
+    <!-- {#if id !== 'root0'} -->
+    <AddButton addToId={id} />
+    <!-- {/if} -->
+    <DeleteButton {id} />
+  </div>
+  <div class="inputWrapper">
     <svelte:component this={getComponent()} {id} />
-    {#if id !== "root0"}
-      <div class="buttonWrapper">
-        <AddButton addToId={id} />
-        <DeleteButton {id} />
-      </div>
-    {/if}
+
     {#each children as child}
       <svelte:self {...child} indent={indent + 1} />
     {/each}
   </div>
-{/if}
+</div>
 
+<!-- {/if} -->
 <style>
   .blockWrapper {
-    /* display: flex; */
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.5rem;
+    display: grid;
+    grid-template-columns: 95% 5%;
+    grid-template-rows: auto;
+    /* grid-template-areas: '... buttons', 'input input'; */
+    /* gap: 0.5rem; */
     border: 1px solid var(--tertiary);
-    margin: 0.25rem;
+    /* margin: 0.5rem; */
+  }
+  .inputWrapper {
+    /* grid-area: input; */
   }
   .buttonWrapper {
     display: flex;
-    justify-content: center;
-    gap: 0.25rem;
-    margin: 0.25rem;
+    justify-content: end;
   }
 </style>
