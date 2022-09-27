@@ -2,15 +2,14 @@
   import App from "../App.svelte";
   import CodeDisplay from "../components/CodeDisplay.svelte";
   import FormDisplay from "../components/FormDisplay.svelte";
-  import Header from "../components/Header.svelte";
+  import Login from "../components/Login.svelte";
 </script>
 
 <App>
-  <Header />
-  <main>
-    <FormDisplay />
-    <CodeDisplay />
-  </main>
+  <!-- <FormDisplay /> -->
+  <!-- <CodeDisplay /> -->
+  <p>test</p>
+  <Login />
 </App>
 
 <style>
