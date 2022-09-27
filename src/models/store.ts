@@ -35,19 +35,24 @@ function createBlockStore() {
         node.parent = parent;
         parent.children.push(data[node.id]);
         testStore.update(() => testStore.data);
-        console.log(testStore.data);
         return data;
       });
     },
     deleteBlock: (node: Block) => {
       update(() => {
+        const targetId = node.id;
         // remove ref parent
         const parent = node.parent || testStore.data;
-        let i;
-        for (i = 0; i < parent.children.length; i++) {
-          if (parent.children[i].id === node.id) return;
+        console.log(parent);
+        let i = 0;
+        let target = 0;
+        while (i < parent.children.length) {
+          let child = parent.children[i];
+          if (child.id == targetId) {
+            target = i;
+          }
+          i++;
         }
-        // const i = (parent.children.indexOf(node);
         if (i === 0) {
           parent.children.shift();
         } else if (i === parent.children.length) {
@@ -57,9 +62,9 @@ function createBlockStore() {
             .slice(0, i)
             .concat(parent.children.slice(i + 1));
         }
-        // delete node
-        delete data[node.id];
         testStore.update(() => testStore.data);
+        data[targetId].id = `old_${targetId}`;
+        console.log(data);
         return data;
       });
     },
@@ -73,32 +78,6 @@ function createTestStore() {
     subscribe,
     data,
     update,
-    // addBlock: (block: Block) => {
-    //   update(() => {
-    //     console.log(block.parentId, blockStore.data[block.parentId])
-    //     const parent = blockStore.data[block.parentId] || testStore.data;
-    //     parent.children.push(block);
-    //     console.log(data);
-    //     return data;
-    //   });
-    // },
-
-    // deleteBlock: (node: Block) => {
-    //   update(() => {
-    //     const parent = node.parent;
-    //     const i = parent.children.indexOf(node);
-    //     if (i === 0) {
-    //       parent.children.shift();
-    //     } else if (i === parent.children.length) {
-    //       parent.children.pop();
-    //     } else {
-    //       parent.children = parent.children
-    //         .slice(0, i)
-    //         .concat(parent.children.slice(i + 1));
-    //     }
-    //     return data;
-    //   });
-    // },
   };
 }
 

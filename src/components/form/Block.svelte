@@ -23,7 +23,7 @@
     {#if id !== "root0"}
       <div class="buttonWrapper">
         <AddButton addToId={id} />
-        <DeleteButton deleteId={id} />
+        <DeleteButton {id} />
       </div>
     {/if}
     {#each children as child}

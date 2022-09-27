@@ -4,4 +4,4 @@
 </script>
 
 <p>Describe:</p>
-<input bind:value={$blockStore[id]["value"]} />
+<input bind:value={$blockStore[id].value} />
