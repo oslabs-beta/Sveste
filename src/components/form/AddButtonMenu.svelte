@@ -16,7 +16,9 @@
   }
   function handleBlockTypes() {
     if (addToId.includes("mock"))
-      return blockTypes.filter((type) => type === "render" || type === "query");
+      return blockTypes.filter(
+        (type) => type === "render" || type === "mockStatement"
+      );
     if (addToId.includes("root"))
       return blockTypes.filter((type) => type === "describe");
     if (addToId.includes("describe"))
