@@ -44,5 +44,6 @@
     width: 100%;
     gap: 0.25rem;
     justify-content: end;
+    align-items: center;
   }
 </style>
