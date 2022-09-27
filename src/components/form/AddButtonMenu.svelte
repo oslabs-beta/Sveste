@@ -30,7 +30,9 @@
         break;
 
       case /mock/.test(addToId):
-        return blockTypes.filter((type) => type === "test");
+        return blockTypes.filter((type) =>
+          ["mockStatement", "render", "events"].includes(type)
+        );
         break;
 
       // case /test/.test(addToId):

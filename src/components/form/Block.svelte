@@ -27,7 +27,7 @@
     <svelte:self {...child} indent={indent + 1} />
   {/each}
 
-  <AddButton addToId={id} />
+  <AddButton addToId={id} {type} />
 </div>
 
 <style>
