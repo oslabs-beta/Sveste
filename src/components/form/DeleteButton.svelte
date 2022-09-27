@@ -1,16 +1,16 @@
 <script lang="ts">
-  import { testStore } from "../../models/store";
-  export let deleteId, deleteFromId;
+  import { testStore, blockStore } from "../../models/store";
+  export let id;
 
-  function handleClick() {
-    testStore.deleteBlock(deleteId, deleteFromId);
+  function handleClick(id) {
+    let target = $blockStore[id];
+    blockStore.deleteBlock(target);
   }
 </script>
 
-<button on:click|preventDefault={handleClick}>-</button>
+<button on:click|preventDefault={() => handleClick(id)}>-</button>
 
 <style>
   button {
-    position: relative;
   }
 </style>

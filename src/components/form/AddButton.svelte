@@ -10,11 +10,14 @@
   }
 </script>
 
-<button on:click|preventDefault={handleClick}>+ {addToId}</button>
+<button on:click|preventDefault={handleClick}>+</button>
 <svelte:component this={menu} {addToId} bind:menu />
 
 <style>
   button {
-    position: relative;
+    display: flex;
+    width: fit-content;
+    align-self: center;
+    margin: auto;
   }
 </style>

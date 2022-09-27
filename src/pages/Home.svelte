@@ -7,6 +7,19 @@
 
 <App>
   <Header />
-  <FormDisplay />
-  <CodeDisplay />
+  <main>
+    <FormDisplay />
+    <CodeDisplay />
+  </main>
 </App>
+
+<style>
+  main {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    margin: auto;
+    max-width: 100%;
+    height: 100%;
+    gap: 1rem;
+  }
+</style>

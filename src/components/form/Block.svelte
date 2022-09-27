@@ -6,8 +6,8 @@
   import AddButtonMenu from "./AddButtonMenu.svelte";
   export let id,
     type,
-    parentId,
-    value,
+    // parentId,
+    // value,
     children = [],
     indent = 0;
   function getComponent() {
@@ -17,16 +17,32 @@
   }
 </script>
 
-<div style="padding-left: {indent}em">
-  {#if id}
+<div class="blockWrapper">
+  <div class="inputWrapper">
     <svelte:component this={getComponent()} {id} />
-    <AddButton addToId={id} />
+    <DeleteButton {id} />
+  </div>
 
-    {#each children as child}
-      <svelte:self {...child} indent={indent + 1} />
-    {/each}
-  {/if}
+  {#each children as child}
+    <svelte:self {...child} indent={indent + 1} />
+  {/each}
+
+  <AddButton addToId={id} />
 </div>
 
 <style>
+  .blockWrapper {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--tertiary);
+    margin: 0;
+    padding: 0.25rem 0;
+    gap: 0.25rem;
+  }
+  .inputWrapper {
+    display: flex;
+    width: 100%;
+    gap: 0.25rem;
+    justify-content: end;
+  }
 </style>

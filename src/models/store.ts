@@ -31,7 +31,41 @@ function createBlockStore() {
     upsertBlock: (node: Block) => {
       update(() => {
         data[node.id] = node;
-        testStore.addBlock(node);
+        const parent = blockStore.data[node.parentId] || testStore.data;
+        node.parent = parent;
+        parent.children.push(data[node.id]);
+        testStore.update(() => testStore.data);
+        return data;
+      });
+    },
+    deleteBlock: (node: Block) => {
+      update(() => {
+        const targetId = node.id;
+        // remove ref parent
+        const parent = node.parent || testStore.data;
+        let i = 0;
+        let target = -1;
+        while (target < 0) {
+          let child = parent.children[i];
+          if (child.id == targetId) {
+            target = i;
+          }
+          i++;
+        }
+        console.log(parent);
+        if (target === 0) {
+          parent.children.shift();
+        } else if (target === parent.children.length) {
+          parent.children.pop();
+        } else {
+          parent.children = parent.children
+            .slice(0, target)
+            .concat(parent.children.slice(i + 1));
+        }
+        console.log(parent);
+        testStore.update(() => testStore.data);
+        data[targetId].id = `old_${targetId}`;
+        console.log(data);
         return data;
       });
     },
@@ -44,32 +78,7 @@ function createTestStore() {
   return {
     subscribe,
     data,
-
-    addBlock: (block: Block) => {
-      update(() => {
-        const parent = block.parent || testStore.data;
-        parent.children.push(block);
-        console.log(data);
-        return data;
-      });
-    },
-
-    deleteBlock: (node: Block) => {
-      update(() => {
-        const parent = node.parent;
-        const i = parent.children.indexOf(node);
-        if (i === 0) {
-          parent.children.shift();
-        } else if (i === parent.children.length) {
-          parent.children.pop();
-        } else {
-          parent.children = parent.children
-            .slice(0, i)
-            .concat(parent.children.slice(i + 1));
-        }
-        return data;
-      });
-    },
+    update,
   };
 }
 

@@ -1,15 +1,16 @@
 <script lang="ts">
 </script>
 
-<div class="container">
+<div>
   <slot />
 </div>
 
 <style>
-  .container {
+  div {
     display: flex;
     flex-direction: column;
-    width: 100vw;
-    height: 100vh;
+    width: 94vw;
+    height: 94vh;
+    margin: 2vh 2vw;
   }
 </style>

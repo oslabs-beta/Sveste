@@ -12,7 +12,7 @@ export class Block {
     this.id = idStore.newId(type);
     this.type = type;
     this.parentId = parentId;
-    this.parent = type === "root" ? null : blockStore.data[parentId];
+    this.parent = blockStore[parentId];
     this.value = "";
     this.children = [];
   }
