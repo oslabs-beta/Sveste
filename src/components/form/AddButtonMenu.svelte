@@ -66,7 +66,7 @@
 </script>
 
 <menu>
-  <h3>Add new...</h3>
+  <h3>Add new Component</h3>
 
   {#each blockTypes as blockType (blockType)}
     <button on:click|preventDefault={() => addBlock(blockType)}
