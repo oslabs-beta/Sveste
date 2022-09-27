@@ -32,7 +32,7 @@
 </form> -->
 
 <!-- this should work with svelte:self -->
-<form>
+<form on:submit|preventDefault={() => POST("/tests", $testStore)}>
   <Block
     id={$testStore["id"]}
     type={$testStore["type"]}
@@ -42,6 +42,7 @@
   />
 
   <AddButton addToId="root0" />
+  <button type="submit">Submit</button>
 </form>
 
 <style>

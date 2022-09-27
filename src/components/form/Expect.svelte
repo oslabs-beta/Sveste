@@ -12,18 +12,21 @@
 </script>
 
 <p>Expect:</p>
-<select bind:value={selectedQuery} on:change={() => updateVal()}>
+<p>expect...</p>
+<!-- <select bind:value={selectedQuery} on:change={() => updateVal()}>
   {#each queries as value}
     <option {value}>
       {value}
     </option>
   {/each}
+
 </select>
+ 
 <label for={id}>Argument: </label>
 <input
   name={id}
   type="text"
   placeholder="ex. 'Hello World'"
   bind:value={argument}
-  on:change={() => updateVal()}
-/>
+  on:change={() => updateVal()} -->
+<!-- /> -->

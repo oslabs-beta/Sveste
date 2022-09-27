@@ -4,4 +4,4 @@
 </script>
 
 <p>Test:</p>
-<input bind:value={$blockStore[id]["value"]} />
+<labe>it(<input bind:value={$blockStore[id]["value"]} />)</labe>

@@ -5,10 +5,16 @@
   let selectedQuery;
   let selectedType;
   let argument;
+  // let comparisonType;
+  // let modifier;
+  // let parentIsMock = false;
+  // $: if($blockStore[id].parentId.includes('mock')) parentIsMock = true;
   function updateVal() {
+    console.log($blockStore[id].parentId.includes("mock"));
     $blockStore[id][
       "value"
     ] = `screen.${selectedQuery}${selectedType}('${argument}')`;
+    // if(parentIsMock) $blockStore[id]["value"] += `${comparisonType} = ${modifier}`
   }
 
   const queries = [
@@ -20,6 +26,7 @@
     "findAllBy",
   ];
   const types = ["Role", "Text"];
+  const comparisons = [".innerHMTL", ".textContent"];
 </script>
 
 <p>Query Screen:</p>
@@ -45,3 +52,20 @@
   bind:value={argument}
   on:change={() => updateVal()}
 />
+<!-- {#if parentIsMock}
+<select bind:value={comparisonType} on:change={() => updateVal()}>
+  {#each comparisons as value}
+    <option {value}>
+      {value}
+    </option>
+  {/each} -->
+<!-- </select> -->
+<!-- <label for={id}>value: </label>
+<input
+  name={id}
+  type="text"
+  placeholder="Test"
+  bind:value={modifier}
+  on:change={() => updateVal()}
+/>
+{/if} -->
