@@ -2,9 +2,10 @@
   import { testStore, blockStore } from "../../models/store";
   import { Block } from "../../controllers/blockClass";
   import { blockRef } from "../../controllers/blockTypes";
+  import { clickOutside } from "../../controllers/click_outside";
   export let addToId: string;
   export let menu;
-
+  let showMenu = true;
   let blockTypes = blockRef.map((obj) => obj.type);
   let handleBlocks = handleBlockTypes();
   blockTypes = handleBlocks;
@@ -14,6 +15,10 @@
     const newBlock = new Block(blockType, addToId);
     blockStore.upsertBlock(newBlock);
     menu = null;
+  }
+  function handleClickOutside(event, value) {
+    console.log(value);
+    showMenu = false;
   }
   function handleBlockTypes() {
     switch (true) {
@@ -63,7 +68,7 @@
 <style>
   menu {
     /* visibility: hidden; */
-    position: absolute;
+    /* position: relative; */
     border: 1px solid var(--primary);
     padding: 1rem;
     list-style-type: none;

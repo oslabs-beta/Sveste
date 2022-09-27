@@ -19,5 +19,7 @@
     width: fit-content;
     align-self: center;
     margin: auto;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
   }
 </style>
