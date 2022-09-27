@@ -5,7 +5,7 @@
   import { testStore } from "../models/store";
 </script>
 
-<form>
+<form on:submit|preventDefault={() => POST("/tests", $testStore)}>
   <h2>Test Code Builder</h2>
   <p>Start crafting your test code by adding a describe block below:</p>
   <Block
@@ -14,6 +14,7 @@
     children={$testStore["children"]}
   />
   <!-- <AddButton addToId="root0" /> -->
+  <button type="submit">Submit</button>
 </form>
 
 <style>

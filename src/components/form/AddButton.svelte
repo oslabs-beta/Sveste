@@ -1,8 +1,10 @@
 <script>
   import { testStore } from "../../models/store";
   import AddButtonMenu from "./AddButtonMenu.svelte";
+  import { blockRef } from "../../controllers/blockTypes";
   export let addToId;
   let menu = null;
+  let blockTypes = blockRef.map((obj) => obj.type);
   function handleClick() {
     menu = !menu ? AddButtonMenu : null;
   }
