@@ -3,7 +3,7 @@
   import { onMount } from "svelte";
   import Prism from "prismjs";
   import { compiledTestStore } from "../compiledTestStore";
-
+  import { favoritesStore } from "../models/favoritesStore";
   ///////----- Functionality to reload Prism on Change!!!!!!!!!----------///
   //when mounted on on store change prism reruns on only the element <code>
   let loaded = false;
@@ -21,6 +21,10 @@
     Prism.highlightElement(block);
   }
   //////-----------------------------------//////////
+  function handleAddFavorite() {
+    favoritesStore.set([...$favoritesStore, $compiledTestStore]);
+    console.log($favoritesStore);
+  }
 </script>
 
 <pre>
@@ -28,6 +32,9 @@
     {$compiledTestStore}
   </code>
 </pre>
+<button on:click|preventDefault={handleAddFavorite} type="submit"
+  >Add To Favorites</button
+>
 
 <style>
   @import "prismjs";

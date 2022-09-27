@@ -85,3 +85,4 @@ function createTestStore() {
 export const blockStore = createBlockStore();
 export const idStore = createIdStore();
 export const testStore = createTestStore();
+export const isLoggedIn = writable(true);
