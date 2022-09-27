@@ -46,6 +46,7 @@
 </select>
 <label for={id}>Argument: </label>
 <input
+  required
   name={id}
   type="text"
   placeholder="ex. button"

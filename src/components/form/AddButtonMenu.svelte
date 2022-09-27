@@ -35,17 +35,27 @@
         break;
 
       case /mock/.test(addToId):
-        return blockTypes.filter((type) => type === "test");
+        return blockTypes.filter(
+          (type) =>
+            type === "mockStatement" || type === "render" || type === "event"
+        );
         break;
 
-      // case /test/.test(addToId):
-      //   return blockTypes.filter((type) => type === 'test');
+      case /test/.test(addToId):
+        return blockTypes.filter(
+          (type) => type === "expect" || type === "render" || type === "event"
+        );
 
       case /expect/.test(addToId):
-        return blockTypes.filter((type) => type === "query");
+        return blockTypes.filter(
+          (type) => type === "query" || type === "render"
+        );
         break;
 
       case /query/.test(addToId):
+        return blockTypes.filter((type) => type === "assertion");
+        break;
+      case /render/.test(addToId):
         return blockTypes.filter((type) => type === "assertion");
         break;
 
