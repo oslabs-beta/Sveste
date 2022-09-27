@@ -34,6 +34,9 @@
         return blockTypes.filter((type) => type === "mock" || type === "test");
         break;
 
+      case /mockStatement/.test(addToId):
+        return [];
+
       case /mock/.test(addToId):
         return blockTypes.filter(
           (type) =>
@@ -55,9 +58,15 @@
       case /query/.test(addToId):
         return blockTypes.filter((type) => type === "assertion");
         break;
+
       case /render/.test(addToId):
         return blockTypes.filter((type) => type === "assertion");
         break;
+      case /assertion/.test(addToId):
+        return [];
+
+      case /event/.test(addToId):
+        return [];
 
       default:
         return blockTypes;
