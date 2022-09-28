@@ -6,14 +6,16 @@
 
 <header>
   <h1>🦺 Sveste |</h1>
-  <menu>
-    {#if $isLoggedIn}
-      <li><a href="/#/home">Home</a></li>
-      <li><FavoritesButton /></li>
-    {:else}
-      <li><LoginButton /></li>
-    {/if}
-  </menu>
+  {#if !location.href.includes("login")}
+    <menu>
+      {#if $isLoggedIn}
+        <li><a href="/#/home">Home</a></li>
+        <li><FavoritesButton /></li>
+      {:else}
+        <li><LoginButton /></li>
+      {/if}
+    </menu>
+  {/if}
 </header>
 
 <style>
