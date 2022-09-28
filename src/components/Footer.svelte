@@ -11,6 +11,7 @@
 <style>
   footer {
     margin-top: 15rem;
+    margin-bottom: 0.5em;
     height: 5rem;
     background-color: var(--svestedarkteal);
     display: flex;
