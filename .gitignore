@@ -17,3 +17,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+development.env
+

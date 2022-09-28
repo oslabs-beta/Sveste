@@ -1,16 +1,36 @@
 <script lang="ts">
-  import App from "../App.svelte";
+  //import App from "../App.svelte";
   import CodeDisplay from "../components/CodeDisplay.svelte";
   import FormDisplay from "../components/FormDisplay.svelte";
-  import Login from "../components/Login.svelte";
+  import { push } from "svelte-spa-router";
+  import cookieParser from "cookie-parser";
 </script>
 
-<App>
+<!-- <App> -->
+<main>
+  <!-- <button
+    on:click|preventDefault={() => {
+      console.log(document);
+    }}>Cookies</button
+  >
+  <button
+    on:click|preventDefault={() => {
+      push("/login");
+    }}>Sign Out</button
+  > -->
+  <FormDisplay />
+  <CodeDisplay />
+  <p>test</p>
+</main>
+<!-- <Login /> -->
+<!-- </App> -->
+
+<!-- <App> -->
   <!-- <FormDisplay /> -->
   <!-- <CodeDisplay /> -->
-  <p>test</p>
-  <Login />
-</App>
+  <!-- <p> test</p> -->
+  <!-- <Login /> -->
+<!-- </App> -->
 
 <style>
   main {
