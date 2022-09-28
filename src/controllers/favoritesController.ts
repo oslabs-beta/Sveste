@@ -3,6 +3,7 @@ import type User from "../models/models";
 import { collections } from "../services/database.services";
 type FavoritesController = {
   addFavorite: RequestHandler;
+  getFavorites: RequestHandler;
 };
 
 export const favoritesController: FavoritesController = {
@@ -13,22 +14,32 @@ export const favoritesController: FavoritesController = {
   ): Promise<void> => {
     try {
       const { _id, favorite } = req.body;
-      //   const currentUser = await collections.SvesteUsers.findOne({
-      //     _id: _id,
-      //   });
+
       const currentUser = await collections.SvesteUsers.updateOne(
         { _id: _id },
         {
           $push: { storage: favorite },
         }
       );
-      //     console.log(currentUser);
-      //   console.log(req.body);
-      //   currentUser.storage.push(favorite);
-      //  const update = mongooseUser.save()
-      //   console.log(updatedUser);
-      //   res.locals.favorites = updatedUser;
+      //not currently returning actual user data, handled in get request/get favorites
       res.locals.favorites = currentUser;
+      return next();
+    } catch (err) {
+      return next(err);
+    }
+  },
+  getFavorites: async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<void> => {
+    try {
+      const { _id } = req.body;
+      const currentUser = await collections.SvesteUsers.findOne({
+        _id: _id,
+      });
+      res.locals.favorites = currentUser.storage;
+      console.log(currentUser.storage);
       return next();
     } catch (err) {
       return next(err);
