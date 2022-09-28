@@ -30,8 +30,12 @@
   }
   //////-----------------------------------//////////
   async function handleAddFavorite() {
-    // if (!$isLoggedIn) return toggleModal();
+    if (!$isLoggedIn) return toggleModal();
     const user = "admin@test.com";
+    progress = tweened(0, {
+      duration: 3000,
+      easing: cubicOut,
+    });
     // favoritesStore.set([...$favoritesStore, $compiledTestStore]);
     // console.log(typeof JSO$compiledTestStore);
     try {
@@ -54,7 +58,7 @@
   }
   // ///////////////////
 
-  const progress = tweened(0, {
+  let progress = tweened(0, {
     duration: 3000,
     easing: cubicOut,
   });
