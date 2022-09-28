@@ -4,7 +4,6 @@
   import FormDisplay from "../components/FormDisplay.svelte";
   import Header from "../components/Header.svelte";
   import { push } from "svelte-spa-router";
-  import cookieParser from "cookie-parser";
 </script>
 
 <main>
