@@ -11,6 +11,7 @@
     name="mockInput"
     bind:value={$blockStore[id]["value"]}
   >
+    <option>...</option>
     {#each options as option}
       <option value={option}>{option}</option>
     {/each}

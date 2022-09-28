@@ -37,6 +37,7 @@
     bind:value={selectedQuery}
     on:change={() => updateVal()}
   >
+    <option>...</option>
     {#each queries as value}
       <option {value}>
         {value}
@@ -53,6 +54,7 @@
     bind:value={selectedType}
     on:change={() => updateVal()}
   >
+    <option>...</option>
     {#each types as value}
       <option {value}>
         {value}

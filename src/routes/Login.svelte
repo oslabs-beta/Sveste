@@ -3,6 +3,7 @@
   import axios from "axios";
   import { push } from "svelte-spa-router";
   import Header from "../components/Header.svelte";
+  import { isLoggedIn } from "../models/store";
   //axios.defaults.baseURL = 'http://localhost:3000';
 
   let emailAddress = "";
@@ -22,13 +23,18 @@
       .then((response) => {
         console.log("Login Response: ", response);
         //If response field return loggedIn is true, redirect client to home page
-        if (response.data.loggedIn) push("/home");
+        //loggedIn basically verifies the user, and now we want to change the state of isLoggedIn passed from the store to allow for the user to access favorites page
+        if (response.data.loggedIn) {
+          isLoggedIn.set(true);
+          push("/home");
+        }
       })
       .catch(function (error) {
         console.log("error in login", error);
         //set a variable here that can trigger an "incorrect password" message
       });
   };
+  //
 
   // const handleOnChange = (evt) => {
   // 	// Cannot dynamically update the `type` attribute via a two-way binding to the `type` attribtue.
