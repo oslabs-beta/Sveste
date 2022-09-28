@@ -1,7 +1,7 @@
 import * as mongoDB from "mongodb";
 import * as dotenv from "dotenv";
 
-const DB_CONN_STRING = "";
+const DB_CONN_STRING = "mongodb+srv://bookbeats_dev:admin@cluster0.nduddbx.mongodb.net/?retryWrites=true&w=majority";
 const DB_NAME = "SvesteDB";
 const USERS_COLLECTION_NAME = "SvesteUsers";
 const SESSIONS_COLLECTION_NAME = "SvesteSessions";

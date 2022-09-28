@@ -6,7 +6,9 @@
   let argument;
   let isNot;
   function updateVal() {
-    $blockStore[id]["value"] = `${isNot}.${selectedAssertion}('${argument}')`;
+    $blockStore[id]["value"] = `${isNot}.${selectedAssertion}${
+      argument ? `('${argument}')` : "()"
+    }`;
   }
 
   const nots = [".not", ".to"];
