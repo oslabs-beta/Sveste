@@ -17,8 +17,6 @@
   main {
     display: flex;
     flex-direction: column;
-    margin: auto;
-    max-width: 800px;
     height: 100%;
     gap: 1rem;
   }
