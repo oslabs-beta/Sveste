@@ -3,6 +3,7 @@
   import CodeDisplay from "../components/CodeDisplay.svelte";
   import FormDisplay from "../components/FormDisplay.svelte";
   import Header from "../components/Header.svelte";
+  import Footer from "../components/Footer.svelte";
   import { push } from "svelte-spa-router";
 </script>
 
@@ -10,6 +11,7 @@
   <Header />
   <FormDisplay />
   <CodeDisplay />
+  <Footer />
 </main>
 
 <style>

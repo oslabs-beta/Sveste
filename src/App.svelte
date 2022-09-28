@@ -35,6 +35,7 @@
     display: flex;
     flex-direction: column;
     width: auto;
+    height: 100%;
     /* height: 94vh; */
     /* margin: 2vh 2vw; */
   }
