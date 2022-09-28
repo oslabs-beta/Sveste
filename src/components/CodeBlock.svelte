@@ -57,7 +57,6 @@
     {$compiledTestStore}
   </code>
 </pre>
-<button on:click|preventDefault={toggleModal}>Test Modal</button>
 {#if $submitSuccessful}
   <button on:click|preventDefault={handleAddFavorite} type="submit"
     >Add To Favorites</button
