@@ -18,6 +18,12 @@ export default defineConfig({
   server: {
     proxy: {
       "/tests": "http://localhost:3000",
+      "/users": "http://localhost:3000",
+      "/login": "http://localhost:3000",
+      "/signup": "http://localhost:3000",
     },
+  },
+  define: {
+    "process.env": {},
   },
 });
