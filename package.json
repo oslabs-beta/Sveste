@@ -57,7 +57,6 @@
     "vitest": "^0.23.4"
   },
   "lint-staged": {
-    "*.{js,ts,html,svelte,css,md}": "prettier --write",
-    "*.{js,css,md}": "prettier --write"
+    "*.{js,ts,html,svelte,css,md}": "prettier --write"
   }
 }
