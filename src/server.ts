@@ -12,6 +12,7 @@ const port = 3000;
  */
 import components from "./routers/routes";
 import dbRouter from "./routers/dbroutes";
+import favoritesRouter from "./routers/favoritesRouter";
 
 app.use(express.json());
 app.use(cookieParser());
@@ -26,6 +27,7 @@ connectToDatabase()
   .then(() => {
     app.use("/tests", components);
     app.use("/users", dbRouter);
+    app.use("/favorites", favoritesRouter);
     app.listen(port, () => {
       console.log(`Server listening on port ${port}`);
     });

@@ -1,10 +1,15 @@
 <script>
   export let fav;
   import Prism from "prismjs";
+
+  function handleChange(codeBlock) {
+    const block = codeBlock;
+    Prism.highlightElement(block);
+  }
 </script>
 
 <pre>
-    <code id="code" class="language-javascript">
+    <code use:handleChange id="code" class="language-javascript">
       {fav}
     </code>
   </pre>
