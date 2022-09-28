@@ -82,4 +82,4 @@ test.children[0].children[0].children.push(renderedComponent0, queryStatement0);
 // TEST CHILDREN
 test.children[0].children[1].children.push(expect0);
 
-export const testBody = JSON.stringify(test);
+export const testBody = test;

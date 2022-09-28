@@ -6,7 +6,7 @@
   async function handleFavoritesGet() {
     try {
       const response = await axios.get("/favorites", { params: { _id: user } });
-
+      // const parsedBody = JSON.parse(response.data)
       favoritesStore.set([...response.data]);
       console.log($favoritesStore);
     } catch (err) {

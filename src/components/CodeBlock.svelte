@@ -31,7 +31,7 @@
 
       const response = await axios.post("/favorites", {
         _id: user,
-        favorite: parsedBody,
+        favorite: $compiledTestStore,
       });
       // if(response)
 
@@ -47,6 +47,7 @@
     {$compiledTestStore}
   </code>
 </pre>
+
 <button on:click|preventDefault={handleAddFavorite} type="submit"
   >Add To Favorites</button
 >
