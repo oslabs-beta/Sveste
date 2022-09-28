@@ -7,7 +7,7 @@
     try {
       const response = await axios.get("/favorites", { params: { _id: user } });
 
-      favoritesStore.set([...$favoritesStore, ...response.data]);
+      favoritesStore.set([...response.data]);
       console.log($favoritesStore);
     } catch (err) {
       console.log(err);
