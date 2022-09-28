@@ -1,4 +1,28 @@
 <script lang="ts">
+  import axios from "axios";
+  import { favoritesStore } from "../models/favoritesStore";
+  //hardcoded place holder for current user
+  const user = "admin@test.com";
+  async function handleFavoritesGet() {
+    try {
+      const response = await axios.get("/favorites", { params: { _id: user } });
+      // const parsedBody = JSON.parse(response.data)
+      favoritesStore.set([...response.data]);
+      console.log($favoritesStore);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 </script>
 
-<a href="/#/favorites">Favorites</a>
+<a on:click={handleFavoritesGet} href="/#/favorites">Favorites</a>
+
+<style>
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+</style>

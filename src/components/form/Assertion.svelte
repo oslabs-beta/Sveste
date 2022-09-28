@@ -19,6 +19,7 @@
 <p>Comparison Method:</p>
 
 <select bind:value={isNot} on:change={() => updateVal()}>
+  <option>...</option>
   {#each nots as value}
     <option {value}>
       {value}
@@ -26,13 +27,14 @@
   {/each}
 </select>
 <select bind:value={selectedAssertion} on:change={() => updateVal()}>
+  <option>...</option>
   {#each assertions as value}
     <option {value}>
       {value}
     </option>
   {/each}
 </select>
-<label for={id}>Assertion: </label>
+<label for={id}>Assertion</label>
 <input
   name={id}
   type="text"

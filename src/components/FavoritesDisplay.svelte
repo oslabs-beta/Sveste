@@ -1,15 +1,13 @@
 <script>
   import { favoritesStore } from "../models/favoritesStore";
   import FavoriteBlock from "../components/FavoriteBlock.svelte";
+  import Prism from "prismjs";
 </script>
 
 <div class="container">
-  <!-- {#each $favoritesStore as fav}
+  {#each $favoritesStore as fav}
     <FavoriteBlock {fav} />
-  {/each} -->
-  <p>image here</p>
-  <p>and image here</p>
-  <p>and image here</p>
+  {/each}
 </div>
 
 <style>

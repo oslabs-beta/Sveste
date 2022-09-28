@@ -1,7 +1,10 @@
 <script lang="ts">
   function handleClick() {
-    console.log("use router to send to login page");
+    location.href = "/#/login";
   }
 </script>
 
 <button on:click={handleClick}>Login</button>
+
+<style>
+</style>

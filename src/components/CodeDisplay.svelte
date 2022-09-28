@@ -11,4 +11,7 @@
 </div>
 
 <style>
+  div {
+    margin: auto;
+  }
 </style>

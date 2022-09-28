@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import axios from "axios";
   import { push } from "svelte-spa-router";
+  import Header from "../components/Header.svelte";
   import { isLoggedIn } from "../models/store";
   //axios.defaults.baseURL = 'http://localhost:3000';
 
@@ -42,6 +43,7 @@
   // }
 </script>
 
+<Header />
 <h1>Login</h1>
 <form class="form" on:submit|preventDefault={handleOnSubmit}>
   <div class="innerform">

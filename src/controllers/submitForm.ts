@@ -17,6 +17,7 @@ export async function POST(url, body) {
         "Content-Type": "application/json",
       },
     });
+    console.log(response.data);
     compiledTestStore.set(response.data);
 
     return response.data;
