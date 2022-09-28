@@ -40,7 +40,6 @@ export const favoritesController: FavoritesController = {
         _id: _id,
       });
       res.locals.favorites = currentUser.storage;
-      console.log(currentUser.storage);
       return next();
     } catch (err) {
       return next(err);
