@@ -7,7 +7,7 @@
   import axios from "axios";
   import { isLoggedIn } from "../models/store";
   import Modal from "./form/loginModal.svelte";
-  import Login from "./Login.svelte";
+  import LoginButton from "./LoginButton.svelte";
   import { tweened } from "svelte/motion";
   import { cubicOut } from "svelte/easing";
   ///////----- Functionality to reload Prism on Change!!!!!!!!!----------///
@@ -53,7 +53,7 @@
     }
   }
   function toggleModal() {
-    modalContent = Login;
+    modalContent = LoginButton;
     showModal = !showModal;
   }
   // ///////////////////

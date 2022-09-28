@@ -66,7 +66,7 @@ dbRouter.post("/login", async (req: Request, res: Response) => {
       return res
         .cookie("ssid", _id, { httpOnly: true, maxAge: 864000 })
         .status(200)
-        .send(loggedIn);
+        .send(_id);
     }
   } catch (error) {
     console.error("Error logging in: ", error);

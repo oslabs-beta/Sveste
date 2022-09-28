@@ -7,7 +7,7 @@
   <div class="content">
     <h2>You Must Log In to Add Favorite</h2>
     <svelte:component this={modalContent} on:click />
-    <button on:click>close</button>
+    <button on:click>Close</button>
   </div>
 </div>
 
