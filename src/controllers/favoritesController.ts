@@ -34,7 +34,8 @@ export const favoritesController: FavoritesController = {
     next: NextFunction
   ): Promise<void> => {
     try {
-      const { _id } = req.body;
+      const _id = req.query._id;
+      console.log(req.query, "request");
       const currentUser = await collections.SvesteUsers.findOne({
         _id: _id,
       });
