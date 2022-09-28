@@ -75,6 +75,7 @@
       bind:value={attribute}
       on:change={() => updateVal()}
     >
+      <option>...</option>
       {#each attributes as value}
         <option {value}>
           {value}

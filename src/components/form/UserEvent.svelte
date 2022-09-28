@@ -21,6 +21,7 @@
 
 <p>Events</p>
 <select bind:value={event} on:change={() => updateVal()}>
+  <option>...</option>
   {#each events as value}
     <option {value}>
       {value}

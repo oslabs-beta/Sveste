@@ -16,3 +16,13 @@
 </script>
 
 <a on:click={handleFavoritesGet} href="/#/favorites">Favorites</a>
+
+<style>
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+</style>

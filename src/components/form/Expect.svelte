@@ -11,20 +11,13 @@
   const queries = ["toContain", "toBe", "toBeTruthy"];
 </script>
 
-<p>expect...</p>
-<!-- <select bind:value={selectedQuery} on:change={() => updateVal()}>
-  {#each queries as value}
-    <option {value}>
-      {value}
-    </option>
-  {/each}
+<div>
+  <p>expect...</p>
+</div>
 
-</select>
- 
-<label for={id}>Argument: </label>
-<input
-  name={id}
-  type="text"
-  placeholder="ex. 'Hello World'"
-  bind:value={argument}
-  on:change={() => updateVal()} > -->
+<style>
+  div {
+    display: flex;
+    width: 100%;
+  }
+</style>

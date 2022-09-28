@@ -4,7 +4,6 @@
   import FormDisplay from "../components/FormDisplay.svelte";
   import Header from "../components/Header.svelte";
   import { push } from "svelte-spa-router";
-  import cookieParser from "cookie-parser";
 </script>
 
 <main>
@@ -17,8 +16,6 @@
   main {
     display: flex;
     flex-direction: column;
-    margin: auto;
-    max-width: 800px;
     height: 100%;
     gap: 1rem;
   }
