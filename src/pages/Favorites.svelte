@@ -4,7 +4,5 @@
   import FavoritesDisplay from "../components/FavoritesDisplay.svelte";
 </script>
 
-<App>
-  <Header />
-  <FavoritesDisplay />
-</App>
+<Header />
+<FavoritesDisplay />

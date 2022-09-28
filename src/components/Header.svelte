@@ -9,6 +9,7 @@
   <menu>
     {#if $isLoggedIn}
       <li><FavoritesButton /></li>
+      <li><a href="/#/home">Home</a></li>
     {:else}
       <li><LoginButton /></li>
     {/if}

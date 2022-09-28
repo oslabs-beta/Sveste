@@ -4,9 +4,9 @@
 </script>
 
 <div class="container">
-  {#each $favoritesStore as fav}
+  <!-- {#each $favoritesStore as fav}
     <FavoriteBlock {fav} />
-  {/each}
+  {/each} -->
   <p>image here</p>
   <p>and image here</p>
   <p>and image here</p>
