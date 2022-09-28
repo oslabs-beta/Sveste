@@ -28,9 +28,9 @@
         // First pre-condition function
         (detail) => {
           /********PLACEHOLDER FOR ROUTING CONDITION**********/
-          if (($isLoggedIn = false)) {
+          if ($isLoggedIn === false) {
             push("/signup");
-            return false;
+            return true;
           } else {
             push("/favorites");
             return true;
