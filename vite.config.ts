@@ -21,6 +21,7 @@ export default defineConfig({
       "/users": "http://localhost:3000",
       "/login": "http://localhost:3000",
       "/signup": "http://localhost:3000",
+      "/favorites": "http://localhost:3000",
     },
   },
   define: {

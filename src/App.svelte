@@ -14,7 +14,7 @@
   };
 
   let routes = {
-    "/": Login,
+    "/": Home,
     "/signup": SignUp,
     "/login": Login,
     "/home": Home,
