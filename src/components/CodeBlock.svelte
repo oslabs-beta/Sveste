@@ -8,6 +8,8 @@
   import { isLoggedIn } from "../models/store";
   import Modal from "./form/loginModal.svelte";
   import Login from "./Login.svelte";
+  import { tweened } from "svelte/motion";
+  import { cubicOut } from "svelte/easing";
   ///////----- Functionality to reload Prism on Change!!!!!!!!!----------///
   //when mounted on on store change prism reruns on only the element <code>
   let loaded = false;
@@ -28,7 +30,7 @@
   }
   //////-----------------------------------//////////
   async function handleAddFavorite() {
-    if (!$isLoggedIn) return toggleModal();
+    // if (!$isLoggedIn) return toggleModal();
     const user = "admin@test.com";
     // favoritesStore.set([...$favoritesStore, $compiledTestStore]);
     // console.log(typeof JSO$compiledTestStore);
@@ -39,7 +41,7 @@
         _id: user,
         favorite: $compiledTestStore,
       });
-      // if(response)
+      await progress.set(1);
 
       // return response.data;
     } catch (err) {
@@ -50,6 +52,12 @@
     modalContent = Login;
     showModal = !showModal;
   }
+  // ///////////////////
+
+  const progress = tweened(0, {
+    duration: 3000,
+    easing: cubicOut,
+  });
 </script>
 
 <pre>
@@ -58,6 +66,7 @@
   </code>
 </pre>
 {#if $submitSuccessful}
+  <progress value={$progress} />
   <button on:click|preventDefault={handleAddFavorite} type="submit"
     >Add To Favorites</button
   >
