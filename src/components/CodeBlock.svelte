@@ -2,12 +2,19 @@
   // import { onMount } from "svelte/types/runtime/internal/lifecycle";
   import { onMount } from "svelte";
   import Prism from "prismjs";
-  import { compiledTestStore } from "../compiledTestStore";
+  import { compiledTestStore, submitSuccessful } from "../compiledTestStore";
   import { favoritesStore } from "../models/favoritesStore";
   import axios from "axios";
+  import { isLoggedIn, userId } from "../models/store";
+  import Modal from "./form/loginModal.svelte";
+  import LoginButton from "./LoginButton.svelte";
+  import { tweened } from "svelte/motion";
+  import { cubicOut } from "svelte/easing";
   ///////----- Functionality to reload Prism on Change!!!!!!!!!----------///
   //when mounted on on store change prism reruns on only the element <code>
   let loaded = false;
+  let showModal = false;
+  let modalContent;
   onMount(() => (loaded = true));
   $: html = Prism.highlight(
     $compiledTestStore,
@@ -23,7 +30,12 @@
   }
   //////-----------------------------------//////////
   async function handleAddFavorite() {
-    const user = "admin@test.com";
+    if (!$isLoggedIn) return toggleModal();
+    const user = $userId;
+    progress = tweened(0, {
+      duration: 3000,
+      easing: cubicOut,
+    });
     // favoritesStore.set([...$favoritesStore, $compiledTestStore]);
     // console.log(typeof JSO$compiledTestStore);
     try {
@@ -33,13 +45,23 @@
         _id: user,
         favorite: $compiledTestStore,
       });
-      // if(response)
+      await progress.set(1);
 
       // return response.data;
     } catch (err) {
       console.log(err);
     }
   }
+  function toggleModal() {
+    modalContent = LoginButton;
+    showModal = !showModal;
+  }
+  // ///////////////////
+
+  let progress = tweened(0, {
+    duration: 3000,
+    easing: cubicOut,
+  });
 </script>
 
 <pre>
@@ -47,10 +69,15 @@
     {$compiledTestStore}
   </code>
 </pre>
-
-<button on:click|preventDefault={handleAddFavorite} type="submit"
-  >Add To Favorites</button
->
+{#if $submitSuccessful}
+  <progress value={$progress} />
+  <button on:click|preventDefault={handleAddFavorite} type="submit"
+    >Add To Favorites</button
+  >
+{/if}
+{#if showModal}
+  <Modal on:click={toggleModal} {modalContent} />
+{/if}
 
 <style>
   @import "prismjs";
