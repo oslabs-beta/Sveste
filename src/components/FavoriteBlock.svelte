@@ -1,5 +1,6 @@
 <script>
   export let fav;
+  export let id;
   import Prism from "prismjs";
   import axios from "axios";
   import { userId } from "../models/store";
@@ -10,18 +11,20 @@
     Prism.highlightElement(block);
   }
   async function handleDelete() {
-    console.log(fav);
-    // try {
-    //   console.log($favoritesStore, 'before delete');
-    //   const response = await axios.put('/favorites', {
-    //     _id: $userId,
-    //     favorite: fav,
-    //   });
-    //   console.log(response.data, 'after delete');
-    //   favoritesStore.set([...response.data]);
-    // } catch (err) {
-    //   console.log(err);
-    // }
+    // console.log(id);
+    // console.log($favoritesStore.indexOf(fav));
+    try {
+      console.log($favoritesStore, "before delete");
+      const response = await axios.put("/favorites", {
+        _id: $userId,
+        favorite: $favoritesStore.indexOf(fav),
+      });
+      console.log(response.data, "after delete");
+
+      favoritesStore.set([...response.data]);
+    } catch (err) {
+      console.log(err);
+    }
   }
 </script>
 
