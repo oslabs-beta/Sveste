@@ -5,7 +5,7 @@
   import { compiledTestStore, submitSuccessful } from "../compiledTestStore";
   import { favoritesStore } from "../models/favoritesStore";
   import axios from "axios";
-  import { isLoggedIn } from "../models/store";
+  import { isLoggedIn, userId } from "../models/store";
   import Modal from "./form/loginModal.svelte";
   import LoginButton from "./LoginButton.svelte";
   import { tweened } from "svelte/motion";
@@ -31,7 +31,7 @@
   //////-----------------------------------//////////
   async function handleAddFavorite() {
     if (!$isLoggedIn) return toggleModal();
-    const user = "admin@test.com";
+    const user = $userId;
     progress = tweened(0, {
       duration: 3000,
       easing: cubicOut,

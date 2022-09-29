@@ -3,7 +3,7 @@
   import axios from "axios";
   import { push } from "svelte-spa-router";
   import Header from "../components/Header.svelte";
-  import { isLoggedIn } from "../models/store";
+  import { isLoggedIn, userId } from "../models/store";
   //axios.defaults.baseURL = 'http://localhost:3000';
 
   let emailAddress = "";
@@ -26,6 +26,8 @@
         //loggedIn basically verifies the user, and now we want to change the state of isLoggedIn passed from the store to allow for the user to access favorites page
         if (response.data.loggedIn) {
           isLoggedIn.set(true);
+          userId.set(emailAddress);
+          console.log($userId);
           push("/home");
         }
       })
