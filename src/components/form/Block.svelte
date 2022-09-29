@@ -32,6 +32,7 @@
   .blockWrapper {
     display: flex;
     flex-direction: column;
+    width: 100%;
     padding: 0.25rem 0;
     gap: 0.25rem;
   }
@@ -47,7 +48,7 @@
     display: flex;
     flex-direction: row;
     justify-self: start;
-    width: 80%;
+    width: 100%;
     position: relative;
   }
   .inputWrapper :global(label) {
