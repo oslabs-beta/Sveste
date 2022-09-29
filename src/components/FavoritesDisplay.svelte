@@ -15,6 +15,8 @@
 
 <style>
   .container {
-    display: grid;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 </style>

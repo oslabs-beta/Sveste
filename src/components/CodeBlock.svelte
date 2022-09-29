@@ -70,7 +70,7 @@
   </code>
 </pre>
 {#if $submitSuccessful}
-  <progress value={$progress} />
+  <!-- <progress value={$progress} /> -->
   <button on:click|preventDefault={handleAddFavorite} type="submit"
     >Add To Favorites</button
   >
@@ -85,5 +85,23 @@
   pre {
     border-radius: 10px;
     border: 2px solid var(--svestedarkteal);
+  }
+  pre:global([class*="language-"]) {
+    background: none;
+  }
+
+  button {
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    color: var(--svestedarkteal);
+    background-color: transparent;
+    border: none;
+  }
+  button:hover {
+    background-color: var(--svestedarkteal);
+    color: white;
   }
 </style>

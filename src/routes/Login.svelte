@@ -3,6 +3,7 @@
   import axios from "axios";
   import { push } from "svelte-spa-router";
   import Header from "../components/Header.svelte";
+  import Footer from "../components/Footer.svelte";
   import { isLoggedIn, userId } from "../models/store";
   //axios.defaults.baseURL = 'http://localhost:3000';
 
@@ -68,17 +69,40 @@
       required
     />
   </div>
-  <button type="submit">Login</button>
-  <button on:click|preventDefault={() => push("/signup")}>Sign Up</button>
+  <div id="buttondiv">
+    <button type="submit">Login</button>
+    <button on:click|preventDefault={() => push("/signup")}>Sign Up</button>
+  </div>
 </form>
+<Footer />
 
 <style>
   .form {
-    margin-bottom: 0.875rem;
+    height: 100%;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
   }
-
+  h1 {
+    align-self: center;
+  }
   .form_label {
-    margin-bottom: 0.5rem;
+    margin: 0.25rem;
+  }
+  .form_input {
+    margin-left: 2rem;
+  }
+  #buttondiv {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  .innerform {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.25rem;
   }
 
   .form_input {

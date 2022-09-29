@@ -22,6 +22,7 @@
 
 <style>
   header {
+    height: auto;
     display: flex;
     justify-content: left;
     font-family: "Roboto", sans-serif;

@@ -6,22 +6,34 @@
   import { POST } from "../controllers/submitForm";
 </script>
 
-<form on:submit|preventDefault={() => POST("/tests", $testStore)}>
-  <h2>Test Code Builder</h2>
-  <p>Start crafting your test code by adding a describe block below:</p>
-  <Block
-    id={$testStore["id"]}
-    type={$testStore["type"]}
-    children={$testStore["children"]}
-  />
-  <!-- <AddButton addToId="root0" /> -->
-  <button type="submit">Submit</button>
-</form>
+<div>
+  <form on:submit|preventDefault={() => POST("/tests", $testStore)}>
+    <button type="submit">Submit</button>
+    <Block
+      id={$testStore["id"]}
+      type={$testStore["type"]}
+      children={$testStore["children"]}
+    />
+  </form>
+</div>
 
 <style>
   form {
     display: flex;
     flex-direction: column;
-    margin: auto;
+    position: relative;
+    flex-direction: column;
+    padding-top: 2rem;
+  }
+  button {
+    position: absolute;
+    right: -1rem;
+    top: 0.5rem;
+    width: fit-content;
+    border: none;
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+    color: white;
+    background-color: var(--svestedarkteal);
   }
 </style>

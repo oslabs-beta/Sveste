@@ -42,19 +42,17 @@
   };
 </script>
 
-<main />
-
 <div class="container">
   <Router {routes} />
   <slot />
 </div>
 
 <style>
-  div {
+  .container {
     display: flex;
     flex-direction: column;
     width: auto;
-    /* height: 94vh; */
-    /* margin: 2vh 2vw; */
+    height: 100%;
+    justify-content: space-between;
   }
 </style>

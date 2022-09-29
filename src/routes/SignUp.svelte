@@ -4,6 +4,9 @@
   import { push } from "svelte-spa-router";
   import axios from "axios";
 
+  import Header from "../components/Header.svelte";
+  import Footer from "../components/Footer.svelte";
+
   let emailAddress = "";
   let password = "";
 
@@ -51,6 +54,7 @@
   // }
 </script>
 
+<Header />
 <h1>Create a New Account</h1>
 <form class="signupform" on:submit|preventDefault={handleOnSubmit}>
   <div class="innersignupform">
@@ -76,6 +80,7 @@
   <button type="submit">Sign Up</button>
   <button on:click|preventDefault={() => push("/login")}>Login</button>
 </form>
+<Footer />
 
 <style>
   .signupform {
