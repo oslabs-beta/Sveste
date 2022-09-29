@@ -4,6 +4,7 @@ import { collections } from "../services/database.services";
 type FavoritesController = {
   addFavorite: RequestHandler;
   getFavorites: RequestHandler;
+  deleteFavorite: RequestHandler;
 };
 
 export const favoritesController: FavoritesController = {
@@ -42,6 +43,44 @@ export const favoritesController: FavoritesController = {
       return next();
     } catch (err) {
       return next(err);
+    }
+  },
+  deleteFavorite: async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<void> => {
+    try {
+      let { _id, favorite } = req.body;
+      console.log(req.body);
+      // const currentUser = await collections.SvesteUsers.updateOne(
+      //   { _id: _id },
+      //   {
+      //     $pull: { storage: favorite },
+      //   }
+      // );
+      favorite = Number(favorite);
+      const currentUser = await collections.SvesteUsers.findOne({
+        _id: _id,
+      });
+      console.log(currentUser.storage.length);
+      currentUser.storage.splice(favorite, 1);
+      console.log(currentUser.storage.length);
+      const updatedUser = await collections.SvesteUsers.findOneAndReplace(
+        {
+          _id: _id,
+        },
+        currentUser
+      );
+      let resultStorage = await collections.SvesteUsers.findOne({
+        _id: _id,
+      });
+      // const updatedUser = await updatedUser
+      // updatedUser = await collections.SvesteUsers[updatedUser].save();
+      res.locals.favorites = resultStorage.storage;
+      return next();
+    } catch (err) {
+      next(err);
     }
   },
 };
