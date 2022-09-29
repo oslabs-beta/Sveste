@@ -10,7 +10,9 @@
   }
 </script>
 
-<button type="button" on:click|preventDefault={handleClick}>+{type}</button>
+<button type="button" on:click|preventDefault={handleClick}
+  >+{addToId.replace(/[0-9]/g, "")}</button
+>
 <svelte:component this={menu} {addToId} bind:menu />
 
 <style>

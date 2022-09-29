@@ -13,7 +13,6 @@ export const favoritesController: FavoritesController = {
     next: NextFunction
   ): Promise<void> => {
     try {
-      console.log(req.body, "request body");
       const { _id, favorite } = req.body;
 
       const currentUser = await collections.SvesteUsers.updateOne(

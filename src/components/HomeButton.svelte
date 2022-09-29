@@ -1,10 +1,10 @@
 <script lang="ts">
   function handleClick() {
-    location.href = "/#/login";
+    location.href = "/#/home";
   }
 </script>
 
-<button on:click={handleClick}>Login</button>
+<button on:click={handleClick}>Home</button>
 
 <style>
 </style>

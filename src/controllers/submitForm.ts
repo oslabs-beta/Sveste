@@ -1,4 +1,4 @@
-import { compiledTestStore } from "../compiledTestStore";
+import { compiledTestStore, submitSuccessful } from "../compiledTestStore";
 import axios from "axios";
 const url = "/test";
 
@@ -17,11 +17,11 @@ export async function POST(url, body) {
         "Content-Type": "application/json",
       },
     });
-    console.log(response.data);
     compiledTestStore.set(response.data);
-
+    submitSuccessful.set(true);
     return response.data;
   } catch (err) {
+    submitSuccessful.set(false);
     console.log(err);
   }
 }

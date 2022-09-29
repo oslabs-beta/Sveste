@@ -86,3 +86,4 @@ export const blockStore = createBlockStore();
 export const idStore = createIdStore();
 export const testStore = createTestStore();
 export const isLoggedIn = writable(false);
+export const userId = writable("");

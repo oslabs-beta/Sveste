@@ -1,8 +1,9 @@
 <script lang="ts">
   import axios from "axios";
   import { favoritesStore } from "../models/favoritesStore";
+  import { userId } from "../models/store";
   //hardcoded place holder for current user
-  const user = "admin@test.com";
+  const user = $userId;
   async function handleFavoritesGet() {
     try {
       const response = await axios.get("/favorites", { params: { _id: user } });
