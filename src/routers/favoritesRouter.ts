@@ -18,4 +18,11 @@ favoritesRouter.post(
     return res.status(200).send(res.locals.favorites);
   }
 );
+favoritesRouter.put(
+  "/",
+  favoritesController.deleteFavorite,
+  (req: Request, res: Response) => {
+    return res.status(200).send(res.locals.favorites);
+  }
+);
 export default favoritesRouter;
