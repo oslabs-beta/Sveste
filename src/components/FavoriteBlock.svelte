@@ -16,4 +16,10 @@
 
 <style>
   @import "prismjs";
+  pre {
+    margin-left: 2em;
+    margin-top: 2em;
+    border-radius: 10px;
+    border: 2px solid var(--svestedarkteal);
+  }
 </style>
