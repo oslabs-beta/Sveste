@@ -14,10 +14,3 @@
 <div>
   <p>expect...</p>
 </div>
-
-<style>
-  div {
-    display: flex;
-    width: 100%;
-  }
-</style>

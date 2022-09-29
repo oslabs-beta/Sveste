@@ -8,8 +8,6 @@
 
 <div>
   <form on:submit|preventDefault={() => POST("/tests", $testStore)}>
-    <h2>Test Code Builder</h2>
-    <p>Start crafting your test code by adding a describe block below:</p>
     <Block
       id={$testStore["id"]}
       type={$testStore["type"]}

@@ -10,8 +10,9 @@
 
 <style>
   footer {
-    margin-top: 15rem;
-    height: 5rem;
+    /* margin-top: 15rem; */
+    min-height: 5rem;
+    width: 100%;
     background-color: var(--svestedarkteal);
     display: flex;
     justify-content: center;
