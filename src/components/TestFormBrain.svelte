@@ -6,16 +6,18 @@
   import { POST } from "../controllers/submitForm";
 </script>
 
-<form on:submit|preventDefault={() => POST("/tests", $testStore)}>
-  <h2>Test Code Builder</h2>
-  <p>Start crafting your test code by adding a describe block below:</p>
-  <Block
-    id={$testStore["id"]}
-    type={$testStore["type"]}
-    children={$testStore["children"]}
-  />
-  <button type="submit">Submit</button>
-</form>
+<div>
+  <form on:submit|preventDefault={() => POST("/tests", $testStore)}>
+    <h2>Test Code Builder</h2>
+    <p>Start crafting your test code by adding a describe block below:</p>
+    <Block
+      id={$testStore["id"]}
+      type={$testStore["type"]}
+      children={$testStore["children"]}
+    />
+    <button type="submit">Submit</button>
+  </form>
+</div>
 
 <style>
   form {
