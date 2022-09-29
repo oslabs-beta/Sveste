@@ -51,7 +51,7 @@ export const favoritesController: FavoritesController = {
     next: NextFunction
   ): Promise<void> => {
     try {
-      const { _id, favorite } = req.body;
+      let { _id, favorite } = req.body;
       console.log(req.body);
       // const currentUser = await collections.SvesteUsers.updateOne(
       //   { _id: _id },
@@ -59,11 +59,12 @@ export const favoritesController: FavoritesController = {
       //     $pull: { storage: favorite },
       //   }
       // );
+      favorite = Number(favorite);
       const currentUser = await collections.SvesteUsers.findOne({
         _id: _id,
       });
       console.log(currentUser.storage.length);
-      currentUser.storage = currentUser.storage.splice(0, 1);
+      currentUser.storage.splice(favorite, 1);
       console.log(currentUser.storage.length);
       const updatedUser = await collections.SvesteUsers.findOneAndReplace(
         {
