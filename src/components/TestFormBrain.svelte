@@ -14,7 +14,6 @@
     type={$testStore["type"]}
     children={$testStore["children"]}
   />
-  <!-- <AddButton addToId="root0" /> -->
   <button type="submit">Submit</button>
 </form>
 
@@ -22,6 +21,5 @@
   form {
     display: flex;
     flex-direction: column;
-    margin: auto;
   }
 </style>

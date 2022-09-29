@@ -7,18 +7,19 @@
   import { push } from "svelte-spa-router";
 </script>
 
-<main>
-  <Header />
+<Header />
+
+<div class="container">
   <FormDisplay />
   <CodeDisplay />
-  <Footer />
-</main>
+</div>
+<Footer />
 
 <style>
-  main {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    gap: 1rem;
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(600px, 2fr));
+    gap: 5vw;
+    padding: 0 5vw;
   }
 </style>

@@ -9,8 +9,8 @@
   --svesteblue: #0db4ff;
   --svestedarkblue: #1281b3;
   --svesteteal: #00ffc4;
-  --svestedarkteal: rgb(0, 179, 137);
-  --svestewashout: rgb(207, 229, 224);
+  --svestedarkteal: rgba(0, 179, 137, 100%);
+  --svestewashout: rgba(0, 179, 137, 3%);
 
   font-family: "Roboto", sans-serif;
 }
