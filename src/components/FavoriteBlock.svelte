@@ -33,7 +33,7 @@
       {fav}
     </code>
   </pre>
-<button on:click|preventDefault={handleDelete}>Delete Favorite</button>
+<button on:click|preventDefault={handleDelete}>-</button>
 
 <style>
   @import "prismjs";
@@ -42,5 +42,22 @@
     margin-top: 2em;
     border-radius: 10px;
     border: 2px solid var(--svestedarkteal);
+  }
+  button {
+    display: flex;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    align-items: center;
+    justify-content: center;
+    color: var(--highlight);
+    border: none;
+    background: transparent;
+  }
+  button:hover {
+    background-color: var(--highlight);
+    color: white;
   }
 </style>
