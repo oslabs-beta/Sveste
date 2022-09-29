@@ -11,10 +11,10 @@
 <Header />
 
 <div class="container">
-  <div>
+  <section>
     <InfoDisplay />
     <FormDisplay />
-  </div>
+  </section>
   <CodeDisplay />
 </div>
 <Footer />
@@ -22,8 +22,17 @@
 <style>
   .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(600px, 2fr));
+    grid-template-columns: repeat(auto-fit, minmax(500px, 2fr));
     gap: 4vw;
-    padding: 2vh 4vw;
+    padding: 4vh 4vw;
+    height: 100%;
+    /* max-width: 1200px; */
+  }
+  section {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 1rem;
+    /* justify-content: space-between; */
   }
 </style>

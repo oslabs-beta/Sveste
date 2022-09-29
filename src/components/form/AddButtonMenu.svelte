@@ -75,23 +75,46 @@
 </script>
 
 <menu>
-  <h3>Add new Component</h3>
-
-  {#each blockTypes as blockType (blockType)}
-    <button on:click|preventDefault={() => addBlock(blockType)}
-      >{blockType}</button
-    >
-  {/each}
+  <h3>Add new...</h3>
+  <div class="buttonWrapper">
+    {#each blockTypes as blockType (blockType)}
+      <button on:click|preventDefault={() => addBlock(blockType)}
+        >{blockType}</button
+      >
+    {/each}
+  </div>
 </menu>
 
 <style>
   menu {
-    /* visibility: hidden; */
-    /* position: relative; */
-    border: 1px solid var(--primary);
-    padding: 1rem;
+    display: flex;
+    flex-direction: column;
     list-style-type: none;
-    left: 2rem;
-    background: var(--background);
+    border: 2px solid var(--svestedarkteal);
+    margin: 0.5rem 0;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: var(--transparent);
+    align-items: center;
+  }
+  h3 {
+    margin: 0 0 1rem 0;
+    color: var(--secondary);
+  }
+  .buttonWrapper {
+    display: flex;
+    gap: 0.5rem;
+  }
+  button {
+    font-size: 1rem;
+    background: var(--transparent);
+    color: var(--svestedarkteal);
+    border: 2px solid var(--svestedarkteal);
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+  }
+  button:hover {
+    background: var(--svestedarkteal);
+    color: white;
   }
 </style>

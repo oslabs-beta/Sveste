@@ -35,11 +35,13 @@
     width: 100%;
     padding: 0.25rem 0;
     gap: 0.25rem;
+    justify-content: space-between;
   }
   .inputWrapper {
     display: flex;
+    flex-direction: row;
+    gap: 1rem;
     width: 100%;
-    gap: 0.25rem;
     justify-content: space-between;
     align-items: center;
   }
@@ -48,7 +50,7 @@
     display: flex;
     flex-direction: row;
     justify-self: start;
-    width: 100%;
+    width: 90%;
     position: relative;
   }
   .inputWrapper :global(label) {
