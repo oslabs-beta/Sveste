@@ -1,11 +1,34 @@
 :root {
-  font-size: 16px;
   --primary: rgb(30, 30, 30);
-  --background: rgb(250, 250, 250);
+  --secondary: rgb(120, 120, 120);
+  --tertiary: rgb(220, 220, 220);
+  --shadow: rgb(240, 240, 240);
+  --background: rgba(0, 179, 137, 5%);
+  --highlight: rgb(220, 51, 0);
+  /* --svelte: #ff3e00;
+  --svestegreen: #0dff3e;
+  --svestedarkgreen: #12b332;
+  --svesteblue: #0db4ff;
+  --svestedarkblue: #1281b3;
+  --svesteteal: #00ffc4; */
+  --svestedarkteal: rgba(0, 179, 137, 100%);
+  /* --svestewashout: rgba(0, 179, 137, 4%); */
 }
 html {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
   font-size: 16px;
+  height: 100%;
 }
+
 body {
   margin: 0;
+  height: 100%;
+  background: var(--background);
+  color: var(--primary);
+}
+
+#app {
+  /* display: flex; */
+  height: 100%;
 }
