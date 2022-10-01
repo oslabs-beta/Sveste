@@ -1,19 +1,27 @@
 <script lang="ts">
+  import NavBar from "./NavBar.svelte";
+  import NavMenu from "./NavMenu.svelte";
   export let screenWidth: number;
 </script>
 
-<nav>
+<div>
   {#if screenWidth <= 920}
-    <p>Collapsed Nav</p>
+    <NavMenu />
   {:else}
-    <p>Nav</p>
+    <NavBar />
   {/if}
-</nav>
+</div>
 
 <style>
-  nav {
+  div {
     grid-area: nav;
     display: grid;
-    /* border: 1px solid black; */
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content;
+    padding: 1rem 0.5rem;
+    background-color: var(--primary-mid);
+    border-right: 1px solid var(--shadow);
+    /* z-index: 2; */
+    box-shadow: 0 0 1px 1px var(--shadow);
   }
 </style>
