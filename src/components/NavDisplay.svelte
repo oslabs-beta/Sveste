@@ -15,12 +15,13 @@
 <style>
   div {
     grid-area: nav;
-    z-index: -1;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: min-content;
     padding: 1rem 0.5rem;
     background-color: var(--primary-mid);
+    border-right: 1px solid var(--shadow);
+    z-index: 2;
     box-shadow: 0 0 1px 1px var(--shadow);
   }
 </style>

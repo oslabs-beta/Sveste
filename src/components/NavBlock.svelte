@@ -1,8 +1,15 @@
 <script lang="ts">
-  import NavMenu from "./NavMenu.svelte";
   import ExpandMore from "./icons/ExpandMore.svelte";
-  export let blockType: "parent" | "child";
+  import ExpandLess from "./icons/ExpandLess.svelte";
+
+  let isOpen = false;
+  const toggleMenu = () => {
+    console.log("clicked");
+    isOpen = !isOpen;
+  };
+
   // dummy data, use svelte:self with a tree of components later
+  export let blockType: "parent" | "child";
   let children = [
     { blockType: "child" },
     { blockType: "child" },
@@ -11,19 +18,26 @@
   let indent = 1.5;
 </script>
 
-<button>
+<button type="button" on:click={toggleMenu}>
   {#if (blockType = "parent")}
-    <ExpandMore />
+    {#if isOpen}
+      <ExpandLess />
+    {:else}
+      <ExpandMore />
+    {/if}
   {:else}
     <p>&ensp;</p>
   {/if}
 
   <p>{blockType}</p>
 </button>
+
 <div style="padding-left: {indent}rem;">
-  {#each children as child}
-    <button><p>{child.blockType}</p></button>
-  {/each}
+  {#if isOpen}
+    {#each children as child}
+      <button><p>{child.blockType}</p></button>
+    {/each}
+  {/if}
 </div>
 
 <style>
