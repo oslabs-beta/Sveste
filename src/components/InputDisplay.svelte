@@ -21,7 +21,7 @@
     min-width: 350px;
     height: 100%;
     overflow-y: auto;
-    padding: 0.5em;
+    padding: 0 0.5em;
   }
   .form-wrapper {
     /* margin-top: 0px; */
