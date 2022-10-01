@@ -22,8 +22,9 @@
     /* display: grid; */
     grid-template-rows: 0.25fr 8fr;
     border: 1px solid black;
-    min-width: 700px;
+    min-width: 350px;
     height: 100%;
+    padding: 1em;
   }
   .codeWrapper {
     padding: 1em;
