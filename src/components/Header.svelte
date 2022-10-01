@@ -29,7 +29,9 @@
     padding: 1vh 5vw;
     background-color: var(--primary);
     color: var(--text-light);
-    box-shadow: 0 1px 1px 1px var(--shadow);
+    box-shadow: 0 0 1px 1px var(--shadow);
+    border: 1px solid var(--shadow);
+    z-index: 0;
   }
   menu > li {
     list-style-type: none;
