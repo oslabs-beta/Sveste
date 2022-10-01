@@ -1,6 +1,6 @@
 <script lang="ts">
   import Header from "../components/Header.svelte";
-  import Nav from "../components/Nav.svelte";
+  import NavDisplay from "../components/NavDisplay.svelte";
   import InputDisplay from "../components/InputDisplay.svelte";
   import OutputDisplay from "../components/OutputDisplay.svelte";
 
@@ -10,7 +10,7 @@
 <svelte:window bind:innerWidth={screenWidth} />
 <div>
   <Header />
-  <Nav {screenWidth} />
+  <NavDisplay {screenWidth} />
   <InputDisplay />
   <OutputDisplay />
 </div>
@@ -25,7 +25,6 @@
       "nav      input     output";
     width: 100%;
     height: 100%;
-    gap: 1rem;
   }
 
   @media screen and (max-width: 920px) {
