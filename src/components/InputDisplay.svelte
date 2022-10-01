@@ -17,7 +17,7 @@
     display: grid;
     grid-template-rows: 1fr 6fr;
     /* border: 1px solid black; */
-    z-index: -2;
+    /* z-index: -2; */
     min-width: 350px;
     height: 100%;
     overflow-y: auto;
