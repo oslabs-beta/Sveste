@@ -84,7 +84,7 @@
 
   pre {
     border-radius: 10px;
-    border: 2px solid var(--svestedarkteal);
+    border: 2px solid var(--primary);
   }
   pre:global([class*="language-"]) {
     background: none;
@@ -96,12 +96,12 @@
     margin: 0 auto;
     padding: 0.5rem;
     border-radius: 1rem;
-    color: var(--svestedarkteal);
+    color: var(--primary);
     background-color: transparent;
     border: none;
   }
   button:hover {
-    background-color: var(--svestedarkteal);
+    background-color: var(--primary);
     color: white;
   }
 </style>

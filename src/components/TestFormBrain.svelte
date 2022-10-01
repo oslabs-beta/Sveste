@@ -27,13 +27,13 @@
   }
   button {
     position: absolute;
-    right: -1rem;
+    right: 0rem;
     top: 0.5rem;
     width: fit-content;
     border: none;
     border-radius: 2rem;
     padding: 0.5rem 1rem;
     color: white;
-    background-color: var(--svestedarkteal);
+    background-color: var(--primary);
   }
 </style>

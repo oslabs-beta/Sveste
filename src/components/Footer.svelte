@@ -13,7 +13,7 @@
     /* margin-top: 15rem; */
     min-height: 5rem;
     width: 100%;
-    background-color: var(--svestedarkteal);
+    background-color: var(--primary);
     display: flex;
     justify-content: center;
     align-items: center;

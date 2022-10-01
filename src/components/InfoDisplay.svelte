@@ -12,7 +12,7 @@
   div {
     display: flex;
     align-items: center;
-    border: 1px solid var(--tertiary);
+    border: 1px solid var(--shadow);
     border-radius: 0.5rem;
     gap: 0.5rem;
     padding: 0.5rem;
@@ -20,10 +20,10 @@
   p {
     margin-block-start: 0;
     margin-block-end: 0;
-    color: var(--secondary);
+    color: var(--text-mid);
   }
   .material-icons {
-    color: var(--tertiary);
+    color: var(--shadow);
   }
   code {
     font-size: 1rem;

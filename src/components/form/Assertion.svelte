@@ -86,7 +86,7 @@
   select:focus + label,
   select:valid + label {
     transform: translateY(-50%) scale(0.7);
-    color: var(--secondary);
+    color: var(--text-mid);
   }
 
   input {
@@ -99,7 +99,7 @@
   input:focus + label,
   input:valid + label {
     transform: translateY(-50%) scale(0.7);
-    color: var(--secondary);
+    color: var(--text-mid);
     /* left: 0.1rem; */
   }
 </style>

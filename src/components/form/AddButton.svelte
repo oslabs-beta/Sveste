@@ -26,13 +26,13 @@
     margin: 1rem auto;
     padding: 0.5rem 1rem;
     border-radius: 2rem;
-    color: var(--svestedarkteal);
+    color: var(--primary);
     background-color: transparent;
-    border: 1px solid var(--svestedarkteal);
+    border: 1px solid var(--primary);
   }
   button:hover,
   button.active {
-    background-color: var(--svestedarkteal);
+    background-color: var(--primary);
     color: white;
   }
 </style>

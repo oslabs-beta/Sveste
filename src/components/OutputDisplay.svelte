@@ -12,8 +12,7 @@
 
 <style>
   div {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+    display: grid;
+    border: 1px solid black;
   }
 </style>

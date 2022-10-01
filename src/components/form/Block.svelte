@@ -59,7 +59,7 @@
     top: 0.5rem;
     transform-origin: left top;
     transition: transform 100ms ease-in-out;
-    color: var(--secondary);
+    color: var(--text-mid);
   }
 
   .inputWrapper :global(input) {
@@ -68,7 +68,7 @@
     height: 1.5rem;
     padding: 0.5rem 0 0 0.25rem;
     border: none;
-    border-bottom: 1px solid var(--tertiary);
+    border-bottom: 1px solid var(--shadow);
     background-color: transparent;
   }
   .inputWrapper :global(select) {
@@ -82,18 +82,18 @@
   .inputWrapper :global(input:focus + label),
   .inputWrapper :global(input:valid + label) {
     transform: translateY(-50%) scale(0.7);
-    color: var(--secondary);
+    color: var(--text-mid);
   }
 
   .inputWrapper :global(select:focus + label),
   .inputWrapper :global(select:valid + label) {
     transform: translateY(-50%) scale(0.7);
-    color: var(--secondary);
+    color: var(--text-mid);
   }
 
   .inputWrapper :global(input:focus + label),
   .inputWrapper :global(select:focus + label) {
-    color: var(--svestedarkteal);
+    color: var(--primary);
   }
 
   .inputWrapper :global(input:focus),
