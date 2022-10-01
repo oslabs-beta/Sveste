@@ -14,6 +14,6 @@
   nav {
     grid-area: nav;
     display: grid;
-    border: 1px solid black;
+    /* border: 1px solid black; */
   }
 </style>

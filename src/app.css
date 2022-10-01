@@ -3,9 +3,9 @@
   --primary: rgba(0, 179, 137, 100%);
   --background: rgba(0, 179, 137, 5%);
   --text: rgb(30, 30, 30);
-  --text-mid: rgb(120, 120, 120);
-  --text-light: rgb(220, 220, 220);
-  --shadow: rgb(240, 240, 240);
+  --text-mid: #787878;
+  --text-light: rgb(233, 247, 244);
+  --shadow: rgb(230, 230, 230);
   --highlight: rgb(220, 51, 0);
 }
 html {
@@ -24,6 +24,5 @@ body {
 }
 
 #app {
-  /* display: flex; */
   height: 100%;
 }
