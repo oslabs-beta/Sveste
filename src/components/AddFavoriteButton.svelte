@@ -1,6 +1,7 @@
 <script lang="ts">
   import { isLoggedIn, userId } from "../models/store";
   import Modal from "./form/loginModal.svelte";
+  import Star from "./icons/Star.svelte";
   import { tweened } from "svelte/motion";
   import { cubicOut } from "svelte/easing";
   import LoginButton from "./LoginButton.svelte";
@@ -46,7 +47,7 @@
   <progress value={$progress} />
 {/if} -->
 <button on:click|preventDefault={handleAddFavorite} type="submit"
-  >Add To Favorites</button
+  ><Star /></button
 >
 
 {#if showModal}
@@ -57,16 +58,15 @@
   button {
     display: flex;
     width: fit-content;
-    /* margin: 0 auto; */
-    padding: 0.5rem;
-    border-radius: 1rem;
-    color: white;
-    background-color: var(--primary);
+    justify-self: end;
+    align-self: center;
+    color: var(--primary);
+    background-color: transparent;
     border: none;
   }
   button:hover {
     background-color: var(--highlight);
-    color: white;
+    color: var(--text-light);
     cursor: pointer;
   }
 </style>

@@ -33,14 +33,15 @@
   @import "prismjs";
 
   pre {
-    margin-left: 2em;
-    margin-top: 2em;
-    border-radius: 10px;
-    border: 2px solid var(--primary);
-    /* min-width: 500px; */
-    height: 90%;
+    height: 100%;
+    max-width: 100%;
+    /* white-space: pre-wrap; */
   }
   pre:global([class*="language-"]) {
     background: none;
+    margin-top: 0;
+    padding-top: 0;
+    word-wrap: normal;
+    font-size: 0.9rem;
   }
 </style>

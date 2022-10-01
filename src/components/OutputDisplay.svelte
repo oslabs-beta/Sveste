@@ -4,43 +4,21 @@
   import AddFavoriteButton from "./AddFavoriteButton.svelte";
 </script>
 
-<!-- key reloads the code block component on store change !important -->
-<div class="code-display">
-  <div class="button-wrapper">
-    <AddFavoriteButton />
-  </div>
-
+<!-- !IMPORTANT: key reloads the code block component on store change  -->
+<div>
+  <AddFavoriteButton />
   {#key $compiledTestStore}
-    <div class="codeWrapper">
-      <CodeBlock />
-    </div>
+    <CodeBlock />
   {/key}
 </div>
 
 <style>
-  .code-display {
-    /* display: grid; */
-    grid-template-rows: 0.25fr 8fr;
-    border: 1px solid black;
-    min-width: 350px;
-    height: 100%;
-    padding: 1em;
-  }
-  .codeWrapper {
-    padding: 1em;
-    display: flex;
-    flex-direction: column;
-    margin-left: 1em;
-    margin-right: 1em;
-    margin-bottom: 1em;
-    height: 90%;
-  }
-  .button-wrapper {
-    display: flex;
-    margin-top: 0.5em;
-    margin-right: 1em;
-    justify-content: flex-end;
-    align-items: center;
-    padding-top: 1em;
+  div {
+    display: grid;
+    grid-template-rows: minmax(0, 2rem) 1fr;
+    padding: 1rem;
+    margin: 2rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--shadow);
   }
 </style>
