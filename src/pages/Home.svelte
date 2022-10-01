@@ -1,38 +1,53 @@
 <script lang="ts">
-  //import App from "../App.svelte";
-  import CodeDisplay from "../components/CodeDisplay.svelte";
-  import FormDisplay from "../components/FormDisplay.svelte";
-  import InfoDisplay from "../components/InfoDisplay.svelte";
   import Header from "../components/Header.svelte";
-  import Footer from "../components/Footer.svelte";
-  import { push } from "svelte-spa-router";
+  import Nav from "../components/Nav.svelte";
+  import InputDisplay from "../components/InputDisplay.svelte";
+  import OutputDisplay from "../components/OutputDisplay.svelte";
+
+  let screenWidth: number;
 </script>
 
-<Header />
-
-<div class="container">
-  <section>
-    <InfoDisplay />
-    <FormDisplay />
-  </section>
-  <CodeDisplay />
+<svelte:window bind:innerWidth={screenWidth} />
+<div>
+  <Header />
+  <Nav {screenWidth} />
+  <InputDisplay />
+  <OutputDisplay />
 </div>
-<Footer />
 
 <style>
-  .container {
+  div {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 2fr));
-    gap: 4vw;
-    padding: 4vh 4vw;
-    height: 100%;
-    /* max-width: 1200px; */
-  }
-  section {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: minmax(300px, 1fr) 2fr 2fr;
+    grid-template-rows: 65px 1fr;
+    grid-template-areas:
+      "header   header    header"
+      "nav      input     output";
+    width: 100%;
     height: 100%;
     gap: 1rem;
-    /* justify-content: space-between; */
+  }
+
+  @media screen and (max-width: 920px) {
+    div {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 65px auto 1fr;
+      grid-template-areas:
+        "header   header"
+        "nav      nav"
+        "input    output";
+    }
+  }
+
+  @media screen and (max-width: 680px) {
+    div {
+      grid-template-columns: 1fr;
+      grid-template-rows: 65px auto 1fr 1fr;
+      grid-template-areas:
+        "header"
+        "nav"
+        "input"
+        "output";
+    }
   }
 </style>

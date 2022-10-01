@@ -90,7 +90,7 @@
     display: flex;
     flex-direction: column;
     list-style-type: none;
-    border: 2px solid var(--svestedarkteal);
+    border: 2px solid var(--primary);
     margin: 0.5rem 0;
     padding: 1rem;
     border-radius: 1rem;
@@ -99,7 +99,7 @@
   }
   h3 {
     margin: 0 0 1rem 0;
-    color: var(--secondary);
+    color: var(--text-mid);
   }
   .buttonWrapper {
     display: flex;
@@ -108,13 +108,13 @@
   button {
     font-size: 1rem;
     background: var(--transparent);
-    color: var(--svestedarkteal);
-    border: 2px solid var(--svestedarkteal);
+    color: var(--primary);
+    border: 2px solid var(--primary);
     border-radius: 2rem;
     padding: 0.5rem 1rem;
   }
   button:hover {
-    background: var(--svestedarkteal);
+    background: var(--primary);
     color: white;
   }
 </style>

@@ -6,7 +6,7 @@
 </script>
 
 <header>
-  <h1>🦺 Sveste |</h1>
+  <h1>🦺 Sveste</h1>
 
   <menu>
     {#if location.href.includes("login")}
@@ -22,32 +22,14 @@
 
 <style>
   header {
-    height: auto;
+    grid-area: header;
     display: flex;
-    justify-content: left;
-    font-family: "Roboto", sans-serif;
-    width: 100%;
-    background: var(--svestedarkteal);
-    border-bottom: 3px solid var(--svelte);
-  }
-  h1 {
-    margin-left: 5rem;
-  }
-  li {
-    list-style-type: none;
-  }
-  a {
-    text-decoration: none;
-    color: black;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-  menu {
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 10rem;
+    padding: 1vh 5vw;
+    background-color: var(--primary);
+  }
+  menu > li {
+    list-style-type: none;
   }
 </style>
