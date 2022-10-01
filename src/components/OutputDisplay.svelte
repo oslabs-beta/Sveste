@@ -23,6 +23,7 @@
     grid-template-rows: 0.25fr 8fr;
     border: 1px solid black;
     min-width: 700px;
+    height: 100%;
   }
   .codeWrapper {
     padding: 1em;
@@ -30,6 +31,7 @@
     flex-direction: column;
     margin-left: 1em;
     margin-right: 1em;
+    margin-bottom: 1em;
     height: 90%;
   }
   .button-wrapper {
