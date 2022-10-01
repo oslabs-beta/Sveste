@@ -31,7 +31,7 @@
     color: var(--text-light);
     box-shadow: 0 0 1px 1px var(--shadow);
     border: 1px solid var(--shadow);
-    z-index: 2;
+    /* z-index: 2; */
   }
   menu > li {
     list-style-type: none;
