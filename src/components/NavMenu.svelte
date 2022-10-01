@@ -1,15 +1,11 @@
 <script lang="ts">
   import NavBlock from "./NavBlock.svelte";
+  // dummy data for now
 </script>
 
 <div>
-  <NavBlock />
+  <NavBlock blockType="parent" />
 </div>
 
 <style>
-  div {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-  }
 </style>
