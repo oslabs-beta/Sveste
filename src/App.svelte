@@ -43,6 +43,3 @@
 
 <Router {routes} />
 <slot />
-
-<style>
-</style>
