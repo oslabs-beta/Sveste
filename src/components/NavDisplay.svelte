@@ -1,5 +1,5 @@
 <script lang="ts">
-  import NavBar from "./NavMenu.svelte";
+  import NavBar from "./NavBar.svelte";
   import NavMenu from "./NavMenu.svelte";
   export let screenWidth: number;
 </script>

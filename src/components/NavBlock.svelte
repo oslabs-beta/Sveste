@@ -53,6 +53,11 @@
     border: none;
     background-color: transparent;
   }
+
+  button:hover {
+    /* color: var(--text); */
+    text-shadow: 0 0 1px var(--shadow);
+  }
   div {
     display: flex;
     flex-direction: column;
