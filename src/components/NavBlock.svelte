@@ -2,29 +2,22 @@
   import ExpandMore from "./icons/ExpandMore.svelte";
   import ExpandLess from "./icons/ExpandLess.svelte";
   import AddButton from "./form/AddButton.svelte";
-  // import { children } from 'svelte/internal';
-
   let isOpen = false;
   const toggleMenu = () => {
     console.log("clicked");
-    console.log(blockType);
+    console.log(id);
     isOpen = !isOpen;
   };
 
-  // dummy data, use svelte:self with a tree of components later
-  // export let blockType: "parent" | "child";
   export let blockType;
   export let name;
   export let children = [];
-  // let children = [
-  //   { blockType: "child" },
-  //   { blockType: "child" },
-  //   { blockType: "child" },
-  // ];
+  export let id;
+
   let indent = 1.5;
 </script>
 
-<button type="button" on:click={toggleMenu}>
+<button {id} type="button" on:click={toggleMenu}>
   {#if (blockType = "parent")}
     {#if isOpen}
       <ExpandLess />
@@ -34,8 +27,6 @@
   {:else}
     <p>&ensp;</p>
   {/if}
-
-  <!-- <p>{blockType}</p> -->
   {name}
 </button>
 
@@ -46,7 +37,7 @@
         {#if child.type === "describe" || child.type === "root" || child.type === "test" || child.type === "mock"}
           <svelte:self {...child} name={child.type} blockType={"parent"} />
         {:else}
-          <svelte:self {...child} name={child.type} blockType={"child"} />
+          <button {...child} blockType={"child"}><p>{child.type}</p></button>
         {/if}
       {/if}
     {/each}
@@ -68,7 +59,7 @@
   }
 
   button:hover {
-    /* color: var(--text); */
+    color: var(--text);
     text-shadow: 0 0 1px var(--shadow);
   }
   div {
