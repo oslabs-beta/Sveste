@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Router, { push } from "svelte-spa-router";
+  import Router, { push }, { push } from "svelte-spa-router";
   import { wrap } from "svelte-spa-router/wrap";
   import Login from "./pages/LoginPage.svelte";
   import SignUp from "./pages/SignupPage.svelte";
