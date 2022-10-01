@@ -3,6 +3,7 @@
   import { favoritesStore } from "../models/favoritesStore";
   import { userId } from "../models/store";
   //hardcoded place holder for current user
+  const src = "src/assets/heart.png";
   const user = $userId;
   async function handleFavoritesGet() {
     try {
@@ -10,20 +11,21 @@
       // const parsedBody = JSON.parse(response.data)
       favoritesStore.set([...response.data]);
       console.log($favoritesStore);
+      location.href = "/#/favorites";
     } catch (err) {
       console.log(err);
     }
   }
 </script>
 
-<a on:click={handleFavoritesGet} href="/#/favorites">Favorites</a>
+<button on:click={handleFavoritesGet}
+  ><img {src} alt="hearticon" />Favorites</button
+>
 
 <style>
-  a {
+  button {
     text-decoration: none;
     color: black;
-  }
-  a:hover {
-    text-decoration: underline;
+    width: 90px;
   }
 </style>

@@ -12,7 +12,7 @@
     {#if location.href.includes("login")}
       <li><HomeButton /></li>
     {:else if $isLoggedIn}
-      <li><a href="/#/home">Home</a></li>
+      <li><a href="/#/home"><HomeButton /></a></li>
       <li><FavoritesButton /></li>
     {:else}
       <li><LoginButton /></li>
