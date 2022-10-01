@@ -1,13 +1,12 @@
 <script lang="ts">
-  import Router from "svelte-spa-router";
+  import Router, { push } from "svelte-spa-router";
   import { wrap } from "svelte-spa-router/wrap";
-  import Login from "./routes/Login.svelte";
-  import SignUp from "./routes/SignUp.svelte";
-  import NotFound from "./routes/NotFound.svelte";
-  import Home from "./pages/Home.svelte";
-  import Favorites from "./pages/Favorites.svelte";
+  import Login from "./pages/LoginPage.svelte";
+  import SignUp from "./pages/SignupPage.svelte";
+  import NotFound from "./pages/404Page.svelte";
+  import Home from "./pages/HomePage.svelte";
+  import Favorites from "./pages/FavoritesPage.svelte";
   import { isLoggedIn } from "./models/store";
-  import { push } from "svelte-spa-router";
 
   export const loadCookie = () => {
     const myCookieValue = document.cookie;
