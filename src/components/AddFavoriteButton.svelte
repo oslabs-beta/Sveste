@@ -1,7 +1,7 @@
 <script lang="ts">
   import { isLoggedIn, userId } from "../models/store";
   import Modal from "./form/loginModal.svelte";
-  import Star from "./icons/Star.svelte";
+  import Star from "./icons/StarOutline.svelte";
   import { tweened } from "svelte/motion";
   import { cubicOut } from "svelte/easing";
   import LoginButton from "./LoginButton.svelte";
