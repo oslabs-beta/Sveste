@@ -39,6 +39,7 @@
         console.log("response from post: ", response);
         //If axios response verifies info is correct, creates new user in database and redirects to home
         if (response.data.loggedIn) isLoggedIn.set(true);
+        userId.set(emailAddress);
         push("/home");
       })
       .catch((err) => {
