@@ -1,7 +1,7 @@
 import DescribeStatement from "../components/statements/describeStatement.svelte";
 import Mock from "../components/form/Mock.svelte";
 import MockStatement from "../components/form/MockStatement.svelte";
-import Render from "../components/form/Render.svelte";
+import RenderBlock from "../components/blocks/RenderBlock.svelte";
 import Query from "../components/form/Query.svelte";
 import TestStatement from "../components/statements/TestStatement.svelte";
 import Expect from "../components/form/Expect.svelte";
@@ -15,7 +15,7 @@ export const blockRef: BlockRef = [
   { type: "describeStatement", component: DescribeStatement },
   { type: "mock", component: Mock },
   { type: "mockStatement", component: MockStatement },
-  { type: "render", component: Render },
+  { type: "renderBlock", component: RenderBlock },
   { type: "query", component: Query },
   { type: "testStatement", component: TestStatement },
   { type: "expect", component: Expect },
