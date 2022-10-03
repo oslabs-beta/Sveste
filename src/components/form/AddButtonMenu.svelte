@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { testStore, blockStore } from "../../models/store";
-  import { Block } from "../../controllers/blockClass";
-  import { blockRef } from "../../controllers/blockTypes";
-  import { clickOutside } from "../../controllers/click_outside";
+  import { testStore, blockStore } from '../../models/store';
+  import { Block } from '../../controllers/blockClass';
+  import { blockRef } from '../../controllers/blockTypes';
+  import { clickOutside } from '../../controllers/click_outside';
   export let addToId: string;
   export let menu;
   let showMenu = true;
@@ -10,7 +10,7 @@
   let handleBlocks = handleBlockTypes();
   blockTypes = handleBlocks;
   console.log(addToId);
-  $: if (addToId === "root0") console.log("im a root");
+  $: if (addToId === 'root0') console.log('im a root');
   function addBlock(blockType: string) {
     const newBlock = new Block(blockType, addToId);
     blockStore.upsertBlock(newBlock);
@@ -23,37 +23,37 @@
   function handleBlockTypes() {
     switch (true) {
       case !addToId:
-        return blockTypes.filter((type) => type === "describeStatement");
+        return blockTypes.filter((type) => type === 'describeStatement');
         break;
 
       case /root/.test(addToId):
-        return blockTypes.filter((type) => type === "describeStatement");
+        return blockTypes.filter((type) => type === 'describeStatement');
         break;
 
       case /describeStatement/.test(addToId):
         return blockTypes.filter(
-          (type) => type === "describeStatement" || type === "testStatement"
+          (type) => type === 'describeStatement' || type === 'testStatement'
         );
         break;
 
-      case /mockStatement/.test(addToId):
+      case /modifierBlock/.test(addToId):
         return [];
 
       case /mock/.test(addToId):
         return blockTypes.filter(
           (type) =>
-            type === "mockStatement" ||
-            type === "renderBlock" ||
-            type === "event"
+            type === 'modifierBlock' ||
+            type === 'renderBlock' ||
+            type === 'event'
         );
         break;
 
       case /testStatement/.test(addToId):
         return blockTypes.filter(
           (type) =>
-            type === "executionBlock" ||
-            type === "renderBlock" ||
-            type === "event"
+            type === 'executionBlock' ||
+            type === 'renderBlock' ||
+            type === 'modifierBlock'
         );
 
       case /executionBlock/.test(addToId):
@@ -61,11 +61,11 @@
         break;
 
       case /query/.test(addToId):
-        return blockTypes.filter((type) => type === "assertion");
+        return blockTypes.filter((type) => type === 'assertion');
         break;
 
       case /renderBlock/.test(addToId):
-        return blockTypes.filter((type) => type === "assertion");
+        return blockTypes.filter((type) => type === 'assertion');
         break;
       case /assertion/.test(addToId):
         return [];

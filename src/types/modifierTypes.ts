@@ -1,1 +1,1 @@
-export const modifiers = [];
+export const modifiers = ["innerHTML", "value"];
