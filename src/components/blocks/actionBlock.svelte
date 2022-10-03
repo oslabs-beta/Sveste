@@ -1,8 +1,8 @@
 <script lang="ts">
   import { blockStore } from "../../models/store";
   import { Block } from "../../controllers/blockClass";
+  import { actionTypes } from "../../types/actionTypes";
   export let id;
-  const events = ["click", "hover", "type"];
   let event;
   let text;
   let selected = false;
@@ -12,7 +12,6 @@
   }
   $: if (selected) handleTypeEvent();
   function handleTypeEvent() {
-    // console.log('the chosen one');
     const newBlock = new Block("query", id);
     blockStore.upsertBlock(newBlock);
   }
@@ -27,7 +26,7 @@
     on:change={() => updateVal()}
   >
     <option>...</option>
-    {#each events as value}
+    {#each actionTypes as value}
       <option {value}>
         {value}
       </option>
