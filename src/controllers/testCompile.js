@@ -7,15 +7,9 @@ const describeStatement = (value, body) =>
   `    describe("${value}"), () => {
     ${body}
    };\n`;
-//mock variables
-const mock = (value, body) =>
-  `${value}(async () => {
-    ${body}
-  });\n`;
 
 const modifierBlock = (value) => `${value};\n`;
-//query variables
-const query = (value, comparison) => `${value}${comparison}`;
+
 //render variables
 const renderBlock = (value) => `const view = await render(${value});\n`;
 //test variables
@@ -25,20 +19,16 @@ const testStatement = (value, body) =>
   });\n`;
 
 //if query is a child of expect query will populate
-const executionBlock = (value, query, assertion) => value;
-const assertion = (value) => value;
+const executionBlock = (value) => value;
 const actionBlock = (value) => value;
 
 const testVariables = {
   componentImport,
   describeStatement,
-  mock,
   modifierBlock,
   testStatement,
   renderBlock,
-  query,
   executionBlock,
-  assertion,
   actionBlock,
 };
 

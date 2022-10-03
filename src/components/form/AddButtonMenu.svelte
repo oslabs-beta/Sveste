@@ -34,18 +34,9 @@
         return blockTypes.filter(
           (type) => type === "describeStatement" || type === "testStatement"
         );
-        break;
 
       case /modifierBlock/.test(addToId):
         return [];
-
-      case /mock/.test(addToId):
-        return blockTypes.filter(
-          (type) =>
-            type === "modifierBlock" ||
-            type === "renderBlock" ||
-            type === "actionBlock"
-        );
         break;
 
       case /testStatement/.test(addToId):
@@ -61,18 +52,9 @@
         return [];
         break;
 
-      case /query/.test(addToId):
-        return blockTypes.filter((type) => type === "assertion");
-        break;
-
       case /renderBlock/.test(addToId):
         return blockTypes.filter((type) => type === "assertion");
         break;
-      case /assertion/.test(addToId):
-        return [];
-
-      case /actionBlock/.test(addToId):
-        return [];
 
       default:
         return blockTypes;
