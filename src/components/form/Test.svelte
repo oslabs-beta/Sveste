@@ -1,14 +1,9 @@
 <script>
-  import { blockStore } from "../../models/store";
+  // import { blockStore } from "../../models/store";
   export let id;
+  import Input from "./Input.svelte";
 </script>
 
 <div>
-  <input
-    required
-    id="testInput"
-    name="testInput"
-    bind:value={$blockStore[id].value}
-  />
-  <label for="testInput">Test Description</label>
+  <Input {id} inputType={"test"} />
 </div>
