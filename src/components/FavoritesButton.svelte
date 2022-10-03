@@ -18,14 +18,22 @@
   }
 </script>
 
-<button on:click={handleFavoritesGet}
-  ><img {src} alt="hearticon" />Favorites</button
+<button type="button" on:click={handleFavoritesGet}
+  ><img {src} alt="hearticon" /> Favorites</button
 >
 
 <style>
   button {
     text-decoration: none;
-    color: black;
-    width: 90px;
+    flex-direction: row;
+    border-radius: 2rem;
+    border: 1px solid var(--primary);
+    background-color: transparent;
+    color: white;
+    font-size: 1rem;
+  }
+  button:hover {
+    background-color: white;
+    color: var(--primary);
   }
 </style>

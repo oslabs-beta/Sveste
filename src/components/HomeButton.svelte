@@ -5,12 +5,23 @@
   }
 </script>
 
-<button on:click={handleClick}><img {src} alt="houseicon" />Home</button>
+<button type="button" on:click={handleClick}
+  ><img {src} alt="houseicon" /> Home</button
+>
 
 <style>
   button {
     text-decoration: none;
-    color: black;
-    width: 90px;
+    color: white;
+    width: 100px;
+    flex-direction: row;
+    border-radius: 2rem;
+    border: 1px solid var(--primary);
+    background-color: transparent;
+    font-size: 1rem;
+  }
+  button:hover {
+    background-color: white;
+    color: var(--primary);
   }
 </style>
