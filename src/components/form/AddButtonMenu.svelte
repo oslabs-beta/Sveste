@@ -40,13 +40,16 @@
       case /mock/.test(addToId):
         return blockTypes.filter(
           (type) =>
-            type === "mockStatement" || type === "render" || type === "event"
+            type === "mockStatement" ||
+            type === "render" ||
+            type === "actionBlock"
         );
         break;
 
       case /testStatement/.test(addToId):
         return blockTypes.filter(
-          (type) => type === "expect" || type === "render" || type === "event"
+          (type) =>
+            type === "expect" || type === "render" || type === "actionBlock"
         );
 
       case /expect/.test(addToId):
@@ -65,7 +68,7 @@
       case /assertion/.test(addToId):
         return [];
 
-      case /event/.test(addToId):
+      case /actionBlock/.test(addToId):
         return [];
 
       default:

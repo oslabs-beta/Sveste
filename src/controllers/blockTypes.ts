@@ -6,7 +6,7 @@ import Query from "../components/form/Query.svelte";
 import TestStatement from "../components/statements/TestStatement.svelte";
 import Expect from "../components/form/Expect.svelte";
 import Assertion from "../components/form/Assertion.svelte";
-import UserEvent from "../components/form/UserEvent.svelte";
+import ActionBlock from "../components/blocks/ActionBlock.svelte";
 
 type TypeComponentPair = { type: string; component: any };
 type BlockRef = TypeComponentPair[];
@@ -20,5 +20,5 @@ export const blockRef: BlockRef = [
   { type: "testStatement", component: TestStatement },
   { type: "expect", component: Expect },
   { type: "assertion", component: Assertion },
-  { type: "event", component: UserEvent },
+  { type: "actionBlock", component: ActionBlock },
 ];
