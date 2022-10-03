@@ -1,6 +1,6 @@
 <script lang="ts">
   import Header from "../components/Header.svelte";
-  import Nav from "../components/Nav.svelte";
+  import NavDisplay from "../components/NavDisplay.svelte";
   import InputDisplay from "../components/InputDisplay.svelte";
   import OutputDisplay from "../components/OutputDisplay.svelte";
 
@@ -10,7 +10,7 @@
 <svelte:window bind:innerWidth={screenWidth} />
 <div>
   <Header />
-  <Nav {screenWidth} />
+  <NavDisplay {screenWidth} />
   <InputDisplay />
   <OutputDisplay />
 </div>
@@ -18,17 +18,17 @@
 <style>
   div {
     display: grid;
-    grid-template-columns: minmax(300px, 1fr) 2fr 2fr;
+    grid-template-columns: minmax(200px, 1fr) 2fr 2fr;
     grid-template-rows: 65px 1fr;
     grid-template-areas:
       "header   header    header"
       "nav      input     output";
-    width: 100%;
+    max-width: 100%;
     height: 100%;
-    gap: 1rem;
+    min-width: 0;
   }
 
-  @media screen and (max-width: 920px) {
+  @media screen and (max-width: 1100px) {
     div {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 65px auto 1fr;
@@ -39,7 +39,7 @@
     }
   }
 
-  @media screen and (max-width: 680px) {
+  @media screen and (max-width: 900px) {
     div {
       grid-template-columns: 1fr;
       grid-template-rows: 65px auto 1fr 1fr;
