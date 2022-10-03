@@ -31,7 +31,12 @@
         break;
 
       case /describeStatement/.test(addToId):
-        return blockTypes.filter((type) => type === "mock" || type === "test");
+        return blockTypes.filter(
+          (type) =>
+            type === "mock" ||
+            type === "testStatement" ||
+            type === "describeStatement"
+        );
         break;
 
       case /mockStatement/.test(addToId):
@@ -44,15 +49,14 @@
         );
         break;
 
-      case /test/.test(addToId):
+      case /testStatement/.test(addToId):
         return blockTypes.filter(
-          (type) => type === "expect" || type === "render" || type === "event"
+          (type) =>
+            type === "executionBlock" || type === "render" || type === "event"
         );
 
-      case /expect/.test(addToId):
-        return blockTypes.filter(
-          (type) => type === "query" || type === "render"
-        );
+      case /executionBlock/.test(addToId):
+        return [];
         break;
 
       case /query/.test(addToId):

@@ -3,7 +3,7 @@ const vitestImport = `import { describe, expect, it } from 'vitest';\n`;
 const componentImport = (componentName, path) =>
   `import ${componentName} from ${path};\n`;
 /// describe variables
-const describe = (value, body) =>
+const describeStatement = (value, body) =>
   `    describe("${value}"), () => {
     ${body}
    };\n`;
@@ -19,13 +19,13 @@ const query = (value, comparison) => `${value}${comparison}`;
 //render variables
 const render = (value) => `const view = await render(${value});\n`;
 //test variables
-const test = (value, body) =>
+const testStatement = (value, body) =>
   `it("${value}", () => {
     ${body}
   });\n`;
 
 //if query is a child of expect query will populate
-const expect = (value, query, assertion) => `expect((${query})${value});\n`;
+const executionBlock = (value, query, assertion) => value;
 const assertion = (value) => value;
 const event = (action, body) =>
   `const user = userEvent.setup();
@@ -34,13 +34,13 @@ const event = (action, body) =>
 
 const testVariables = {
   componentImport,
-  describe,
+  describeStatement,
   mock,
   mockStatement,
   render,
   query,
-  test,
-  expect,
+  testStatement,
+  executionBlock,
   assertion,
   event,
 };
@@ -58,7 +58,7 @@ export function processTestBlob(test) {
 function processRoot(describeArr) {
   let resultString = "";
   describeArr.forEach((describeObj) => {
-    resultString += describe(
+    resultString += describeStatement(
       describeObj.value,
       processChildren(describeObj.children)
     );
