@@ -9,6 +9,16 @@
     isOpen = !isOpen;
   };
 
+  const scrollToAnchor = () => {
+    const target = document.getElementById(id);
+    console.log(target);
+    target.scrollIntoView({
+      block: "start",
+      inline: "nearest",
+      behavior: "smooth",
+    });
+  };
+
   export let blockType;
   export let name;
   export let children = [];
@@ -17,7 +27,11 @@
   let indent = 1.5;
 </script>
 
-<button {id} type="button" on:click={toggleMenu}>
+<button
+  type="button"
+  on:click={toggleMenu}
+  on:click|preventDefault={scrollToAnchor}
+>
   {#if (blockType = "parent")}
     {#if isOpen}
       <ExpandLess />

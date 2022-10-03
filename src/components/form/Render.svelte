@@ -5,5 +5,5 @@
 </script>
 
 <div>
-  <Input {id} inputType={"test"} />
+  <Input {id} inputType={"render"} />
 </div>

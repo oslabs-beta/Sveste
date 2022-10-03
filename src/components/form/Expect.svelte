@@ -11,6 +11,6 @@
   const queries = ["toContain", "toBe", "toBeTruthy"];
 </script>
 
-<div>
+<div {id}>
   <p>expect...</p>
 </div>

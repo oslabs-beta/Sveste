@@ -18,7 +18,7 @@
   }
 </script>
 
-<div>
+<div {id}>
   <select
     required
     id="eventType"

@@ -29,7 +29,7 @@
   const comparisons = [".innerHMTL", ".textContent"];
 </script>
 
-<div>
+<div {id}>
   <select
     required
     id="queryInput"

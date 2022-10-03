@@ -25,7 +25,7 @@
   const attributes = ["innerHTML", "value"];
 </script>
 
-<div>
+<div {id}>
   <div>
     <select
       required
