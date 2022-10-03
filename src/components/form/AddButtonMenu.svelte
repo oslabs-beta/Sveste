@@ -51,7 +51,9 @@
       case /testStatement/.test(addToId):
         return blockTypes.filter(
           (type) =>
-            type === "executionBlock" || type === "render" || type === "event"
+            type === "executionBlock" ||
+            type === "renderBlock" ||
+            type === "event"
         );
 
       case /executionBlock/.test(addToId):
