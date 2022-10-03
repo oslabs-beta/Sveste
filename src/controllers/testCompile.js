@@ -13,7 +13,7 @@ const mock = (value, body) =>
     ${body}
   });\n`;
 
-const mockStatement = (value) => `${value};\n`;
+const modifierBlock = (value) => `${value};\n`;
 //query variables
 const query = (value, comparison) => `${value}${comparison}`;
 //render variables
@@ -36,7 +36,7 @@ const testVariables = {
   componentImport,
   describeStatement,
   mock,
-  mockStatement,
+  modifierBlock,
   testStatement,
   renderBlock,
   query,
