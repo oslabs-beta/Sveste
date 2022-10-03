@@ -25,7 +25,7 @@ const testStatement = (value, body) =>
   });\n`;
 
 //if query is a child of expect query will populate
-const expect = (value, query, assertion) => `expect((${query})${value});\n`;
+const executionBlock = (value, query, assertion) => value;
 const assertion = (value) => value;
 const actionBlock = (action, body) =>
   `const user = userEvent.setup();
@@ -40,7 +40,7 @@ const testVariables = {
   testStatement,
   renderBlock,
   query,
-  expect,
+  executionBlock,
   assertion,
   actionBlock,
 };

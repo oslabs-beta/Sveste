@@ -51,15 +51,13 @@
       case /testStatement/.test(addToId):
         return blockTypes.filter(
           (type) =>
-            type === "expect" ||
+            type === "executionBlock" ||
             type === "renderBlock" ||
             type === "actionBlock"
         );
 
-      case /expect/.test(addToId):
-        return blockTypes.filter(
-          (type) => type === "query" || type === "renderBlock"
-        );
+      case /executionBlock/.test(addToId):
+        return [];
         break;
 
       case /query/.test(addToId):
