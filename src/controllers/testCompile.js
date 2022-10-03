@@ -1,17 +1,17 @@
-const renderImport = `import { render, screen } from '@testing-library/svelte';\n`;
+const renderImport = `    import { render, screen } from '@testing-library/svelte';\n\n`;
 const vitestImport = `import { describe, expect, it } from 'vitest';\n`;
 const componentImport = (componentName, path) =>
   `import ${componentName} from ${path};\n`;
 /// describe variables
 const describe = (value, body) =>
-  `describe("${value}"), () => {
+  `    describe("${value}"), () => {
     ${body}
-};\n`;
+   };\n`;
 //mock variables
 const mock = (value, body) =>
   `${value}(async () => {
     ${body}
-});\n`;
+  });\n`;
 
 const mockStatement = (value) => `${value};\n`;
 //query variables
