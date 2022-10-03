@@ -16,14 +16,10 @@
   .input-display {
     display: grid;
     grid-template-rows: 1fr 6fr;
-    border: 1px solid black;
-    min-width: 350px;
+    /* min-width: 350px; */
     height: 100%;
     overflow-y: auto;
-    padding: 0.5em;
-  }
-  .form-wrapper {
-    /* margin-top: 0px; */
+    padding: 0 0.5em;
   }
   .info-wrapper {
     margin-top: 2em;

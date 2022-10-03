@@ -1,11 +1,13 @@
 :root {
   /* colors */
   --primary: rgba(0, 179, 137, 100%);
+  --primary-mid: rgba(0, 179, 137, 75%);
+  --primary-light: rgba(0, 179, 137, 10%);
   --background: rgba(0, 179, 137, 5%);
-  --text: rgb(30, 30, 30);
-  --text-mid: rgb(120, 120, 120);
-  --text-light: rgb(220, 220, 220);
-  --shadow: rgb(240, 240, 240);
+  --text: rgba(0, 0, 0, 90%);
+  --text-mid: rgba(0, 0, 0, 50%);
+  --text-light: rgba(255, 255, 255, 90%);
+  --shadow: rgba(0, 0, 0, 10%);
   --highlight: rgb(220, 51, 0);
 }
 html {
