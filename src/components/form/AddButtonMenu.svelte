@@ -31,7 +31,9 @@
         break;
 
       case /describeStatement/.test(addToId):
-        return blockTypes.filter((type) => type === "mock" || type === "test");
+        return blockTypes.filter(
+          (type) => type === "describeStatement" || type === "testStatement"
+        );
         break;
 
       case /mockStatement/.test(addToId):
@@ -40,18 +42,21 @@
       case /mock/.test(addToId):
         return blockTypes.filter(
           (type) =>
-            type === "mockStatement" || type === "render" || type === "event"
+            type === "mockStatement" ||
+            type === "renderBlock" ||
+            type === "event"
         );
         break;
 
       case /testStatement/.test(addToId):
         return blockTypes.filter(
-          (type) => type === "expect" || type === "render" || type === "event"
+          (type) =>
+            type === "expect" || type === "renderBlock" || type === "event"
         );
 
       case /expect/.test(addToId):
         return blockTypes.filter(
-          (type) => type === "query" || type === "render"
+          (type) => type === "query" || type === "renderBlock"
         );
         break;
 
@@ -59,7 +64,7 @@
         return blockTypes.filter((type) => type === "assertion");
         break;
 
-      case /render/.test(addToId):
+      case /renderBlock/.test(addToId):
         return blockTypes.filter((type) => type === "assertion");
         break;
       case /assertion/.test(addToId):
