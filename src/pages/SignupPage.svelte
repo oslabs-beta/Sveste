@@ -3,7 +3,7 @@
   import { writable } from "svelte/store"; //for storing states, NOT USED
   import { push } from "svelte-spa-router";
   import axios from "axios";
-
+  import { isLoggedIn, userId } from "../models/store";
   import Header from "../components/Header.svelte";
   import Footer from "../components/Footer.svelte";
 
@@ -38,7 +38,8 @@
       .then((response) => {
         console.log("response from post: ", response);
         //If axios response verifies info is correct, creates new user in database and redirects to home
-        if (response.data.loggedIn) push("/home");
+        if (response.data.loggedIn) isLoggedIn.set(true);
+        push("/home");
       })
       .catch((err) => {
         console.log("Error in signup");
