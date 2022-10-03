@@ -44,6 +44,7 @@
           (type) =>
             type === "executionBlock" ||
             type === "renderBlock" ||
+            type === "actionBlock" ||
             type === "modifierBlock"
         );
 

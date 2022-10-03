@@ -20,6 +20,7 @@ const testStatement = (value, body) =>
 
 //if query is a child of expect query will populate
 const executionBlock = (value) => value;
+const actionBlock = (value) => value;
 
 const testVariables = {
   componentImport,
@@ -28,6 +29,7 @@ const testVariables = {
   testStatement,
   renderBlock,
   executionBlock,
+  actionBlock,
 };
 
 //-----------------------------------------------------------------------
