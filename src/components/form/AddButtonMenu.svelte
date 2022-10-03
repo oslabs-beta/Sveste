@@ -36,13 +36,13 @@
         );
         break;
 
-      case /mockStatement/.test(addToId):
+      case /modifierBlock/.test(addToId):
         return [];
 
       case /mock/.test(addToId):
         return blockTypes.filter(
           (type) =>
-            type === "mockStatement" ||
+            type === "modifierBlock" ||
             type === "renderBlock" ||
             type === "actionBlock"
         );
@@ -53,7 +53,8 @@
           (type) =>
             type === "executionBlock" ||
             type === "renderBlock" ||
-            type === "actionBlock"
+            type === "actionBlock" ||
+            type === "modifierBlock"
         );
 
       case /executionBlock/.test(addToId):
