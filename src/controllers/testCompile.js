@@ -27,10 +27,7 @@ const testStatement = (value, body) =>
 //if query is a child of expect query will populate
 const executionBlock = (value, query, assertion) => value;
 const assertion = (value) => value;
-const actionBlock = (action, body) =>
-  `const user = userEvent.setup();
-     await user.${action}(${body})
-`;
+const actionBlock = (value) => value;
 
 const testVariables = {
   componentImport,
