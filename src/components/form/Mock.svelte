@@ -4,7 +4,7 @@
   let options = ["beforeEach", "beforeAll"];
 </script>
 
-<div>
+<div {id}>
   <select
     required
     id="mockInput"
@@ -18,3 +18,6 @@
   </select>
   <label for="mockInput">Mock</label>
 </div>
+
+<style>
+</style>

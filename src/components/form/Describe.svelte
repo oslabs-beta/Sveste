@@ -3,7 +3,7 @@
   export let id;
 </script>
 
-<div>
+<div {id}>
   <input
     required
     id="describeInput"

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import TestFormBrain from "./TestFormBrain.svelte";
+  import Form from "./Form.svelte";
   import InfoDisplay from "./InfoDisplay.svelte";
 </script>
 
@@ -8,7 +8,7 @@
     <InfoDisplay />
   </div>
   <div class="form-wrapper">
-    <TestFormBrain />
+    <Form />
   </div>
 </div>
 

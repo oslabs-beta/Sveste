@@ -16,7 +16,7 @@
   const assertions = ["toBe", "toThrow", "toEqual", "toContain"];
 </script>
 
-<div>
+<div {id}>
   <select
     id="notInput"
     name="notInput"
