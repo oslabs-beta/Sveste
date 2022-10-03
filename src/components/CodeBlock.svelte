@@ -1,6 +1,8 @@
 <script>
   import { onMount } from "svelte";
   import Prism from "prismjs";
+  import "prismjs/plugins/line-numbers/prism-line-numbers.js";
+  import "prismjs/plugins/line-numbers/prism-line-numbers.css";
   import { compiledTestStore } from "../compiledTestStore";
   import { testStore, blockStore } from "../models/store";
   import { processTestBlob } from "../controllers/testCompile";
@@ -37,7 +39,7 @@
   //////-----------------------------------//////////
 </script>
 
-<pre>
+<pre class="line-numbers">
   <code id="code" class="language-javascript">
     {$compiledTestStore}
   </code>
