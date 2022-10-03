@@ -19,7 +19,7 @@ const query = (value, comparison) => `${value}${comparison}`;
 //render variables
 const render = (value) => `const view = await render(${value});\n`;
 //test variables
-const test = (value, body) =>
+const testStatement = (value, body) =>
   `it("${value}", () => {
     ${body}
   });\n`;
@@ -37,9 +37,9 @@ const testVariables = {
   describe,
   mock,
   mockStatement,
+  testStatement,
   render,
   query,
-  test,
   expect,
   assertion,
   event,

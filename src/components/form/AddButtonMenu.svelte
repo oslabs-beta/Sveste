@@ -31,7 +31,7 @@
         break;
 
       case /describe/.test(addToId):
-        return blockTypes.filter((type) => type === "mock" || type === "test");
+        return blockTypes.filter((type) => type === "testStatement");
         break;
 
       case /mockStatement/.test(addToId):
@@ -44,7 +44,7 @@
         );
         break;
 
-      case /test/.test(addToId):
+      case /testStatement/.test(addToId):
         return blockTypes.filter(
           (type) => type === "expect" || type === "render" || type === "event"
         );

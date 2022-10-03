@@ -3,7 +3,6 @@
   import AddButtonMenu from "./AddButtonMenu.svelte";
   import { blockRef } from "../../controllers/blockTypes";
   export let addToId,
-    type,
     active = false;
   let menu = null;
   let blockTypes = blockRef.map((obj) => obj.type);
