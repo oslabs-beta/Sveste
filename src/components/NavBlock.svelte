@@ -48,7 +48,7 @@
   {#if isOpen}
     {#each children as child}
       {#if child.children}
-        {#if child.type === "describe" || child.type === "root" || child.type === "test" || child.type === "mock"}
+        {#if child.type === "describeStatement" || child.type === "root" || child.type === "test" || child.type === "mock"}
           <svelte:self {...child} name={child.type} blockType={"parent"} />
         {:else}
           <button {...child} blockType={"child"}><p>{child.type}</p></button>
