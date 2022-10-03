@@ -23,14 +23,14 @@
   function handleBlockTypes() {
     switch (true) {
       case !addToId:
-        return blockTypes.filter((type) => type === "describe");
+        return blockTypes.filter((type) => type === "describeStatement");
         break;
 
       case /root/.test(addToId):
-        return blockTypes.filter((type) => type === "describe");
+        return blockTypes.filter((type) => type === "describeStatement");
         break;
 
-      case /describe/.test(addToId):
+      case /describeStatement/.test(addToId):
         return blockTypes.filter((type) => type === "mock" || type === "test");
         break;
 

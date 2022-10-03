@@ -1,4 +1,4 @@
-import Describe from "../components/form/Describe.svelte";
+import DescribeStatement from "../components/statements/describeStatement.svelte";
 import Mock from "../components/form/Mock.svelte";
 import MockStatement from "../components/form/MockStatement.svelte";
 import Render from "../components/form/Render.svelte";
@@ -12,7 +12,7 @@ type TypeComponentPair = { type: string; component: any };
 type BlockRef = TypeComponentPair[];
 
 export const blockRef: BlockRef = [
-  { type: "describe", component: Describe },
+  { type: "describeStatement", component: DescribeStatement },
   { type: "mock", component: Mock },
   { type: "mockStatement", component: MockStatement },
   { type: "render", component: Render },
