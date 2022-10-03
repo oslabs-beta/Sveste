@@ -5,20 +5,18 @@
   import { queries, roles } from "../../types/queryTypes";
   export let id;
   let action;
-  let text;
   let selectedQuery;
   let selectedType;
   let argument;
   let selected = false;
   function updateVal() {
-    selected = true;
-    $blockStore[id]["value"] = `
-      const user = userEvent.setup();
+    // if (!selected) selected = true;
+    $blockStore[id]["value"] = `  const user = userEvent.setup();
       await user.${action}(screen.${selectedQuery}${selectedType}('${argument}');`;
   }
   $: if (selected) handleTypeEvent();
   function handleTypeEvent() {
-    const newBlock = new Block("query", id);
+    const newBlock = new Block("actionBlock", id);
     blockStore.upsertBlock(newBlock);
   }
 </script>
