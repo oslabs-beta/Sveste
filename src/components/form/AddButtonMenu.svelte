@@ -44,7 +44,7 @@
         );
         break;
 
-      case /test/.test(addToId):
+      case /testStatement/.test(addToId):
         return blockTypes.filter(
           (type) => type === "expect" || type === "render" || type === "event"
         );
