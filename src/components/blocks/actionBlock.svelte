@@ -1,6 +1,5 @@
 <script lang="ts">
   import { blockStore } from "../../models/store";
-  import { Block } from "../../controllers/blockClass";
   import { actionTypes } from "../../types/actionTypes";
   import { queries, roles } from "../../types/queryTypes";
   export let id;
@@ -8,16 +7,13 @@
   let selectedQuery;
   let selectedType;
   let argument;
-  let selected = false;
+  let typeInput;
   function updateVal() {
-    // if (!selected) selected = true;
+    if (action === "type") console.log("im typing");
     $blockStore[id]["value"] = `  const user = userEvent.setup();
-      await user.${action}(screen.${selectedQuery}${selectedType}('${argument}');`;
-  }
-  $: if (selected) handleTypeEvent();
-  function handleTypeEvent() {
-    const newBlock = new Block("actionBlock", id);
-    blockStore.upsertBlock(newBlock);
+      await user.${action}(screen.${selectedQuery}${selectedType}('${argument}')${
+      action === "type" ? `,'${typeInput}')` : ")"
+    };`;
   }
 </script>
 
@@ -84,4 +80,15 @@
     />
     <label for="argumentInput">Argument</label>
   </div>
+  {#if action === "type"}
+    <div>
+      <input
+        required
+        name="typeInput"
+        bind:value={typeInput}
+        on:change={() => updateVal()}
+      />
+      <label for="typeInput">type input</label>
+    </div>
+  {/if}
 </div>
