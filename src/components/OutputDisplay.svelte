@@ -16,8 +16,8 @@
   div {
     display: grid;
     grid-template-rows: minmax(0, 2rem) 1fr;
-    padding: 1rem;
-    margin: 2rem 1rem;
+    padding: 1vh 1vw;
+    margin: 2vh 2vw;
     border-radius: 0.5rem;
     border: 1px solid var(--shadow);
   }

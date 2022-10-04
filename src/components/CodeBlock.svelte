@@ -51,13 +51,16 @@
   pre {
     height: 100%;
     max-width: 100%;
-    /* white-space: pre-wrap; */
+    padding: 0;
+  }
+  pre.line-numbers {
+    padding: 1vh 1rem 1vh 2rem;
+    color: var(--text);
   }
   pre:global([class*="language-"]) {
     background: none;
     margin-top: 0;
     padding-top: 0;
-    word-wrap: normal;
-    font-size: 0.9rem;
+    font-size: clamp(12px, 2vw, 16px);
   }
 </style>

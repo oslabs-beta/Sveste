@@ -19,7 +19,7 @@
     /* min-width: 350px; */
     height: 100%;
     overflow-y: auto;
-    padding: 0 0.5em;
+    padding: 0 3vw;
   }
   .info-wrapper {
     margin-top: 2em;
