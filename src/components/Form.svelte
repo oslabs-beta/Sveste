@@ -22,7 +22,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    flex-direction: column;
+    height: 100%;
     padding-top: 2rem;
   }
   button {
