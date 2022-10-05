@@ -1,13 +1,14 @@
 <script lang="ts">
   import Form from "./Form.svelte";
   import InfoDisplay from "./InfoDisplay.svelte";
+  import { formHeight } from "../models/store";
 </script>
 
 <div class="input-display">
   <div class="info-wrapper">
     <InfoDisplay />
   </div>
-  <div class="form-wrapper">
+  <div class="form-wrapper" bind:clientHeight={$formHeight}>
     <Form />
   </div>
 </div>
