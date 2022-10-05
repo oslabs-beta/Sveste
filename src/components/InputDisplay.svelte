@@ -15,6 +15,7 @@
 <style>
   .input-display {
     display: grid;
+    grid-template-rows: auto 1fr;
     height: 100%;
     padding: 0 3vw;
   }
