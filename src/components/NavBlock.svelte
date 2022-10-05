@@ -38,8 +38,6 @@
     {:else}
       <ExpandMore />
     {/if}
-  {:else}
-    <p>&ensp;</p>
   {/if}
   {name}
 </button>
@@ -66,7 +64,7 @@
     align-items: center;
     height: 1.5rem;
     width: 100%;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--text-mid);
     border: none;
     background-color: transparent;

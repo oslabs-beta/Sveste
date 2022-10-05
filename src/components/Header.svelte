@@ -26,7 +26,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1vh 5vw;
+    padding: 1vh 2vw;
     background-color: var(--primary);
     color: var(--text-light);
     box-shadow: 0 0 1px 1px var(--shadow);

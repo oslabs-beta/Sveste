@@ -18,7 +18,7 @@
 <style>
   div {
     display: grid;
-    grid-template-columns: minmax(200px, 1fr) 2fr 2fr;
+    grid-template-columns: 15rem 2fr 2fr;
     grid-template-rows: 65px 1fr;
     grid-template-areas:
       "header   header    header"
@@ -28,21 +28,10 @@
     min-width: 0;
   }
 
-  @media screen and (max-width: 1100px) {
-    div {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 65px auto 1fr;
-      grid-template-areas:
-        "header   header"
-        "nav      nav"
-        "input    output";
-    }
-  }
-
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1200px) {
     div {
       grid-template-columns: 1fr;
-      grid-template-rows: 65px auto 1fr 1fr;
+      grid-template-rows: 65px auto minmax(0, 50vh) minmax(0, 50vh);
       grid-template-areas:
         "header"
         "nav"

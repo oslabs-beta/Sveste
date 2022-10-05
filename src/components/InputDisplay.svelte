@@ -15,15 +15,16 @@
 <style>
   .input-display {
     display: grid;
-    grid-template-rows: 1fr 6fr;
-    /* min-width: 350px; */
-    height: 100%;
-    overflow-y: auto;
-    padding: 0 0.5em;
+    grid-template-rows: auto 1fr;
+    max-height: 90vh;
+    padding: 0 2vw;
   }
   .info-wrapper {
     margin-top: 2em;
     margin-bottom: 1em;
+  }
+  .form-wrapper {
+    overflow-y: auto;
   }
   ::-webkit-scrollbar {
     width: 20px;
