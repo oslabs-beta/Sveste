@@ -16,8 +16,8 @@
   .input-display {
     display: grid;
     grid-template-rows: auto 1fr;
-    height: 100%;
-    padding: 0 3vw;
+    max-height: 90vh;
+    padding: 0 2vw;
   }
   .info-wrapper {
     margin-top: 2em;
