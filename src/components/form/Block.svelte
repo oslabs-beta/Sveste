@@ -17,11 +17,13 @@
 </script>
 
 <div class="blockWrapper">
-  <div class="inputWrapper">
+  <div {id} class="inputWrapper">
     <svelte:component this={getComponent()} {id} />
-    <DeleteButton {id} />
+    {#if type !== "root"}
+      <DeleteButton {id} />
+    {/if}
   </div>
-  <AddButton addToId={id} {type} />
+  <AddButton addToId={id} />
 
   {#each children as child}
     <svelte:self {...child} indent={indent + 1} />

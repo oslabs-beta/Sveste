@@ -8,7 +8,7 @@
 
 <div>
   <form on:submit|preventDefault={() => POST("/tests", $testStore)}>
-    <button type="submit">Submit</button>
+    <!-- <button type="submit">Submit</button> -->
     <Block
       id={$testStore["id"]}
       type={$testStore["type"]}
