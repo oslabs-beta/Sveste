@@ -1,15 +1,9 @@
 <script lang="ts">
-  import NavBar from "./NavBar.svelte";
   import NavMenu from "./NavMenu.svelte";
-  export let screenWidth: number;
 </script>
 
 <div>
-  {#if screenWidth <= 920}
-    <NavMenu />
-  {:else}
-    <NavBar />
-  {/if}
+  <NavMenu />
 </div>
 
 <style>
@@ -18,10 +12,10 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: min-content;
-    padding: 1rem 0.5rem;
+    padding: 2vh 1vw 2vh 2vw;
     background-color: var(--primary-mid);
     border-right: 1px solid var(--shadow);
-    /* z-index: 2; */
+    border-bottom: 1px solid var(--shadow);
     box-shadow: 0 0 1px 1px var(--shadow);
   }
 </style>

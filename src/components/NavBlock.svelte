@@ -2,10 +2,9 @@
   import ExpandMore from "./icons/ExpandMore.svelte";
   import ExpandLess from "./icons/ExpandLess.svelte";
   import AddButton from "./form/AddButton.svelte";
+
   let isOpen = false;
   const toggleMenu = () => {
-    console.log("clicked");
-    console.log(id);
     isOpen = !isOpen;
   };
 
@@ -19,7 +18,6 @@
     });
   };
 
-  export let blockType;
   export let name;
   export let children = [];
   export let id;
@@ -29,17 +27,15 @@
 
 <button
   type="button"
-  on:click={toggleMenu}
   on:click|preventDefault={scrollToAnchor}
+  on:click|preventDefault={toggleMenu}
 >
-  {#if (blockType = "parent")}
+  {#if /describe|root/i.test(name)}
     {#if isOpen}
       <ExpandLess />
     {:else}
       <ExpandMore />
     {/if}
-  {:else}
-    <p>&ensp;</p>
   {/if}
   {name}
 </button>
@@ -47,12 +43,8 @@
 <div style="padding-left: {indent}rem;">
   {#if isOpen}
     {#each children as child}
-      {#if child.children}
-        {#if child.type === "describeStatement" || child.type === "root" || child.type === "test" || child.type === "mock"}
-          <svelte:self {...child} name={child.type} blockType={"parent"} />
-        {:else}
-          <button {...child} blockType={"child"}><p>{child.type}</p></button>
-        {/if}
+      {#if /statement/i.test(child.type)}
+        <svelte:self {...child} name={child.type} blockType={"parent"} />
       {/if}
     {/each}
   {/if}
@@ -66,7 +58,7 @@
     align-items: center;
     height: 1.5rem;
     width: 100%;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--text-mid);
     border: none;
     background-color: transparent;

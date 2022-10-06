@@ -8,7 +8,7 @@
 
 <div>
   <form on:submit|preventDefault={() => POST("/tests", $testStore)}>
-    <button type="submit">Submit</button>
+    <!-- <button type="submit">Submit</button> -->
     <Block
       id={$testStore["id"]}
       type={$testStore["type"]}
@@ -22,18 +22,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    flex-direction: column;
+    height: 100%;
     padding-top: 2rem;
-  }
-  button {
-    position: absolute;
-    right: 0rem;
-    top: 0.5rem;
-    width: fit-content;
-    border: none;
-    border-radius: 2rem;
-    padding: 0.5rem 1rem;
-    color: white;
-    background-color: var(--primary);
   }
 </style>

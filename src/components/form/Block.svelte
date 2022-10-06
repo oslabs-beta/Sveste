@@ -1,5 +1,5 @@
 <script>
-  import { idStore, testStore } from "../../models/store";
+  import { formHeight } from "../../models/store";
   import AddButton from "./AddButton.svelte";
   import DeleteButton from "./DeleteButton.svelte";
   import { blockRef } from "../../controllers/blockTypes";
@@ -9,6 +9,7 @@
     children = [],
     indent = 0;
   let marginLeft = 0;
+  $: height = /statement/i.test(type) ? `min-height: ${$formHeight}px` : "";
   function getComponent() {
     for (let ref of blockRef) {
       if (ref.type === type) return ref.component;
@@ -16,12 +17,14 @@
   }
 </script>
 
-<div class="blockWrapper">
-  <div class="inputWrapper">
+<div class="blockWrapper" style={height}>
+  <div {id} class="inputWrapper">
     <svelte:component this={getComponent()} {id} />
-    <DeleteButton {id} />
+    {#if type !== "root"}
+      <DeleteButton {id} />
+    {/if}
   </div>
-  <AddButton addToId={id} {type} />
+  <AddButton addToId={id} />
 
   {#each children as child}
     <svelte:self {...child} indent={indent + 1} />
@@ -35,7 +38,7 @@
     width: 100%;
     padding: 0.25rem 0;
     gap: 0.25rem;
-    justify-content: space-between;
+    /* justify-content: space-between; */
   }
   .inputWrapper {
     display: flex;
