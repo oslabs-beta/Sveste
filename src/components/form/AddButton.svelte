@@ -10,10 +10,13 @@
     menu = !menu ? AddButtonMenu : null;
     active = !active;
   }
+  // if (addToId){
+  //   addToId = addToId.replace(/[0-9]/g, "")
+  // }
 </script>
 
 <button type="button" class:active on:click|preventDefault={handleClick}
-  >+{addToId.replace(/[0-9]/g, "")}</button
+  >+{addToId ? addToId.replace(/[0-9]/g, "") : "root"}</button
 >
 <svelte:component this={menu} {addToId} bind:menu />
 
