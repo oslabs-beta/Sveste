@@ -15,16 +15,26 @@
       if (ref.type === type) return ref.component;
     }
   }
+
+  const blockIncludeBtns = {
+    null: 1,
+    root: 1,
+    describeStatement: 1,
+    testStatement: 1,
+  };
 </script>
 
 <div class="blockWrapper" style={height}>
   <div {id} class="inputWrapper">
     <svelte:component this={getComponent()} {id} />
-    {#if type !== "root"}
+    <!-- console.log({type}); -->
+    {#if type && type !== "root"}
       <DeleteButton {id} />
     {/if}
   </div>
-  <AddButton addToId={id} />
+  {#if blockIncludeBtns.hasOwnProperty(type) || type === undefined}
+    <AddButton addToId={id} />
+  {/if}
 
   {#each children as child}
     <svelte:self {...child} indent={indent + 1} />
