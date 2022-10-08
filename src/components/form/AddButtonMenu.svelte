@@ -11,7 +11,8 @@
   blockTypes = handleBlocks;
   console.log(addToId);
   $: if (addToId === "root0") console.log("im a root");
-  function addBlock(blockType: string) {
+
+  export function addBlock(blockType: string) {
     const newBlock = new Block(blockType, addToId);
     blockStore.upsertBlock(newBlock);
     menu = null;

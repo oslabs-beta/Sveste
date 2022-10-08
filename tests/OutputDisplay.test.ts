@@ -4,11 +4,8 @@ import OutputDisplay from "src/components/OutputDisplay.svelte";
 import userEvent from "@testing-library/user-event";
 
 describe("Output Display", () => {
-  beforeEach(() => {
-    let view = render(OutputDisplay);
-  });
   it("Should render a favorites button", async () => {
-    //expect for getting the favorites button
+    let view = render(OutputDisplay);
     expect(() => {
       screen.getByRole("button");
     }).not.toThrow();
@@ -20,6 +17,7 @@ describe("Output Display", () => {
     });
   });
   it("Should render a CodeBlock", () => {
+    let view = render(OutputDisplay);
     expect(() => {
       screen.getByText("...");
     }).not.toThrow();

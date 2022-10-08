@@ -11,6 +11,3 @@
 
 <input required id={idText} name={idText} bind:value={$blockStore[id].value} />
 <label for={idText}>{labelText}</label>
-
-<style>
-</style>
