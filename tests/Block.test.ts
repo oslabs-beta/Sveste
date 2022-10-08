@@ -36,7 +36,7 @@ describe("Clicking +root creates an AddButtonMenu", () => {
   });
 });
 
-//Tests describeBlock
+//Tests describeBlock - not working
 describe("Add a describeStatement block", () => {
   it.todo("renders an add button", () => {
     let view = render(Block, { type: "describeStatement" });
