@@ -96,12 +96,13 @@
   #buttondiv {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    margin: 10px;
   }
   .innerform {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin-bottom: 0.25rem;
   }
 

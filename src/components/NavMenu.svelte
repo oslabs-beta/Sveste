@@ -6,7 +6,6 @@
 
 <div>
   <NavBlock
-    blockType={"parent"}
     name={$testStore["type"] || "root"}
     children={$testStore["children"]}
     id={$testStore["id"]}
