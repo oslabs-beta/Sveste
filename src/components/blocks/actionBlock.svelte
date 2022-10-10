@@ -13,7 +13,7 @@
     $blockStore[id]["value"] = `  const user = userEvent.setup();
       await user.${action}(screen.${selectedQuery}${selectedType}('${argument}')${
       action === "type" ? `,'${typeInput}')` : ")"
-    };`;
+    };\n`;
   }
 </script>
 
