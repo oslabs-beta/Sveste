@@ -1,9 +1,11 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import axios from "axios";
   import { push } from "svelte-spa-router";
   import Header from "../components/Header.svelte";
   import Footer from "../components/Footer.svelte";
   import { isLoggedIn, userId } from "../models/store";
+  //axios.defaults.baseURL = 'http://localhost:3000';
 
   let emailAddress = "";
   let password = "";
@@ -11,6 +13,7 @@
   /*
    * On click, redirects emailAddress and password to dbrouter. Dbrouter checks for credentials and return loggedIn true or false status
    */
+
   const handleOnSubmit = async () => {
     //Initiate axios post request to the server
     await axios
@@ -21,7 +24,7 @@
       .then((response) => {
         console.log("Login Response: ", response);
         //If response field return loggedIn is true, redirect client to home page
-        //loggedIn verifies the user's account, and allows for user access to favorites page
+        //loggedIn basically verifies the user, and now we want to change the state of isLoggedIn passed from the store to allow for the user to access favorites page
         if (response.data.loggedIn) {
           isLoggedIn.set(true);
           userId.set(emailAddress);
@@ -32,9 +35,9 @@
       .catch(function (error) {
         console.log("error in login", error);
         //set a variable here that can trigger an "incorrect password" message
-        alert("Incorrect login/password.");
       });
   };
+  //
 
   // const handleOnChange = (evt) => {
   // 	// Cannot dynamically update the `type` attribute via a two-way binding to the `type` attribtue.
@@ -67,10 +70,8 @@
     />
   </div>
   <div id="buttondiv">
-    <button class="login_btn" type="submit">Login</button>
-    <button class="submit_btn" on:click|preventDefault={() => push("/signup")}
-      >Sign Up</button
-    >
+    <button type="submit">Login</button>
+    <button on:click|preventDefault={() => push("/signup")}>Sign Up</button>
   </div>
 </form>
 <Footer />
@@ -86,6 +87,9 @@
   h1 {
     align-self: center;
   }
+  .form_label {
+    margin: 0.25rem;
+  }
   .form_input {
     margin-left: 2rem;
   }
@@ -93,13 +97,8 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    margin: 0.8rem;
+    margin: 10px;
   }
-
-  .login_btn {
-    margin-right: 0.5rem;
-  }
-
   .innerform {
     width: 100%;
     display: flex;
@@ -107,11 +106,7 @@
     margin-bottom: 0.25rem;
   }
 
-  label {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 3rem;
-    margin: 0.25rem;
+  .form_input {
+    margin-bottom: 0;
   }
 </style>
