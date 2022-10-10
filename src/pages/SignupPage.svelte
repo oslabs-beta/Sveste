@@ -1,6 +1,4 @@
 <script>
-  import { onMount } from "svelte";
-  import { writable } from "svelte/store"; //for storing states, NOT USED
   import { push } from "svelte-spa-router";
   import axios from "axios";
   import { isLoggedIn, userId } from "../models/store";
@@ -10,10 +8,9 @@
   let emailAddress = "";
   let password = "";
 
-  // onMount(() => {
-  // 	emailAddressInput.focus();
-  // });
-
+  /*
+   * On click, redirects emailAddress and password to dbrouter. Dbrouter checks for duplicates and returns loggedIn true or false status
+   */
   const handleOnSubmit = async () => {
     const signupFields = {
       Email: [
@@ -44,7 +41,6 @@
       })
       .catch((err) => {
         console.log("Error in signup");
-        //change something to show this
         alert("Email is taken.");
       });
   };
@@ -69,31 +65,63 @@
       required
     />
   </div>
-  <div class="signupform">
-    <label class="innersignuppw" for="password">Password</label>
+  <div class="innersignupform">
+    <label class="form_label" for="password">Password</label>
     <input
-      class="form_pw"
+      class="form_input"
       type="password"
       id="password"
       bind:value={password}
       required
     />
   </div>
-  <button type="submit">Sign Up</button>
-  <button on:click|preventDefault={() => push("/login")}>Login</button>
+  <div id="buttondiv">
+    <button class="signup_btn" type="submit">Sign Up</button>
+    <button class="login_btn" on:click|preventDefault={() => push("/login")}
+      >Login</button
+    >
+  </div>
 </form>
 <Footer />
 
 <style>
   .signupform {
     margin-bottom: 0.875rem;
+    height: 100%;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
   }
 
-  .form_label {
-    margin-bottom: 0.5rem;
+  .innersignupform {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.25rem;
   }
 
-  .form_pw {
-    margin-bottom: 0;
+  .form_input {
+    margin-left: 2rem;
+  }
+
+  #buttondiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+  }
+
+  .signup_btn {
+    margin-right: 0.5rem;
+  }
+
+  label {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 3rem;
+    margin-left: 3rem;
+    margin: 0.25rem;
   }
 </style>
