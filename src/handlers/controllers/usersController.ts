@@ -11,7 +11,13 @@ const db = process.env.AWS_SAM_LOCAL
 let headers = {
   'Content-Type': 'application/json',
 };
-
+/**
+ *
+ * @param event
+ * @returns response object
+ * body is an error message if email is taken otherwise it returns email and isLoggedIn bool = true
+ * creates an entry in the favorites table with key of id being linked to the new user
+ */
 export const handleSignup = async (
   event: APIGatewayProxyEvent
 ): Promise<APIGatewayProxyResult> => {
@@ -74,7 +80,11 @@ export const handleSignup = async (
     };
   }
 };
-
+/**
+ *
+ * @param event
+ * @returns response object with isValidLogin bool as key
+ */
 export const handleLogin = async (
   event: APIGatewayProxyEvent
 ): Promise<APIGatewayProxyResult> => {
@@ -89,7 +99,6 @@ export const handleLogin = async (
       })
       .promise();
     const isValidLogin = await compare(password, await get.Item.password);
-    // const data = { isValidLogin, email: get.Item.email };
     if (!isValidLogin) throw Error('Incorrect email or password.');
     return {
       statusCode: 200,
