@@ -1,24 +1,25 @@
 import { render, screen } from '@testing-library/svelte';
 import userEvent from '@testing-library/user-event';
 import { describe, beforeEach, expect, it } from 'vitest';
-import AddButton from '../src/components/form/AddButton.svelte';
+import FavoritesButton from '../src/components/FavoritesButton.svelte';
 
-describe(`"add" button`, () => {
+describe(`"Favorites" button`, async () => {
   it('renders a button', () => {
-    let view = render(AddButton);
+    let view = render(FavoritesButton);
     expect(() => screen.getByRole('button')).not.toThrow();
   });
   it('renders a button with text', () => {
-    let view = render(AddButton);
+    let view = render(FavoritesButton);
     screen.getByRole('button').innerHTML = 'test';
     expect(() => screen.getByText('test')).not.toThrow();
   });
-  describe('when clicked', () => {
-    it('renders a menu', async () => {
-      let view = render(AddButton);
+  describe('when clicked', async () => {
+    it("doesn't throw an error", async () => {
+      let view = render(FavoritesButton);
       const user = userEvent.setup();
-      await user.click(screen.getByRole('button'));
-      expect(() => screen.getByRole('list')).not.toThrow();
+      expect(async () => {
+        await user.click(screen.getByRole('button'));
+      }).not.toThrow();
     });
   });
 });

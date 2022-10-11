@@ -1,30 +1,40 @@
 <script>
-  import { formHeight } from "../../models/store";
-  import AddButton from "./AddButton.svelte";
-  import DeleteButton from "./DeleteButton.svelte";
-  import { blockRef } from "../../controllers/blockTypes";
-  import AddButtonMenu from "./AddButtonMenu.svelte";
-  export let id = "",
+  import { formHeight } from '../../models/store';
+  import AddButton from './AddButton.svelte';
+  import DeleteButton from './DeleteButton.svelte';
+  import { blockRef } from '../../controllers/blockTypes';
+  import AddButtonMenu from './AddButtonMenu.svelte';
+  export let id = '',
     type,
     children = [],
     indent = 0;
   let marginLeft = 0;
-  $: height = /statement/i.test(type) ? `min-height: ${$formHeight}px` : "";
+  $: height = /statement/i.test(type) ? `min-height: ${$formHeight}px` : '';
   function getComponent() {
     for (let ref of blockRef) {
       if (ref.type === type) return ref.component;
     }
   }
+
+  const blockIncludeBtns = {
+    null: 1,
+    root: 1,
+    describeStatement: 1,
+    testStatement: 1,
+  };
 </script>
 
 <div class="blockWrapper" style={height}>
   <div {id} class="inputWrapper">
     <svelte:component this={getComponent()} {id} />
-    {#if type !== "root"}
+    <!-- console.log({type}); -->
+    {#if type && type !== 'root'}
       <DeleteButton {id} />
     {/if}
   </div>
-  <AddButton addToId={id} />
+  {#if blockIncludeBtns.hasOwnProperty(type) || type === undefined}
+    <AddButton addToId={id} />
+  {/if}
 
   {#each children as child}
     <svelte:self {...child} indent={indent + 1} />

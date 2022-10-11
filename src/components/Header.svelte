@@ -1,22 +1,22 @@
 <script>
-  import FavoritesButton from "../components/FavoritesButton.svelte";
-  import LoginButton from "../components/LoginButton.svelte";
-  import HomeButton from "../components/HomeButton.svelte";
-  import { isLoggedIn } from "../models/store";
+  import FavoritesButton from '../components/FavoritesButton.svelte';
+  import LoginButton from '../components/LoginButton.svelte';
+  import HomeButton from '../components/HomeButton.svelte';
+  import { isLoggedIn } from '../models/store';
 </script>
 
 <header>
   <h1>🦺 Sveste</h1>
 
   <menu>
-    {#if location.href.includes("login")}
-      <li><HomeButton /></li>
-    {:else if $isLoggedIn}
-      <li><a href="/#/home"><HomeButton /></a></li>
-      <li><FavoritesButton /></li>
-    {:else}
-      <li><LoginButton /></li>
-    {/if}
+    <!-- {#if location.href.includes('login')} -->
+    <li><HomeButton /></li>
+    <!-- {:else if $isLoggedIn} -->
+    <li><a href="/#/home"><HomeButton /></a></li>
+    <li><FavoritesButton /></li>
+    <!-- {:else} -->
+    <li><LoginButton /></li>
+    <!-- {/if} -->
   </menu>
 </header>
 
