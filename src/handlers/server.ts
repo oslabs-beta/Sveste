@@ -1,29 +1,15 @@
-import type {
-  APIGatewayProxyEvent,
-  APIGatewayProxyResult,
-  Context,
-} from 'aws-lambda';
+import type { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 import {
   getFavorites,
   addFavorite,
   deleteFavorite,
 } from './controllers/favoritesController';
-import { DocumentClient } from 'aws-sdk/clients/dynamodb';
-import { handleLogin, handleSignup } from './controllers/usersController';
 
-// const db = process.env.AWS_SAM_LOCAL
-//   ? new DocumentClient({
-//       endpoint: 'http://host.docker.internal:8000',
-//     })
-//   : new DocumentClient();
+import { handleLogin, handleSignup } from './controllers/usersController';
 
 export const serverFunction = async (
   event: APIGatewayProxyEvent
 ): Promise<APIGatewayProxyResult> => {
-  let response: APIGatewayProxyResult;
-  let headers = {
-    'Content-Type': 'application/json',
-  };
   try {
     switch (`${event.httpMethod} ${event.path}`) {
       case 'GET /api/favorites':
@@ -44,14 +30,18 @@ export const serverFunction = async (
       default:
         return {
           statusCode: 404,
-          headers,
+          headers: {
+            'Content-Type': 'application/json',
+          },
           body: JSON.stringify({ err: 'page does not exist' }),
         };
     }
   } catch (err) {
     return {
       statusCode: 400,
-      headers,
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({ err: err.message }),
     };
   }

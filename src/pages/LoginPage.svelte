@@ -26,9 +26,7 @@
       });
       const data: { isValidLogin: boolean; email: string } = await res.json();
       if (data.isValidLogin) {
-        console.log(data.email);
         userId.set(data.email);
-        console.log(userId);
         push('/home');
       }
       return data;
@@ -37,41 +35,6 @@
       return alert(JSON.stringify(message));
     }
   };
-  /*
-   * On click, redirects emailAddress and password to dbrouter. Dbrouter checks for credentials and return loggedIn true or false status
-   */
-
-  // const handleOnSubmit = async () => {
-  //   //Initiate axios post request to the server
-  //   await axios
-  //     .post('/api/users', {
-  //       _id: emailAddress,
-  //       password: password,
-  //       type: 'login',
-  //     })
-  //     .then((response) => {
-  //       console.log('Login Response: ', response);
-  //       //If response field return loggedIn is true, redirect client to home page
-  //       //loggedIn basically verifies the user, and now we want to change the state of isLoggedIn passed from the store to allow for the user to access favorites page
-  //       if (response.data.loggedIn) {
-  //         isLoggedIn.set(true);
-  //         userId.set(emailAddress);
-  //         console.log($userId);
-  //         push('/home');
-  //       }
-  //     })
-  //     .catch(function (error) {
-  //       console.log('error in login', error);
-  //       //set a variable here that can trigger an "incorrect password" message
-  //     });
-  // };
-  //
-
-  // const handleOnChange = (evt) => {
-  // 	// Cannot dynamically update the `type` attribute via a two-way binding to the `type` attribtue.
-  // 	// Error: 'type' attribute cannot be dynamic if input uses two-way binding.
-  // 	passwordInput.setAttribute('type', evt.target.checked ? 'text' : 'password' );
-  // }
 </script>
 
 <Header />

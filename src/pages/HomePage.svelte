@@ -3,8 +3,6 @@
   import NavDisplay from '../components/NavDisplay.svelte';
   import InputDisplay from '../components/InputDisplay.svelte';
   import OutputDisplay from '../components/OutputDisplay.svelte';
-  import testEvent from '../events/testEvent.json';
-  import axios from 'axios';
 
   let screenWidth: number;
 </script>

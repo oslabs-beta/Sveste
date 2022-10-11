@@ -1,55 +1,15 @@
 <script lang="ts">
   import { push } from 'svelte-spa-router';
-  import axios from 'axios';
-  import { isLoggedIn, userId } from '../models/store';
+
+  import { userId } from '../models/store';
   import Header from '../components/Header.svelte';
   import Footer from '../components/Footer.svelte';
-
-  // let emailAddress = '';
-  // let password = '';
-  //
-  // const handleOnSubmit = async () => {
-  // const signupFields = {
-  //   Email: [
-  //     {
-  //       Type: 'Primary',
-  //       Value: emailAddress,
-  //     },
-  //   ],
-  //   Password: password,
-  // };
-
-  // const signupInfo = {
-  //   id: emailAddress,
-  //   password: password,
-  // };
-  //Initiates axios post to dbrouter to check correct sign up info
-  //   await axios
-  //     .post("/api/users", {
-  //       _id: emailAddress,
-  //       password: password,
-  //       type: "signup",
-  //     })
-  //     .then((response) => {
-  //       console.log("response from post: ", response);
-  //       //If axios response verifies info is correct, creates new user in database and redirects to home
-  //       if (response.data.loggedIn) isLoggedIn.set(true);
-  //       userId.set(emailAddress);
-  //       push("/home");
-  //     })
-  //     .catch((err) => {
-  //       console.log("Error in signup");
-  //       //change something to show this
-  //       alert("Email is taken.");
-  //     });
-  // };
 
   const handleSignup = async (e: any) => {
     try {
       const formData = await new FormData(e.target);
       const params = new URLSearchParams();
       for (let [key, val] of formData) {
-        console.log(key, val);
         if (typeof val !== 'string') val = '';
         params.append(key, val);
       }

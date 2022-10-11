@@ -52,7 +52,7 @@ function createBlockStore() {
           }
           i++;
         }
-        console.log(parent);
+
         if (target === 0) {
           parent.children.shift();
         } else if (target === parent.children.length) {
@@ -62,10 +62,10 @@ function createBlockStore() {
             .slice(0, target)
             .concat(parent.children.slice(i + 1));
         }
-        console.log(parent);
+
         testStore.update(() => testStore.data);
         data[targetId].id = `old_${targetId}`;
-        console.log(data);
+
         return data;
       });
     },

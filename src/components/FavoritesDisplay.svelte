@@ -1,7 +1,7 @@
 <script>
-  import { favoritesStore } from "../models/favoritesStore";
-  import FavoriteBlock from "../components/FavoriteBlock.svelte";
-  import Prism from "prismjs";
+  import { favoritesStore } from '../models/favoritesStore';
+  import FavoriteBlock from '../components/FavoriteBlock.svelte';
+
   let index = 0;
 </script>
 

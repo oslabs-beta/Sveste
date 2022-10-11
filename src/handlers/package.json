@@ -1,10 +1,10 @@
 {
   "name": "server_function",
-  "version": "1.0.0",
+  "version": "0.2.0",
   "description": "Sveste serverFunction",
   "main": "server.ts",
   "author": "Sveste",
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
     "esbuild": "^0.14.14",
     "bcryptjs": "^2.4.3"
