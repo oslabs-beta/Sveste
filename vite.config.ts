@@ -1,6 +1,6 @@
 /// <reference types="vitest" />
-import { defineConfig } from "vite";
-import { svelte } from "@sveltejs/vite-plugin-svelte";
+import { defineConfig } from 'vite';
+import { svelte } from '@sveltejs/vite-plugin-svelte';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -8,23 +8,22 @@ export default defineConfig({
   build: {
     manifest: true,
     rollupOptions: {
-      input: "./src/server/server.ts",
+      input: ['index.html'],
     },
   },
   test: {
     globals: true,
-    environment: "jsdom",
+    environment: 'jsdom',
   },
   server: {
     proxy: {
-      "/tests": "http://localhost:3000",
-      "/users": "http://localhost:3000",
-      "/login": "http://localhost:3000",
-      "/signup": "http://localhost:3000",
-      "/favorites": "http://localhost:3000",
+      '/api': {
+        target: 'http://127.0.0.1:3000',
+        changeOrigin: true,
+      },
     },
   },
   define: {
-    "process.env": {},
+    'process.env': {},
   },
 });

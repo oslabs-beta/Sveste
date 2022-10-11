@@ -1,18 +1,18 @@
-import { render, screen } from "@testing-library/svelte";
-import { describe, beforeEach, expect, it } from "vitest";
-import SignupPage from "src/pages/SignupPage.svelte";
+import { render, screen } from '@testing-library/svelte';
+import { describe, beforeEach, expect, it } from 'vitest';
+import SignupPage from 'src/pages/SignupPage.svelte';
 
-describe("Signup page", () => {
-  it("Renders a Signup form", () => {
+describe('Signup page', () => {
+  it('Renders a Signup form', () => {
     const view = render(SignupPage);
-    expect(() => screen.findByRole("form")).not.toThrow();
+    expect(() => screen.findByRole('form')).not.toThrow();
   });
-  it("Renders a Signup button", () => {
+  it('Renders a Signup button', () => {
     const view = render(SignupPage);
-    expect(() => screen.findByText("Sign Up")).not.toThrow();
+    expect(() => screen.findByText('Sign Up')).not.toThrow();
   });
-  it("Renders a Login button", () => {
+  it('Renders a Login button', () => {
     const view = render(SignupPage);
-    expect(() => screen.findByText("Login")).not.toThrow();
+    expect(() => screen.findByText('Login')).not.toThrow();
   });
 });

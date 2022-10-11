@@ -1,15 +1,15 @@
 <script>
-  import { formHeight } from "../../models/store";
-  import AddButton from "./AddButton.svelte";
-  import DeleteButton from "./DeleteButton.svelte";
-  import { blockRef } from "../../controllers/blockTypes";
-  import AddButtonMenu from "./AddButtonMenu.svelte";
-  export let id = "",
+  import { formHeight } from '../../models/store';
+  import AddButton from './AddButton.svelte';
+  import DeleteButton from './DeleteButton.svelte';
+  import { blockRef } from '../../controllers/blockTypes';
+  import AddButtonMenu from './AddButtonMenu.svelte';
+  export let id = '',
     type,
     children = [],
     indent = 0;
   let marginLeft = 0;
-  $: height = /statement/i.test(type) ? `min-height: ${$formHeight}px` : "";
+  $: height = /statement/i.test(type) ? `min-height: ${$formHeight}px` : '';
   function getComponent() {
     for (let ref of blockRef) {
       if (ref.type === type) return ref.component;
@@ -28,7 +28,7 @@
   <div {id} class="inputWrapper">
     <svelte:component this={getComponent()} {id} />
     <!-- console.log({type}); -->
-    {#if type && type !== "root"}
+    {#if type && type !== 'root'}
       <DeleteButton {id} />
     {/if}
   </div>
