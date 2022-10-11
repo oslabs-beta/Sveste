@@ -1,5 +1,5 @@
-import { Block } from "../controllers/blockClass";
-import { writable } from "svelte/store";
+import { Block } from '../controllers/blockClass';
+import { writable } from 'svelte/store';
 
 function createIdStore() {
   const data = new Map();
@@ -14,7 +14,7 @@ function createIdStore() {
         let val = data.has(type) ? data.get(type) : -1;
         data.set(type, val + 1);
         id = data.get(type);
-        return "done";
+        return 'done';
       });
       return type + id;
     },
@@ -73,7 +73,7 @@ function createBlockStore() {
 }
 
 function createTestStore() {
-  const data = new Block("root");
+  const data = new Block('root');
   const { subscribe, set, update } = writable({});
   return {
     subscribe,
@@ -86,5 +86,5 @@ export const blockStore = createBlockStore();
 export const idStore = createIdStore();
 export const testStore = createTestStore();
 export const isLoggedIn = writable(false);
-export const userId = writable("");
+export const userId = writable('');
 export const formHeight = writable(0);

@@ -1,46 +1,48 @@
 <script lang="ts">
-  import { isLoggedIn, userId } from "../models/store";
-  import Modal from "./form/loginModal.svelte";
-  import Star from "./icons/StarOutline.svelte";
-  import { tweened } from "svelte/motion";
-  import { cubicOut } from "svelte/easing";
-  import LoginButton from "./LoginButton.svelte";
-  import { compiledTestStore, submitSuccessful } from "../compiledTestStore";
-  import axios from "axios";
-  let showModal = false;
-  let modalContent;
-  let progress = tweened(0, {
-    duration: 3000,
-    easing: cubicOut,
-  });
-
+  import { isLoggedIn, userId } from '../models/store';
+  import Modal from './form/loginModal.svelte';
+  import Star from './icons/StarOutline.svelte';
+  import { tweened } from 'svelte/motion';
+  import { cubicOut } from 'svelte/easing';
+  import LoginButton from './LoginButton.svelte';
+  import { compiledTestStore, submitSuccessful } from '../compiledTestStore';
+  // import axios from 'axios';
+  // let showModal = false;
+  // let modalContent;
+  // let progress = tweened(0, {
+  //   duration: 3000,
+  //   easing: cubicOut,
+  // });
   async function handleAddFavorite() {
-    if (!$isLoggedIn) return toggleModal();
-    const user = $userId;
-    progress = tweened(0, {
-      duration: 3000,
-      easing: cubicOut,
-    });
+    // console.log($userId);
+    // if (!$isLoggedIn) return toggleModal();
+    // const user = 'testid';
+    // progress = tweened(0, {
+    //   duration: 3000,
+    //   easing: cubicOut,
+    // });
     // favoritesStore.set([...$favoritesStore, $compiledTestStore]);
     // console.log(typeof JSO$compiledTestStore);
     try {
-      let parsedBody = JSON.stringify($compiledTestStore);
-
-      const response = await axios.post("/favorites", {
-        _id: user,
-        favorite: $compiledTestStore,
+      const response = await fetch('/api/favorites', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id: $userId, favorite: $compiledTestStore }),
       });
-      await progress.set(1);
+      const data = await response.json();
+      return data;
 
       // return response.data;
     } catch (err) {
       console.log(err);
     }
   }
-  function toggleModal() {
-    modalContent = LoginButton;
-    showModal = !showModal;
-  }
+  // function toggleModal() {
+  //   modalContent = LoginButton;
+  //   showModal = !showModal;
+  // }
 </script>
 
 <!-- {#if $submitSuccessful}
@@ -50,10 +52,9 @@
   ><Star /></button
 >
 
-{#if showModal}
+<!-- {#if showModal}
   <Modal on:click={toggleModal} {modalContent} />
-{/if}
-
+{/if} -->
 <style>
   button {
     display: flex;

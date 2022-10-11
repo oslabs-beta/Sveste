@@ -1,10 +1,9 @@
 <script>
   export let fav;
-  export let id;
-  import Prism from "prismjs";
-  import axios from "axios";
-  import { userId } from "../models/store";
-  import { favoritesStore } from "../models/favoritesStore";
+  import Prism from 'prismjs';
+  import axios from 'axios';
+  import { userId } from '../models/store';
+  import { favoritesStore } from '../models/favoritesStore';
 
   function handleChange(codeBlock) {
     const block = codeBlock;
@@ -14,14 +13,21 @@
     // console.log(id);
     // console.log($favoritesStore.indexOf(fav));
     try {
-      console.log($favoritesStore, "before delete");
-      const response = await axios.put("/favorites", {
-        _id: $userId,
-        favorite: $favoritesStore.indexOf(fav),
+      const res = await fetch('/api/favorites', {
+        method: 'DELETE',
+        body: JSON.stringify({
+          id: $userId,
+          index: $favoritesStore.indexOf(fav),
+        }),
       });
-      console.log(response.data, "after delete");
-
-      favoritesStore.set([...response.data]);
+      const data = await res.json();
+      favoritesStore.set([...data]);
+      // const response = await axios.put("/api/favorites", {
+      //   _id: $userId,
+      //   favorite: $favoritesStore.indexOf(fav),
+      // });
+      // console.log(response.data, "after delete");
+      // favoritesStore.set([...response.data]);
     } catch (err) {
       console.log(err);
     }
@@ -36,7 +42,7 @@
 <button on:click|preventDefault={handleDelete}>-</button>
 
 <style>
-  @import "prismjs";
+  @import 'prismjs';
   pre {
     margin-left: 2em;
     margin-top: 2em;
