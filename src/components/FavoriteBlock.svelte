@@ -18,7 +18,8 @@
         }),
       });
       const data = await res.json();
-      favoritesStore.set([...data]);
+      if (data) favoritesStore.set([...data]);
+      else favoritesStore.set([]);
     } catch (err) {
       console.log(err);
     }

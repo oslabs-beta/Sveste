@@ -19,7 +19,7 @@ export const addFavorite = async (
       .update({
         TableName: 'FavoritesTable',
         Key: { ID: id },
-        ReturnValues: 'UPDATED_NEW',
+        // ReturnValues: 'UPDATED_NEW',
         UpdateExpression: 'SET #favorites = list_append(#favorites, :favorite)',
         ExpressionAttributeNames: {
           '#favorites': 'favorites',
@@ -36,6 +36,7 @@ export const addFavorite = async (
         message: 'Success: test saved!',
         id,
         favorite: JSON.stringify(result),
+        request: event.body,
       }),
     };
   } catch (err) {
@@ -88,16 +89,26 @@ export const deleteFavorite = async (
       .update({
         TableName: 'FavoritesTable',
         Key: { ID: id },
-        ReturnValues: 'UPDATED_NEW',
+        ReturnValues: 'ALL_NEW',
         UpdateExpression: `REMOVE #favorites[${index}]`,
         ExpressionAttributeNames: {
           '#favorites': 'favorites',
         },
       })
       .promise();
+    const res = await db
+      .get({
+        TableName: 'FavoritesTable',
+        Key: {
+          ID: id,
+        },
+        AttributesToGet: ['favorites'],
+      })
+      .promise();
+    const data = await res.Item.favorites;
     return {
       statusCode: 200,
-      body: JSON.stringify({ result }),
+      body: JSON.stringify(data),
     };
   } catch (err) {
     return {

@@ -46,6 +46,15 @@ export const handleSignup = async (
         },
       })
       .promise();
+    const createFav = await db
+      .put({
+        TableName: 'FavoritesTable',
+        Item: {
+          ID: email,
+          favorites: [],
+        },
+      })
+      .promise();
 
     return {
       statusCode: 200,

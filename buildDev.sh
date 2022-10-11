@@ -1,3 +1,5 @@
+sam build
+
 docker run -d -p 8000:8000 amazon/dynamodb-local
 
 AWS_PAGER="" aws dynamodb create-table \
