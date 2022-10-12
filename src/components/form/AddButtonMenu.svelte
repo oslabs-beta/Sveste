@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { testStore, blockStore } from "../../models/store";
-  import { Block } from "../../controllers/blockClass";
-  import { blockRef } from "../../controllers/blockTypes";
-  import { clickOutside } from "../../controllers/click_outside";
+  import { testStore, blockStore } from '../../models/store';
+  import { Block } from '../../controllers/blockClass';
+  import { blockRef } from '../../controllers/blockTypes';
+  import { clickOutside } from '../../controllers/click_outside';
   export let addToId: string;
   export let menu;
   let showMenu = true;
@@ -10,7 +10,7 @@
   let handleBlocks = handleBlockTypes();
   blockTypes = handleBlocks;
   console.log(addToId);
-  $: if (addToId === "root0") console.log("im a root");
+  $: if (addToId === 'root0') console.log('im a root');
 
   export function addBlock(blockType: string) {
     const newBlock = new Block(blockType, addToId);
@@ -24,16 +24,16 @@
   function handleBlockTypes() {
     switch (true) {
       case !addToId:
-        return blockTypes.filter((type) => type === "describeStatement");
+        return blockTypes.filter((type) => type === 'describeStatement');
         break;
 
       case /root/.test(addToId):
-        return blockTypes.filter((type) => type === "describeStatement");
+        return blockTypes.filter((type) => type === 'describeStatement');
         break;
 
       case /describeStatement/.test(addToId):
         return blockTypes.filter(
-          (type) => type === "describeStatement" || type === "testStatement"
+          (type) => type === 'describeStatement' || type === 'testStatement'
         );
 
       case /modifierBlock/.test(addToId):
@@ -43,10 +43,10 @@
       case /testStatement/.test(addToId):
         return blockTypes.filter(
           (type) =>
-            type === "executionBlock" ||
-            type === "renderBlock" ||
-            type === "actionBlock" ||
-            type === "modifierBlock"
+            type === 'executionBlock' ||
+            type === 'renderBlock' ||
+            type === 'actionBlock' ||
+            type === 'modifierBlock'
         );
 
       case /executionBlock/.test(addToId):
@@ -54,7 +54,7 @@
         break;
 
       case /renderBlock/.test(addToId):
-        return blockTypes.filter((type) => type === "assertion");
+        return blockTypes.filter((type) => type === 'assertion');
         break;
 
       default:

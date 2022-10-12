@@ -1,7 +1,7 @@
 <script>
-  import { testStore } from "../../models/store";
-  import AddButtonMenu from "./AddButtonMenu.svelte";
-  import { blockRef } from "../../controllers/blockTypes";
+  import { testStore } from '../../models/store';
+  import AddButtonMenu from './AddButtonMenu.svelte';
+  import { blockRef } from '../../controllers/blockTypes';
   export let addToId,
     active = false;
   let menu = null;
@@ -16,7 +16,7 @@
 </script>
 
 <button type="button" class:active on:click|preventDefault={handleClick}
-  >+{addToId ? addToId.replace(/[0-9]/g, "") : "root"}</button
+  >+{addToId ? addToId.replace(/[0-9]/g, '') : 'root'}</button
 >
 <svelte:component this={menu} {addToId} bind:menu />
 

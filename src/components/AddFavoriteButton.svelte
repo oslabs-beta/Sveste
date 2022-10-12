@@ -1,58 +1,28 @@
 <script lang="ts">
-  import { isLoggedIn, userId } from "../models/store";
-  import Modal from "./form/loginModal.svelte";
-  import Star from "./icons/StarOutline.svelte";
-  import { tweened } from "svelte/motion";
-  import { cubicOut } from "svelte/easing";
-  import LoginButton from "./LoginButton.svelte";
-  import { compiledTestStore, submitSuccessful } from "../compiledTestStore";
-  import axios from "axios";
-  let showModal = false;
-  let modalContent;
-  let progress = tweened(0, {
-    duration: 3000,
-    easing: cubicOut,
-  });
+  import { userId } from '../models/store';
+  import Star from './icons/StarOutline.svelte';
+  import { compiledTestStore } from '../compiledTestStore';
 
   async function handleAddFavorite() {
-    if (!$isLoggedIn) return toggleModal();
-    const user = $userId;
-    progress = tweened(0, {
-      duration: 3000,
-      easing: cubicOut,
-    });
-    // favoritesStore.set([...$favoritesStore, $compiledTestStore]);
-    // console.log(typeof JSO$compiledTestStore);
     try {
-      let parsedBody = JSON.stringify($compiledTestStore);
-
-      const response = await axios.post("/favorites", {
-        _id: user,
-        favorite: $compiledTestStore,
+      const response = await fetch('/api/favorites', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id: $userId, favorite: $compiledTestStore }),
       });
-      await progress.set(1);
-
-      // return response.data;
+      const data = await response.json();
+      return data;
     } catch (err) {
       console.log(err);
     }
   }
-  function toggleModal() {
-    modalContent = LoginButton;
-    showModal = !showModal;
-  }
 </script>
 
-<!-- {#if $submitSuccessful}
-  <progress value={$progress} />
-{/if} -->
 <button on:click|preventDefault={handleAddFavorite} type="submit"
   ><Star /></button
 >
-
-{#if showModal}
-  <Modal on:click={toggleModal} {modalContent} />
-{/if}
 
 <style>
   button {

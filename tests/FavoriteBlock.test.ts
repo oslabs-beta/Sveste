@@ -1,13 +1,13 @@
-import { render, screen } from "@testing-library/svelte";
-import FavoriteBlock from "src/components/FavoriteBlock.svelte";
-import { describe, beforeEach, expect, it } from "vitest";
+import { render, screen } from '@testing-library/svelte';
+import FavoriteBlock from 'src/components/FavoriteBlock.svelte';
+import { describe, beforeEach, expect, it } from 'vitest';
 
-describe("Favorite Block", () => {
-  it("Renders a button", () => {
+describe('Favorite Block', () => {
+  it('Renders a button', () => {
     const view = render(FavoriteBlock);
-    expect(() => screen.getByRole("button")).not.toThrow();
+    expect(() => screen.getByRole('button')).not.toThrow();
   });
-  it("Can handle change", () => {
+  it('Can handle change', () => {
     const view = render(FavoriteBlock);
     expect(FavoriteBlock.prototype.handleChange).toBeDefined;
   });
