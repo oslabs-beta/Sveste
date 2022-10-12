@@ -42,39 +42,43 @@
   };
 </script>
 
-<Header />
-<div class="login-form">
-  <h1>Login</h1>
-  <form class="form" on:submit|preventDefault={handleLogin}>
-    <div class="input-field">
-      <input
-        class="form_input"
-        type="email"
-        id="email"
-        name="email"
-        placeholder="Email"
-        required
-      />
-    </div>
-    <div class="input-field">
-      <input
-        class="form_input"
-        type="password"
-        id="password"
-        name="password"
-        placeholder="Password"
-        required
-      />
-    </div>
-    <div id="buttondiv" class="action">
-      <button class="login_btn" type="submit" value="login">Login</button>
-      <button value="signup" on:click|preventDefault={() => push('/signup')}
-        >Sign Up</button
-      >
-    </div>
-  </form>
+<div class="login-page">
+  <Header />
+  <div class="login-form">
+    <h1>Login</h1>
+    <form class="form" on:submit|preventDefault={handleLogin}>
+      <div class="input-field">
+        <input
+          class="form_input"
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          required
+        />
+      </div>
+      <div class="input-field">
+        <input
+          class="form_input"
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+      </div>
+      <div id="buttondiv" class="action">
+        <button class="login_btn" type="submit" value="login">Login</button>
+        <button value="signup" on:click|preventDefault={() => push('/signup')}
+          >Sign Up</button
+        >
+      </div>
+    </form>
+  </div>
+  <div class="footer">
+    <Footer />
+  </div>
 </div>
-<Footer />
 
 <style>
   * {
@@ -82,21 +86,19 @@
     padding: 0;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
+    font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+      'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   }
-
-  body {
-    background: #e35869;
-    font-family: 'Rubik', sans-serif;
+  .login-page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
-
   .login-form {
     background: var(--background);
     width: 500px;
     margin: 65px auto;
-    display: -webkit-box;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
     flex-direction: column;
     border-radius: 4px;
     box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
@@ -105,24 +107,18 @@
     padding: 35px 35px 0 35px;
     font-weight: 300;
   }
-  .login-form .content {
-    padding: 35px;
-    text-align: center;
-  }
   .login-form .input-field {
     padding: 12px 5px;
   }
   .login-form .input-field input {
     font-size: 16px;
     display: block;
-    font-family: 'Rubik', sans-serif;
     width: 100%;
     padding: 10px 1px;
     border: 0;
     border-bottom: 1px solid #747474;
     outline: none;
-    -webkit-transition: all 0.2s;
-    transition: all 0.2s;
+    background: transparent;
   }
 
   .login-form .input-field input:focus {
@@ -130,10 +126,7 @@
   }
 
   .login-form .action {
-    display: -webkit-box;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
     flex-direction: row;
   }
   .login-form .action button {
@@ -157,14 +150,18 @@
   }
   .login-form .action button:nth-child(2) {
     background: var(--primary-mid);
-    color: #fff;
+    color: var(--text-light);
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 4px;
   }
   .login-form .action button:nth-child(2):hover {
     background: var(--primary);
   }
-  input {
-    background: transparent;
+
+  .action {
+    margin-top: 4rem;
+  }
+  .footer {
+    margin-top: auto;
   }
 </style>
