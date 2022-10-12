@@ -11,12 +11,13 @@
     font-size: 1rem;
     color: white;
     background-color: transparent;
-    border-radius: 2rem;
+    border-radius: 0.25rem;
     border: 1px solid var(--primary);
-    width: 100px;
+    padding: 0.5rem;
   }
   button:hover {
     background-color: white;
     color: var(--primary);
+    cursor: pointer;
   }
 </style>

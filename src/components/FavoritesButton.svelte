@@ -20,14 +20,16 @@
   button {
     text-decoration: none;
     flex-direction: row;
-    border-radius: 2rem;
+    border-radius: 0.25rem;
     border: 1px solid var(--primary);
     background-color: transparent;
     color: white;
     font-size: 1rem;
+    padding: 0.5rem;
   }
   button:hover {
     background-color: white;
     color: var(--primary);
+    cursor: pointer;
   }
 </style>
