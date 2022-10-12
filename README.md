@@ -44,7 +44,7 @@ Sveste was built with Kent Dodd’s advice in mind. Especially the [Testing Trop
 
 ## Troubleshooting
 
-If server fails to termiante upon closing.
+### If server fails to termiante upon closing.
 
 1. Run 'ps -fA | grep sam' to view running instances.
 2. Find 5-digit number and run 'kill {#####}' to terminate instance
