@@ -1,6 +1,7 @@
 <script lang="ts">
   import { push } from 'svelte-spa-router';
   import { userId } from '../models/store';
+  import { isLoggedIn } from '../models/store';
   import Header from '../components/Header.svelte';
   import Footer from '../components/Footer.svelte';
 
@@ -27,6 +28,7 @@
       //If fetch response verifies info is correct, creates new user in database and redirects to home
       if (data.isValidLogin) {
         userId.set(data.email);
+        isLoggedIn.set(true);
         push('/home');
       }
       return data;

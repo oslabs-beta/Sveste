@@ -8,7 +8,7 @@
 
 <header>
   <!-- <h1>🦺 Sveste</h1> -->
-  <a href="/home">
+  <a href="#/home">
     <img src={logoUrl} alt="Sveste" />
     <h1>Sveste</h1>
   </a>
