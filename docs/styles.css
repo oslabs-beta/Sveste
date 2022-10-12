@@ -126,7 +126,7 @@ header {
   width: 96vw;
   padding: 0 2vw;
   height: 70vh;
-  margin-bottom: 2rem;
+  margin-bottom: 5vh;
 }
 .hero-headline {
   display: flex;
@@ -151,7 +151,7 @@ header {
   margin-block-start: 0rem;
   margin-block-end: 1rem;
   color: var(--text-light);
-  font-weight: 100;
+  font-weight: 300;
 }
 .hero .cta {
   margin-left: 0;
@@ -178,7 +178,7 @@ main h2 {
   grid-auto-flow: column;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 10vh;
   min-width: 100%;
   max-width: var(--max-width);
 }
@@ -189,6 +189,7 @@ main h2 {
   margin: 0 2vw 5vh 2vw;
   text-align: center;
   min-width: 100%;
+  margin-bottom: 10vh;
 }
 
 #bottom-feature {
