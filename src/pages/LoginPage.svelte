@@ -97,7 +97,7 @@
   .login-form {
     background: var(--background);
     width: 500px;
-    margin: 65px auto;
+    margin: auto auto;
     display: flex;
     flex-direction: column;
     border-radius: 4px;
