@@ -37,6 +37,10 @@
     box-shadow: 0 0 1px 1px var(--shadow);
     border: 1px solid var(--shadow);
   }
+  h1 {
+    color: rgb(250, 250, 250);
+    text-shadow: 2px 2px rgb(255, 62, 1);
+  }
   menu {
     display: flex;
   }
@@ -51,7 +55,7 @@
   }
 
   img {
-    height: 45px;
+    height: 30px;
   }
   a {
     text-decoration: none;
@@ -59,7 +63,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    gap: 1rem;
+    gap: 0.5rem;
   }
   a:hover {
     text-decoration: none;
