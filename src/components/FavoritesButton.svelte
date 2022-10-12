@@ -25,10 +25,13 @@
     background-color: transparent;
     color: white;
     font-size: 1rem;
-    padding: 0.5rem;
+    color: var(--text-light);
+    transition: all 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
   }
   button:hover {
-    background-color: white;
+    background-color: var(--text-light);
     color: var(--primary);
     cursor: pointer;
   }
