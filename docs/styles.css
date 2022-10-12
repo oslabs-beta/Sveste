@@ -144,7 +144,7 @@ header {
   margin-block-start: 0rem;
   margin-block-end: 0rem;
   color: rgb(250, 250, 250);
-  text-shadow: 4px 4px var(--highlight);
+  text-shadow: 3px 3px var(--highlight);
 }
 .hero-headline p {
   font-size: clamp(16px, 2vw, 4vw);
