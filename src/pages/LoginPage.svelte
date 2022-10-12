@@ -27,6 +27,7 @@
       const data: { isValidLogin: boolean; email: string } = await res.json();
       if (data.isValidLogin) {
         userId.set(data.email);
+        isLoggedIn.set(true);
         push('/home');
       }
       return data;

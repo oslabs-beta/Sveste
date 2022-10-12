@@ -2,7 +2,6 @@
   import { push } from 'svelte-spa-router';
   import { favoritesStore } from '../models/favoritesStore';
   import { userId } from '../models/store';
-  const src = 'src/assets/heart.png';
 
   async function handleFavoritesGet() {
     const params = '?' + `id=${$userId}`;
@@ -15,22 +14,22 @@
   }
 </script>
 
-<button type="button" on:click={handleFavoritesGet}
-  ><img {src} alt="hearticon" /> Favorites</button
->
+<button type="button" on:click={handleFavoritesGet}>Favorites</button>
 
 <style>
   button {
     text-decoration: none;
     flex-direction: row;
-    border-radius: 2rem;
+    border-radius: 0.25rem;
     border: 1px solid var(--primary);
     background-color: transparent;
     color: white;
     font-size: 1rem;
+    padding: 0.5rem;
   }
   button:hover {
     background-color: white;
     color: var(--primary);
+    cursor: pointer;
   }
 </style>

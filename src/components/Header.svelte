@@ -9,14 +9,15 @@
   <h1>🦺 Sveste</h1>
 
   <menu>
-    <!-- {#if location.href.includes('login')} -->
-    <li><HomeButton /></li>
-    <!-- {:else if $isLoggedIn} -->
-    <li><a href="/#/home"><HomeButton /></a></li>
-    <li><FavoritesButton /></li>
-    <!-- {:else} -->
-    <li><LoginButton /></li>
-    <!-- {/if} -->
+    {#if location.href.includes('login')}
+      <li><HomeButton /></li>
+    {:else if $isLoggedIn}
+      <li><a href="/#/home"><HomeButton /></a></li>
+      <li class="vl" />
+      <li><FavoritesButton /></li>
+    {:else}
+      <li><LoginButton /></li>
+    {/if}
   </menu>
 </header>
 
@@ -31,9 +32,17 @@
     color: var(--text-light);
     box-shadow: 0 0 1px 1px var(--shadow);
     border: 1px solid var(--shadow);
-    /* z-index: 2; */
+  }
+  menu {
+    display: flex;
   }
   menu > li {
     list-style-type: none;
+  }
+
+  .vl {
+    border-left: 1px solid var(--shadow);
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
   }
 </style>
