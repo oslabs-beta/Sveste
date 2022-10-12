@@ -189,7 +189,7 @@ main h2{
   grid-auto-flow: row;
   align-items: flex-start;
   margin: 0 2vw 5vh 2vw;
-  text-align: left;
+  text-align: center;
   min-width: 100%;
 }
 
@@ -202,6 +202,7 @@ main h2{
 .feature-content {
   justify-content: start;
   margin: 0 2vw 2vh 2vw;
+  justify-self: center;
 }
 .feature-content h2 {
   margin-block-start: 0;
@@ -212,6 +213,7 @@ main h2{
 }
 .feature-img {
   width: 100%;
+  box-shadow: 2px 2px var(--primary);
 }
 @media screen and (max-width: 800px) {
   .feature {
