@@ -1,14 +1,13 @@
-<script lang="ts">
-  import NavBlock from "./NavBlock.svelte";
-  import { testStore } from "../models/store";
-  // dummy data for now
+<script>
+  import NavBlock from './NavBlock.svelte';
+  import { testStore } from '../models/store';
 </script>
 
 <div>
   <NavBlock
-    name={$testStore["type"] || "root"}
-    children={$testStore["children"]}
-    id={$testStore["id"]}
+    name={$testStore['type'] || 'root'}
+    children={$testStore['children']}
+    id={$testStore['id']}
   />
 </div>
 
