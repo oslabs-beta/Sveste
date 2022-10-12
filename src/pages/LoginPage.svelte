@@ -31,6 +31,7 @@
       //If response field return loggedIn is true, redirect client to home page, loggedIn verifies the user's account, and allows for user access to favorites page
       if (data.isValidLogin) {
         userId.set(data.email);
+        isLoggedIn.set(true);
         push('/home');
       }
       return data;

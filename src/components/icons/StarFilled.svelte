@@ -1,1 +1,1 @@
-<span class="material-icons"> star </span>
+<span class="material-icons" id="selected"> star </span>
