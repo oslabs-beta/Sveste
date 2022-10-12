@@ -52,24 +52,26 @@ Vitest is a Vite-native testing framework that takes advantage of Vite’s speed
 Try to recreate one of your unit tests to get a feel for the navigation and test  blocks.
 Checkout the readme for more details.
 
-What’s your stack?
+### What’s your stack?
 Frontend: Svelte
 Backend: AWS Serverless (API Gateway, Lambda, DynamoDB)
 Build: AWS SAM, Vite
 Testing: Svelte Testing Library, Vitest
 Languages: Svelte, TypeScript (mostly)
 
-How can I contribute?
+### How can I contribute?
 Sveste is an open source product, and thus open for contribution! Just visit our GitHub, fork it, and create or tackle any open issues!
 
-How else can I help?
+### How else can I help?
+
 Sveste and similar open source products from OSLabs are made possible thanks to the support of the open source community. If you’d like to show your support, please consider:
 Sharing this article.
 Following us on LinkedIn.
 Starring our GitHub repository.
 Supporting other projects on OSLabs and OSLabs-Beta.
 
-Dev Setup Guide
+## Dev Setup Guide
+
 Install the AWS CLI,  AWS SAM CLI, and setup your AWS credentials.
 Run `npm install`.
 Install and start Docker.
@@ -77,12 +79,14 @@ Open your terminal and run `npm build:dev`. This will download a docker image fo
 Use `npm run dev` for any future restarts.
 
 Common issues:
+
 Any changes to the frontend are reflected automatically thanks to Vite HMR. Changes to the backend require a restart of your dev server.
 If you run into an [Errno 48] error after running `npm run dev` then:
 run `ps -fA | grep sam`
 kill the appropriate processes using `kill <process number>`
 
-Contributors
+## Contributors
+
 <a href="https://github.com/oslabs-beta/sveste/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=oslabs-beta/sveste" />
 </a>
