@@ -43,7 +43,9 @@ h3 {
   align-items: center;
   max-width: 100%;
 }
-
+a {
+  text-decoration: none;
+}
 /* II - REUSABLE COMPONENTS */
 menu {
   display: grid;
@@ -59,10 +61,11 @@ menu {
 menu a {
   color: var(--text-light);
   text-decoration: none;
+  cursor: pointer;
 }
 
 menu a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 .cta {
   display: flex;
@@ -76,6 +79,7 @@ menu a:hover {
   font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
+  cursor: pointer;
 }
 .cta:hover,
 .cta.active {
