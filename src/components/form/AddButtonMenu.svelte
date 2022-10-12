@@ -1,15 +1,14 @@
 <script lang="ts">
-  import { testStore, blockStore } from '../../models/store';
+  import { blockStore } from '../../models/store';
   import { Block } from '../../controllers/blockClass';
   import { blockRef } from '../../controllers/blockTypes';
-  import { clickOutside } from '../../controllers/click_outside';
   export let addToId: string;
   export let menu;
   let showMenu = true;
   let blockTypes = blockRef.map((obj) => obj.type);
   let handleBlocks = handleBlockTypes();
   blockTypes = handleBlocks;
-  console.log(addToId);
+
   $: if (addToId === 'root0') console.log('im a root');
 
   export function addBlock(blockType: string) {
@@ -17,8 +16,7 @@
     blockStore.upsertBlock(newBlock);
     menu = null;
   }
-  function handleClickOutside(event, value) {
-    console.log(value);
+  function handleClickOutside() {
     showMenu = false;
   }
   function handleBlockTypes() {
@@ -64,11 +62,13 @@
 </script>
 
 <menu>
-  <h3>Add new...</h3>
+  <h3>Add new:</h3>
   <div class="buttonWrapper">
     {#each blockTypes as blockType (blockType)}
       <button on:click|preventDefault={() => addBlock(blockType)}
-        >{blockType}</button
+        >{blockType
+          .replace(/([a-z]*)(Statement|Block|)/g, '$1 $2')
+          .toLowerCase()}</button
       >
     {/each}
   </div>
@@ -77,14 +77,16 @@
 <style>
   menu {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     list-style-type: none;
-    border: 2px solid var(--primary);
-    margin: 0.5rem 0;
-    padding: 1rem;
-    border-radius: 1rem;
+    border: 1px solid var(--primary-mid);
+    margin: 1rem 0;
+    padding: 2rem 1rem;
+    border-radius: 0.5rem;
     background: var(--transparent);
-    align-items: center;
+    justify-content: center;
+    align-items: baseline;
+    gap: 1rem;
   }
   h3 {
     margin: 0 0 1rem 0;
@@ -99,7 +101,7 @@
     background: var(--transparent);
     color: var(--primary);
     border: 2px solid var(--primary);
-    border-radius: 2rem;
+    border-radius: 0.5rem;
     padding: 0.5rem 1rem;
   }
   button:hover {
