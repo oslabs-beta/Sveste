@@ -8,7 +8,7 @@ html {
   --text-mid: rgba(0, 0, 0, 50%);
   --text-light: rgba(255, 255, 255, 90%);
   --shadow: rgba(0, 0, 0, 10%);
-  --highlight: rgb(220, 51, 0);
+  --highlight: rgb(255, 62, 1);
   --max-width: 800px;
 }
 body {
@@ -59,10 +59,9 @@ menu {
 menu a {
   color: var(--text-light);
   text-decoration: none;
-  text-shadow: 1px 1px #2f6252;
 }
 
-menu a:hover{
+menu a:hover {
   text-decoration: underline;
 }
 .cta {
@@ -120,8 +119,7 @@ header {
 .hero {
   display: grid;
   grid-template-columns: minmax(350px, 80%);
-  background-color: #5EC5A5;
-  text-shadow: 5px 5px #ff3e00;
+  background-color: #5ec5a5;
   align-items: center;
   justify-content: center;
   margin: auto;
@@ -145,7 +143,8 @@ header {
   font-size: clamp(48px, 10vw, 10vw);
   margin-block-start: 0rem;
   margin-block-end: 0rem;
-  color: var(--text-light);
+  color: rgb(250, 250, 250);
+  text-shadow: 4px 4px var(--highlight);
 }
 .hero-headline p {
   font-size: clamp(16px, 2vw, 4vw);
@@ -153,7 +152,6 @@ header {
   margin-block-end: 1rem;
   color: var(--text-light);
   font-weight: 100;
-  text-shadow: 1px 1px #2F6252;
 }
 .hero .cta {
   margin-left: 0;
@@ -168,10 +166,10 @@ main {
   padding: 0 2vw;
   justify-content: center;
   align-items: center;
-  color: #2F6252;
+  color: #2f6252;
 }
 
-main h2{
+main h2 {
   margin-bottom: 0;
 }
 
@@ -193,10 +191,10 @@ main h2{
   min-width: 100%;
 }
 
-#bottom-feature{
+#bottom-feature {
   text-align: center;
 }
-#bottom-feature h2{
+#bottom-feature h2 {
   margin-top: 0;
 }
 .feature-content {
