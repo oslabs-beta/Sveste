@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { blockStore } from "../../models/store";
-  import { actionTypes } from "../../types/actionTypes";
-  import { queries, roles } from "../../types/queryTypes";
+  import { blockStore } from '../../models/store';
+  import { actionTypes } from '../../types/actionTypes';
+  import { queries, roles } from '../../types/queryTypes';
   export let id;
   let action;
   let selectedQuery;
@@ -9,11 +9,11 @@
   let argument;
   let typeInput;
   function updateVal() {
-    if (action === "type") console.log("im typing");
-    $blockStore[id]["value"] = `  const user = userEvent.setup();
+    if (action === 'type') console.log('im typing');
+    $blockStore[id]['value'] = `  const user = userEvent.setup();
       await user.${action}(screen.${selectedQuery}${selectedType}('${argument}')${
-      action === "type" ? `,'${typeInput}')` : ")"
-    };`;
+      action === 'type' ? `,'${typeInput}')` : ')'
+    };\n`;
   }
 </script>
 
@@ -80,7 +80,7 @@
     />
     <label for="argumentInput">Argument</label>
   </div>
-  {#if action === "type"}
+  {#if action === 'type'}
     <div>
       <input
         required
