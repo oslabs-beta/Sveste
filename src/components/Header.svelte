@@ -9,14 +9,14 @@
   <h1>🦺 Sveste</h1>
 
   <menu>
-    <!-- {#if location.href.includes('login')} -->
-    <li><HomeButton /></li>
-    <!-- {:else if $isLoggedIn} -->
-    <li><a href="/#/home"><HomeButton /></a></li>
-    <li><FavoritesButton /></li>
-    <!-- {:else} -->
-    <li><LoginButton /></li>
-    <!-- {/if} -->
+    {#if location.href.includes('login')}
+      <li><HomeButton /></li>
+    {:else if $isLoggedIn}
+      <li><a href="/#/home"><HomeButton /></a></li>
+      <li><FavoritesButton /></li>
+    {:else}
+      <li><LoginButton /></li>
+    {/if}
   </menu>
 </header>
 
