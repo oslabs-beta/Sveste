@@ -1,11 +1,10 @@
 <script lang="ts">
-  const src = "src/assets/login.png";
   function handleClick() {
-    location.href = "/#/login";
+    location.href = '/#/login';
   }
 </script>
 
-<button on:click={handleClick}><img {src} alt="loginicon" /> Login</button>
+<button on:click={handleClick}>Login</button>
 
 <style>
   button {

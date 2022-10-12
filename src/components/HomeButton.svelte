@@ -1,13 +1,10 @@
 <script lang="ts">
-  const src = "src/assets/house.png";
   function handleClick() {
-    location.href = "/#/home";
+    location.href = '/#/home';
   }
 </script>
 
-<button type="button" on:click={handleClick}
-  ><img {src} alt="houseicon" /> Home</button
->
+<button type="button" on:click={handleClick}> Home</button>
 
 <style>
   button {
