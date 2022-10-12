@@ -66,9 +66,7 @@
           <label for="password" value="email">Password</label>
         </div>
         <div id="buttondiv" class="action">
-          <button value="submit" on:click|preventDefault={() => push('/signup')}
-            >Submit</button
-          >
+          <button value="submit" type="submit">Submit</button>
         </div>
       </form>
     </div>
