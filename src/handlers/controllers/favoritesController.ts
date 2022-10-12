@@ -6,7 +6,13 @@ const db = process.env.AWS_SAM_LOCAL
       endpoint: 'http://host.docker.internal:8000',
     })
   : new DocumentClient();
-
+/**
+ *
+ * @param event
+ * @returns object in response object format
+ * appends new favorite to favorite array using the user id
+ * body of the returned object has new favorite string at key favorite
+ */
 export const addFavorite = async (
   event: APIGatewayProxyEvent
 ): Promise<APIGatewayProxyResult> => {
@@ -48,7 +54,12 @@ export const addFavorite = async (
     };
   }
 };
-
+/**
+ *
+ * @param event
+ * @returns object in response object format
+ * body of return object is the found favorites array
+ */
 export const getFavorites = async (
   event: APIGatewayProxyEvent
 ): Promise<APIGatewayProxyResult> => {
@@ -79,7 +90,12 @@ export const getFavorites = async (
     };
   }
 };
-
+/**
+ *
+ * @param event
+ * @returns response object with body key being the updated array
+ * uses the index from the event body to remove the correct element
+ */
 export const deleteFavorite = async (
   event: APIGatewayProxyEvent
 ): Promise<APIGatewayProxyResult> => {
