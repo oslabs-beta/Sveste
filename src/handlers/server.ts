@@ -6,7 +6,12 @@ import {
 } from './controllers/favoritesController';
 
 import { handleLogin, handleSignup } from './controllers/usersController';
-
+/**
+ *
+ * @param event
+ * @returns API Gateway Proxy Result Object
+ * switch case is routed based on the passed in http method and path retrieved from event param
+ */
 export const serverFunction = async (
   event: APIGatewayProxyEvent
 ): Promise<APIGatewayProxyResult> => {
