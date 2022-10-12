@@ -1,35 +1,18 @@
 # Sveste
 
-Sveste helps you write good unit tests for Svelte applications.
+Sveste is a no-code GUI for writing great unit tests.
 
-<!-- problem -->
-<!-- solution -->
-<!-- benefits -->
-<!-- features -->
+Today, Sveste (Svelte + test) translates form inputs into executable tests. It uses the Testing Library to focus on best practices like testing what’s actually on screen. It uses Vitest so you can take advantage of Vite’s fast build times and run unit tests as you code. It structures your code so that each unit test is (human) readable and independent (no nested mock statements here). Sveste ensures that your test code is concise, functional, and best practice.
 
-Sveste is built on Svelte, Vite, Express, and MongoDB. Our testing suite uses [Vitest](https://vitest.dev/), the [Svelte Testing Library](https://testing-library.com/docs/svelte-testing-library/intro/), and [Mock Service Worker](https://mswjs.io/).
+But this is just a first step to a bigger goal (literally, it’s v0.2!). 
 
-## What is a good unit test?
+We want Sveste to help you write tests in plain english.
 
-Sveste was built with Kent Dodd’s advice in mind. Especially the [Testing Trophy](https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications) and (not) [testing implementation details](https://kentcdodds.com/blog/testing-implementation-details). Sveste nudges you to follow these basic rules:
+Imagine if writing tests were as easy as Mad Libs? Imagine if you got context-aware tips as you wrote your tests: guiding you towards helpful resources, and steering you away from common testing mistakes? Imagine if you could share unit tests with others, and build off of each-other’s work to write application agnostic tests?
 
-1. Test what a user can see and do.
-2. Test one unit at a time.
-3. Test each unit in isolation.
+Help us make this vision a reality!
 
-## What Makes a Test?
-
-<!-- define parts of a test eg. Assertions, mocking, queries, etc. -->
-  <!-- Mock Data (eg. input = 'string') -->
-  <!-- Events (eg. user.types(words)) -->
-  <!-- Assertions (eg. it('description, () => expect(a thing).tobe(a thing))) -->
-  <!-- Description (eg. it('renders...' () => {...})) -->
-  <!-- Expectation (eg. expect(a thing))-->
-<!-- Primitives-->
-  <!-- JS variables -->
-  <!-- User component/method -->
-  <!-- Queries (eg. variable.getByText('string'))-->
-  <!-- Test subject (special variable- defines what your UNIT is) -->
+Sveste is open source, and looking for contributors. Check out our app and repo to get started!
 
 ## How to get up and running
 
@@ -44,7 +27,63 @@ Sveste was built with Kent Dodd’s advice in mind. Especially the [Testing Trop
 
 ## Troubleshooting
 
-### If server fails to termiante upon closing.
+### If your changes aren't reflected in your dev server
+Any changes to the frontend are reflected automatically thanks to Vite HMR. Changes to the backend require a restart of your dev server (`^C` and `npm run dev` in your terminal).
 
+### If server fails to termiante upon closing
 1. Run 'ps -fA | grep sam' to view running instances.
 2. Find 5-digit number and run 'kill {#####}' to terminate instance
+
+## FAQ
+### Why Svelte?
+We love the ethos of writing less code, and thought building for this community would be a great place to start. 
+
+But ultimately, great unit testing is framework agnostic. We hope to support other platforms after we get to 1.0! 
+
+### Why Vite/Vitest?
+As apps scale in complexity, so do your dev build times. Vite combats these issues by off-loading bundling of your dev-environment to  your browser and compile-to-native frameworks (like Svelte)! Learn more here.
+
+Vitest is a Vite-native testing framework that takes advantage of Vite’s speed. It’s also part of the recommended testing suite for Svelte developers.
+
+### How do I use Sveste?
+- visit www.sveste.dev.
+- Click on the “Try It” button.
+- When Sveste opens, you’re greeted by an add (‘+’) button that  prompts you to create your first describe statement.
+Try to recreate one of your unit tests to get a feel for the navigation and test  blocks.
+Checkout the readme for more details.
+
+What’s your stack?
+Frontend: Svelte
+Backend: AWS Serverless (API Gateway, Lambda, DynamoDB)
+Build: AWS SAM, Vite
+Testing: Svelte Testing Library, Vitest
+Languages: Svelte, TypeScript (mostly)
+
+How can I contribute?
+Sveste is an open source product, and thus open for contribution! Just visit our GitHub, fork it, and create or tackle any open issues!
+
+How else can I help?
+Sveste and similar open source products from OSLabs are made possible thanks to the support of the open source community. If you’d like to show your support, please consider:
+Sharing this article.
+Following us on LinkedIn.
+Starring our GitHub repository.
+Supporting other projects on OSLabs and OSLabs-Beta.
+
+Dev Setup Guide
+Install the AWS CLI,  AWS SAM CLI, and setup your AWS credentials.
+Run `npm install`.
+Install and start Docker.
+Open your terminal and run `npm build:dev`. This will download a docker image for DynamoDB, setup required tables, and start your dev server.
+Use `npm run dev` for any future restarts.
+
+Common issues:
+Any changes to the frontend are reflected automatically thanks to Vite HMR. Changes to the backend require a restart of your dev server.
+If you run into an [Errno 48] error after running `npm run dev` then:
+run `ps -fA | grep sam`
+kill the appropriate processes using `kill <process number>`
+
+Contributors
+<a href="https://github.com/oslabs-beta/sveste/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=oslabs-beta/sveste" />
+</a>
+
