@@ -3,11 +3,15 @@
   import LoginButton from '../components/LoginButton.svelte';
   import HomeButton from '../components/HomeButton.svelte';
   import { isLoggedIn } from '../models/store';
+  const logoUrl = new URL('./icons/SvesteLogo.png', import.meta.url).href;
 </script>
 
 <header>
-  <h1>🦺 Sveste</h1>
-
+  <!-- <h1>🦺 Sveste</h1> -->
+  <a href="/home">
+    <img src={logoUrl} alt="Sveste" />
+    <h1>Sveste</h1>
+  </a>
   <menu>
     {#if location.href.includes('login')}
       <li><HomeButton /></li>
@@ -44,5 +48,20 @@
     border-left: 1px solid var(--shadow);
     margin-left: 0.25rem;
     margin-right: 0.25rem;
+  }
+
+  img {
+    height: 45px;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+  }
+  a:hover {
+    text-decoration: none;
   }
 </style>
