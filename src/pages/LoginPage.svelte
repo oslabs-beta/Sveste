@@ -4,12 +4,15 @@
   import Footer from '../components/Footer.svelte';
   import { isLoggedIn, userId } from '../models/store';
   import { stringify } from 'querystring';
-  //axios.defaults.baseURL = 'http://localhost:3000';
 
   let emailAddress = '';
   let password = '';
 
+  /*
+   * On click, redirects emailAddress and password to usersController. usersControllers checks for credentials and return loggedIn true or false status
+   */
   const handleLogin = async (e: any) => {
+    //Initiate fetch post request to the server
     try {
       const formData = await new FormData(e.target);
       const params = new URLSearchParams();
@@ -25,8 +28,10 @@
         body: params,
       });
       const data: { isValidLogin: boolean; email: string } = await res.json();
+      //If response field return loggedIn is true, redirect client to home page, loggedIn verifies the user's account, and allows for user access to favorites page
       if (data.isValidLogin) {
         userId.set(data.email);
+        isLoggedIn.set(true);
         push('/home');
       }
       return data;
@@ -55,7 +60,7 @@
     />
   </div>
   <div id="buttondiv">
-    <button type="submit" value="login">Login</button>
+    <button class="login_btn" type="submit" value="login">Login</button>
     <button value="signup" on:click|preventDefault={() => push('/signup')}
       >Sign Up</button
     >
@@ -74,9 +79,6 @@
   h1 {
     align-self: center;
   }
-  .form_label {
-    margin: 0.25rem;
-  }
   .form_input {
     margin-left: 2rem;
   }
@@ -84,8 +86,14 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    margin: 10px;
+    margin: 0.8rem;
   }
+
+  .login_btn {
+    margin-right: 1rem;
+    margin-left: 2.5rem;
+  }
+
   .innerform {
     width: 100%;
     display: flex;
@@ -93,7 +101,10 @@
     margin-bottom: 0.25rem;
   }
 
-  .form_input {
-    margin-bottom: 0;
+  label {
+    flex-direction: row;
+    justify-content: center;
+    width: 3rem;
+    margin: 0.25rem;
   }
 </style>

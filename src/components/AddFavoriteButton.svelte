@@ -1,9 +1,11 @@
 <script lang="ts">
   import { userId } from '../models/store';
   import Star from './icons/StarOutline.svelte';
+  import FilledStar from './icons/StarFilled.svelte';
   import { compiledTestStore } from '../compiledTestStore';
-
+  let clicked = false;
   async function handleAddFavorite() {
+    clicked = !clicked;
     try {
       const response = await fetch('/api/favorites', {
         method: 'POST',
@@ -20,9 +22,13 @@
   }
 </script>
 
-<button on:click|preventDefault={handleAddFavorite} type="submit"
-  ><Star /></button
->
+<button on:click|preventDefault={handleAddFavorite} type="submit">
+  {#if !clicked}
+    <Star />
+  {:else}
+    <FilledStar />
+  {/if}
+</button>
 
 <style>
   button {
@@ -35,8 +41,7 @@
     border: none;
   }
   button:hover {
-    background-color: var(--highlight);
-    color: var(--text-light);
+    color: var(--highlight);
     cursor: pointer;
   }
 </style>
