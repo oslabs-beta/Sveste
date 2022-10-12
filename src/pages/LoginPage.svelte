@@ -43,68 +43,128 @@
 </script>
 
 <Header />
-<h1>Login</h1>
-<form class="form" on:submit|preventDefault={handleLogin}>
-  <div class="innerform">
-    <label class="form_label" for="emailAddress" type="text">E-Mail</label>
-    <input class="form_input" type="email" id="email" name="email" required />
-  </div>
-  <div class="innerform">
-    <label class="form_label" for="password">Password</label>
-    <input
-      class="form_input"
-      type="password"
-      id="password"
-      name="password"
-      required
-    />
-  </div>
-  <div id="buttondiv">
-    <button class="login_btn" type="submit" value="login">Login</button>
-    <button value="signup" on:click|preventDefault={() => push('/signup')}
-      >Sign Up</button
-    >
-  </div>
-</form>
+<div class="login-form">
+  <h1>Login</h1>
+  <form class="form" on:submit|preventDefault={handleLogin}>
+    <div class="input-field">
+      <input
+        class="form_input"
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Email"
+        required
+      />
+    </div>
+    <div class="input-field">
+      <input
+        class="form_input"
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Password"
+        required
+      />
+    </div>
+    <div id="buttondiv" class="action">
+      <button class="login_btn" type="submit" value="login">Login</button>
+      <button value="signup" on:click|preventDefault={() => push('/signup')}
+        >Sign Up</button
+      >
+    </div>
+  </form>
+</div>
 <Footer />
 
 <style>
-  .form {
-    height: 100%;
-    align-self: center;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background: #e35869;
+    font-family: 'Rubik', sans-serif;
+  }
+
+  .login-form {
+    background: var(--background);
+    width: 500px;
+    margin: 65px auto;
+    display: -webkit-box;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
     flex-direction: column;
-    align-items: baseline;
+    border-radius: 4px;
+    box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
   }
-  h1 {
-    align-self: center;
+  .login-form h1 {
+    padding: 35px 35px 0 35px;
+    font-weight: 300;
   }
-  .form_input {
-    margin-left: 2rem;
+  .login-form .content {
+    padding: 35px;
+    text-align: center;
   }
-  #buttondiv {
+  .login-form .input-field {
+    padding: 12px 5px;
+  }
+  .login-form .input-field input {
+    font-size: 16px;
+    display: block;
+    font-family: 'Rubik', sans-serif;
     width: 100%;
+    padding: 10px 1px;
+    border: 0;
+    border-bottom: 1px solid #747474;
+    outline: none;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+  }
+
+  .login-form .input-field input:focus {
+    border-color: #222;
+  }
+
+  .login-form .action {
+    display: -webkit-box;
     display: flex;
-    justify-content: center;
-    margin: 0.8rem;
-  }
-
-  .login_btn {
-    margin-right: 1rem;
-    margin-left: 2.5rem;
-  }
-
-  .innerform {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 0.25rem;
-  }
-
-  label {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
     flex-direction: row;
-    justify-content: center;
-    width: 3rem;
-    margin: 0.25rem;
+  }
+  .login-form .action button {
+    width: 100%;
+    border: none;
+    padding: 18px;
+    font-family: inherit;
+    cursor: pointer;
+    text-transform: uppercase;
+    background: #e8e9ec;
+    color: #777;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 0;
+    letter-spacing: 0.2px;
+    outline: 0;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .login-form .action button:hover {
+    background: #d8d8d8;
+  }
+  .login-form .action button:nth-child(2) {
+    background: var(--primary-mid);
+    color: #fff;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 4px;
+  }
+  .login-form .action button:nth-child(2):hover {
+    background: var(--primary);
+  }
+  input {
+    background: transparent;
   }
 </style>
