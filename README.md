@@ -30,3 +30,21 @@ Sveste was built with Kent Dodd’s advice in mind. Especially the [Testing Trop
   <!-- User component/method -->
   <!-- Queries (eg. variable.getByText('string'))-->
   <!-- Test subject (special variable- defines what your UNIT is) -->
+
+## How to get up and running
+
+1. Install AWS CLI - https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+2. Create AWS account, install AWS SAM CLI + Docker - Installing the AWS SAM CLI - AWS Serverless Application Model
+3. Set AWS Congifure w/ new IAM Access ID + key - https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html
+4. Run 'npm install' in terminal
+5. Start up docker in background
+6. Run 'npm run build:dev' to create build and running container in docker
+7. App should be live
+8. Upon termination of server, use run 'npm run dev' to start up existing build.
+
+## Troubleshooting
+
+If server fails to termiante upon closing.
+
+1. Run 'ps -fA | grep sam' to view running instances.
+2. Find 5-digit number and run 'kill {#####}' to terminate instance
