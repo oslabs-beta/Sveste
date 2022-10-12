@@ -121,7 +121,7 @@ header {
   display: grid;
   grid-template-columns: minmax(350px, 80%);
   background-color: #5EC5A5;
-  text-shadow: 2px 2px #2F6252;
+  text-shadow: 5px 5px #ff3e00;
   align-items: center;
   justify-content: center;
   margin: auto;
