@@ -1,7 +1,9 @@
 <script lang="ts">
-  import ExpandMore from "./icons/ExpandMore.svelte";
-  import ExpandLess from "./icons/ExpandLess.svelte";
-  import AddButton from "./form/AddButton.svelte";
+  import ExpandMore from './icons/ExpandMore.svelte';
+  import ExpandLess from './icons/ExpandLess.svelte';
+  import AddButton from './form/AddButton.svelte';
+  import type { Block } from '../controllers/blockClass';
+  import {} from 'os';
 
   let isOpen = false;
   const toggleMenu = () => {
@@ -11,16 +13,19 @@
   const scrollToAnchor = () => {
     const target = document.getElementById(id);
     console.log(target);
-    target.scrollIntoView({
-      block: "start",
-      inline: "nearest",
-      behavior: "smooth",
-    });
+    if (target) {
+      target.scrollIntoView({
+        block: 'start',
+        inline: 'nearest',
+        behavior: 'smooth',
+      });
+    }
   };
 
-  export let name;
-  export let children = [];
-  export let id;
+  export let name: string;
+  export let children: Record<string, Block>[] = [];
+  export let id: string;
+  let child;
 
   let indent = 1.5;
 </script>
@@ -37,14 +42,14 @@
       <ExpandMore />
     {/if}
   {/if}
-  {name}
+  {name.replace(/([a-z]*)(Statement|Block|)/g, '$1').toLowerCase()}
 </button>
 
 <div style="padding-left: {indent}rem;">
   {#if isOpen}
     {#each children as child}
-      {#if /statement/i.test(child.type)}
-        <svelte:self {...child} name={child.type} blockType={"parent"} />
+      {#if typeof child.type === 'string' && /statement/i.test(child.type)}
+        <svelte:self {...child} name={child.type} blockType={'parent'} />
       {/if}
     {/each}
   {/if}
