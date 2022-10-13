@@ -3,6 +3,9 @@
   import { favoritesStore } from '../models/favoritesStore';
   import { userId } from '../models/store';
 
+  /*
+   * Upon clicking Favorites button, redirects to favorites page. Initiates GET request to server to display user's saved codes tests
+   */
   async function handleFavoritesGet() {
     const params = '?' + `id=${$userId}`;
     const res = await fetch('/api/favorites' + params, {

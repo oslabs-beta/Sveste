@@ -2,13 +2,15 @@
   import { blockStore } from '../../models/store';
   import { queries, roles } from '../../types/queryTypes';
   import { modifiers } from '../../types/modifierTypes';
-  export let id;
-
-  let selectedQuery;
-  let selectedType;
-  let argument;
-  let attribute;
-  let val;
+  export let id: Number;
+  let selectedQuery: String;
+  let selectedType: String;
+  let argument: String;
+  let attribute: String;
+  let val: String;
+  /*
+   * Inserts a modifier code line into the Codedisplay, updates exported values based on user input
+   */
   function updateVal() {
     $blockStore[id][
       'value'

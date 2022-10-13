@@ -10,6 +10,9 @@
     isOpen = !isOpen;
   };
 
+  /*
+   *
+   */
   const scrollToAnchor = () => {
     const target = document.getElementById(id);
     console.log(target);

@@ -1,3 +1,4 @@
+<!-- Currently not being used -->
 <script lang="ts">
   import { blockStore } from '../../models/store';
   import { Block } from '../../controllers/blockClass';
@@ -46,5 +47,3 @@
   />
   <label for="eventInput">Event Input</label>
 </div>
-
-<!-- {/if} -->

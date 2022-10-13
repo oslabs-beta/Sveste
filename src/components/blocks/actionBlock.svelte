@@ -2,14 +2,14 @@
   import { blockStore } from '../../models/store';
   import { actionTypes } from '../../types/actionTypes';
   import { queries, roles } from '../../types/queryTypes';
-  export let id;
-  let action;
-  let selectedQuery;
-  let selectedType;
-  let argument;
-  let typeInput;
+  export let id: Number;
+  let action: String;
+  let selectedQuery: String;
+  let selectedType: String;
+  let argument: String;
+  let typeInput: String;
   /*
-   * Inserts an action code line into the Codedisplay
+   * Inserts an action code line into the Codedisplay, updates exported values based on user input
    */
   function updateVal() {
     if (action === 'type') console.log('im typing');

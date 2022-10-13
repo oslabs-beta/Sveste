@@ -4,6 +4,9 @@
   import FilledStar from './icons/StarFilled.svelte';
   import { compiledTestStore } from '../compiledTestStore';
   let clicked = false;
+  /*
+   * Upon clicking favorites star, sends POST request to database to store all text in CodeDisplay to user database
+   */
   async function handleAddFavorite() {
     clicked = !clicked;
     try {
