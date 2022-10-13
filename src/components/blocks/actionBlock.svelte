@@ -13,10 +13,10 @@
    */
   function updateVal() {
     if (action === 'type') console.log('im typing');
-    $blockStore[id]['value'] = `const user = userEvent.setup();
+    $blockStore[id]['value'] = `        const user = userEvent.setup();
         await user.${action}(screen.${selectedQuery}${selectedType}('${argument}')${
       action === 'type' ? `,'${typeInput}')` : ')'
-    };\n        `;
+    };\n`;
   }
 </script>
 

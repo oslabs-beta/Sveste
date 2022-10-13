@@ -16,11 +16,11 @@
   function updateVal() {
     $blockStore[id][
       'value'
-    ] = `expect(() => screen.${selectedQuery}${selectedType}('${argument}'))${
+    ] = `        expect(() => screen.${selectedQuery}${selectedType}('${argument}'))${
       isNot === 'not'
         ? `.${isNot}.${selectedMatcher}${matcherVal ? `(${matcherVal})` : '()'}`
         : `.${selectedMatcher}${matcherVal ? `(${matcherVal})` : '();'}`
-    }\n        `;
+    }\n`;
   }
 
   //   const types = ['Role', 'Text'];

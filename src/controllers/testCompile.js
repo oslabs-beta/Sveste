@@ -15,7 +15,7 @@ const describeStatement = (value, body) =>
 
 const modifierBlock = (value) => `${value}`;
 
-const renderBlock = (value) => `const view = await render(${value});\n        `;
+const renderBlock = (value) => `        const view = await render(${value});\n`;
 /**
  *
  * @param {*} value
@@ -24,8 +24,8 @@ const renderBlock = (value) => `const view = await render(${value});\n        `;
  */
 const testStatement = (value, body) =>
   `  it("${value}", () => {
-        ${body}
-      });`;
+${body}
+      });\n`;
 
 const executionBlock = (value) => value;
 const actionBlock = (value) => value;

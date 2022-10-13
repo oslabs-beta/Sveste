@@ -14,7 +14,7 @@
   function updateVal() {
     $blockStore[id][
       'value'
-    ] = `screen.${selectedQuery}${selectedType}('${argument}').${attribute} = '${val};'\n        `;
+    ] = `        screen.${selectedQuery}${selectedType}('${argument}').${attribute} = '${val};'\n`;
   }
 </script>
 
