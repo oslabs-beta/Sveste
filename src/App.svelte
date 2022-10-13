@@ -1,26 +1,25 @@
 <script lang="ts">
-  import Router from "svelte-spa-router";
-  import { wrap } from "svelte-spa-router/wrap";
-  import Login from "./routes/Login.svelte";
-  import SignUp from "./routes/SignUp.svelte";
-  import NotFound from "./routes/NotFound.svelte";
-  import Home from "./pages/Home.svelte";
-  import Favorites from "./pages/Favorites.svelte";
-  import { isLoggedIn } from "./models/store";
-  import { push } from "svelte-spa-router";
+  import Router, { push } from 'svelte-spa-router';
+  import { wrap } from 'svelte-spa-router/wrap';
+  import Login from './pages/LoginPage.svelte';
+  import SignUp from './pages/SignupPage.svelte';
+  import NotFound from './pages/404Page.svelte';
+  import Home from './pages/HomePage.svelte';
+  import Favorites from './pages/FavoritesPage.svelte';
+  import { userId } from './models/store';
 
   export const loadCookie = () => {
     const myCookieValue = document.cookie;
-    console.log("myCookieValues: ", myCookieValue);
+    console.log('myCookieValues: ', myCookieValue);
     return myCookieValue;
   };
 
   let routes = {
-    "/": Home,
-    "/signup": SignUp,
-    "/login": Login,
-    "/home": Home,
-    "/favorites": wrap({
+    '/': Home,
+    '/signup': SignUp,
+    '/login': Login,
+    '/home': Home,
+    '/favorites': wrap({
       // The Svelte component used by the route
       component: Favorites,
       // List of route pre-conditions
@@ -28,31 +27,19 @@
         // First pre-condition function
         (detail) => {
           /********PLACEHOLDER FOR ROUTING CONDITION**********/
-          if ($isLoggedIn === false) {
-            push("/signup");
+          if (!$userId) {
+            push('/login');
             return true;
           } else {
-            push("/favorites");
+            push('/favorites');
             return true;
           }
         },
       ],
     }),
-    "*": NotFound,
+    '*': NotFound,
   };
 </script>
 
-<div class="container">
-  <Router {routes} />
-  <slot />
-</div>
-
-<style>
-  .container {
-    display: flex;
-    flex-direction: column;
-    width: auto;
-    height: 100%;
-    justify-content: space-between;
-  }
-</style>
+<Router {routes} />
+<slot />

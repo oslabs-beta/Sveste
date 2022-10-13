@@ -1,6 +1,6 @@
 <script lang="ts">
   function handleClick() {
-    location.href = "/#/login";
+    location.href = '/#/login';
   }
 </script>
 
@@ -9,8 +9,18 @@
 <style>
   button {
     font-size: 1rem;
-    color: black;
+    color: white;
     background-color: transparent;
-    border: none;
+    border-radius: 0.25rem;
+    border: 1px solid var(--primary);
+    color: var(--text-light);
+    transition: all 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+  }
+  button:hover {
+    background-color: var(--text-light);
+    color: var(--primary);
+    cursor: pointer;
   }
 </style>

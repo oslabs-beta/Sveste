@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "sveste-app"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-oixts0cp9hhz"
+s3_prefix = "sveste-app"
+region = "us-east-1"
+capabilities = "CAPABILITY_IAM"
+image_repositories = []

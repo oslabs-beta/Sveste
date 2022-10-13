@@ -1,0 +1,57 @@
+name: CICD
+on:
+  push:
+    branches:
+      - 'main'
+
+env:
+  PIPELINE_EXECUTION_ROLE: 'arn:aws:iam::901379186108:role/aws-sam-cli-managed-dev-pipe-PipelineExecutionRole-6DKZZGH2CUJN'
+  CLOUDFORMATION_EXECUTION_ROLE: 'arn:aws:iam::901379186108:role/aws-sam-cli-managed-dev-p-CloudFormationExecutionR-M1VHNRR5ALZL'
+  ARTIFACTS_BUCKET: 'aws-sam-cli-managed-dev-pipeline-artifactsbucket-1dva20agf9f29'
+  FRONTEND_BUCKET_NAME: 'sveste-app-frontendbucket-l2qqug570qlg'
+  REGION: 'us-east-1'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: aws-actions/setup-sam@v1
+      - name: Assume the pipeline user role
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
+          aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+          aws-region: ${{env.REGION}}
+          role-to-assume: ${{env.PIPELINE_EXECUTION_ROLE}}
+          role-session-name: deploy
+          role-duration-seconds: 3600
+          role-skip-session-tagging: true
+      - name: Build backend
+        working-directory:
+        run: sam build
+      - name: Deploy backend
+        working-directory:
+        run: |
+          sam deploy --stack-name sveste-app \
+            --capabilities CAPABILITY_IAM \
+            --region ${REGION} \
+            --s3-bucket ${ARTIFACTS_BUCKET} \
+            --no-fail-on-empty-changeset \
+            --role-arn ${CLOUDFORMATION_EXECUTION_ROLE} \
+            --parameter-overrides \
+              "PipelineRole=${PIPELINE_EXECUTION_ROLE}"
+      - name: Read frontend bucket name
+        run: |
+          echo "frontend_bucket_name=${{env.FRONTEND_BUCKET_NAME}}" >> $GITHUB_ENV
+      - name: Build frontend
+        working-directory:
+        run: npm install && npm run build:frontend
+      - name: Clear frontend bucket
+        run: |
+          aws s3 rm s3://${{env.FRONTEND_BUCKET_NAME}} --recursive
+      - name: Deploy frontend
+        run: |
+          aws s3 cp dist \
+            s3://${{env.FRONTEND_BUCKET_NAME}} \
+            --recursive

@@ -1,22 +1,19 @@
 :root {
-  --primary: rgb(30, 30, 30);
-  --secondary: rgb(120, 120, 120);
-  --tertiary: rgb(220, 220, 220);
-  --shadow: rgb(240, 240, 240);
+  /* colors */
+  --primary: rgba(0, 179, 137, 100%);
+  --primary-mid: rgba(0, 179, 137, 75%);
+  --primary-light: rgba(0, 179, 137, 10%);
   --background: rgba(0, 179, 137, 5%);
-  --highlight: rgb(220, 51, 0);
-  /* --svelte: #ff3e00;
-  --svestegreen: #0dff3e;
-  --svestedarkgreen: #12b332;
-  --svesteblue: #0db4ff;
-  --svestedarkblue: #1281b3;
-  --svesteteal: #00ffc4; */
-  --svestedarkteal: rgba(0, 179, 137, 100%);
-  /* --svestewashout: rgba(0, 179, 137, 4%); */
+  --text: rgba(0, 0, 0, 90%);
+  --text-mid: rgba(0, 0, 0, 50%);
+  --text-light: rgba(255, 255, 255, 90%);
+  --shadow: rgba(0, 0, 0, 10%);
+  --highlight: rgb(255, 62, 1);
 }
 html {
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-weight: 400;
   font-size: 16px;
   height: 100%;
 }
@@ -25,10 +22,9 @@ body {
   margin: 0;
   height: 100%;
   background: var(--background);
-  color: var(--primary);
+  color: var(--text);
 }
 
 #app {
-  /* display: flex; */
   height: 100%;
 }

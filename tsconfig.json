@@ -2,7 +2,7 @@
   "extends": "@tsconfig/svelte/tsconfig.json",
   "ts-node": {
     "compilerOptions": {
-      "module": "commonjs",
+      "module": "NodeNext"
     }
   },
   "compilerOptions": {
@@ -11,7 +11,7 @@
     "module": "esnext",
     "resolveJsonModule": true,
     "baseUrl": ".",
-    "strict": false,
+    "strict": true,
     "esModuleInterop": true,
     /**
      * Typecheck JS in `.svelte` and `.js` files by default.
@@ -20,7 +20,7 @@
      * of JS in `.svelte` files.
      */
     "allowJs": true,
-    "checkJs": true,
+    "checkJs": false,
     "isolatedModules": true
   },
   "include": [
@@ -28,8 +28,8 @@
     "src/**/*.ts",
     "src/**/*.js",
     "src/**/*.svelte",
-    "tests/**/*.ts",
-    "tests/**/*.js"
+    "tests/**/*.ts"
+    // "tests/**/*.js"
   ],
   "references": [{ "path": "./tsconfig.node.json" }],
   "exclude": [

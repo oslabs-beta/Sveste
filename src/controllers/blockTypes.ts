@@ -1,24 +1,18 @@
-import Describe from "../components/form/Describe.svelte";
-import Mock from "../components/form/Mock.svelte";
-import MockStatement from "../components/form/MockStatement.svelte";
-import Render from "../components/form/Render.svelte";
-import Query from "../components/form/Query.svelte";
-import Test from "../components/form/Test.svelte";
-import Expect from "../components/form/Expect.svelte";
-import Assertion from "../components/form/Assertion.svelte";
-import UserEvent from "../components/form/UserEvent.svelte";
+import DescribeStatement from '../components/statements/describeStatement.svelte';
+import RenderBlock from '../components/blocks/renderBlock.svelte';
+import ExecutionBlock from '../components/blocks/executionBlock.svelte';
+import TestStatement from '../components/statements/testStatement.svelte';
+import ModifierBlock from '../components/blocks/modifierBlock.svelte';
+import ActionBlock from '../components/blocks/actionBlock.svelte';
 
 type TypeComponentPair = { type: string; component: any };
 type BlockRef = TypeComponentPair[];
 
 export const blockRef: BlockRef = [
-  { type: "describe", component: Describe },
-  { type: "mock", component: Mock },
-  { type: "mockStatement", component: MockStatement },
-  { type: "render", component: Render },
-  { type: "query", component: Query },
-  { type: "test", component: Test },
-  { type: "expect", component: Expect },
-  { type: "assertion", component: Assertion },
-  { type: "event", component: UserEvent },
+  { type: 'describeStatement', component: DescribeStatement },
+  { type: 'modifierBlock', component: ModifierBlock },
+  { type: 'renderBlock', component: RenderBlock },
+  { type: 'testStatement', component: TestStatement },
+  { type: 'executionBlock', component: ExecutionBlock },
+  { type: 'actionBlock', component: ActionBlock },
 ];

@@ -2,10 +2,14 @@
 logs
 *.log
 
+.aws-sam
 node_modules
 dist
 dist-ssr
 *.local
+
+.aws-sam
+.env
 
 # Editor directories and files
 .vscode/*
@@ -19,3 +23,5 @@ dist-ssr
 *.sw?
 development.env
 
+# TEMP
+sam-app

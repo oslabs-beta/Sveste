@@ -1,9 +1,7 @@
 <script>
-  import { testStore } from "../../models/store";
-  import AddButtonMenu from "./AddButtonMenu.svelte";
-  import { blockRef } from "../../controllers/blockTypes";
+  import AddButtonMenu from './AddButtonMenu.svelte';
+  import { blockRef } from '../../controllers/blockTypes';
   export let addToId,
-    type,
     active = false;
   let menu = null;
   let blockTypes = blockRef.map((obj) => obj.type);
@@ -14,7 +12,9 @@
 </script>
 
 <button type="button" class:active on:click|preventDefault={handleClick}
-  >+{addToId.replace(/[0-9]/g, "")}</button
+  >+ {addToId
+    ? addToId.replace(/(.)(statement|block|)([0-9])/gi, '$1 $2').toLowerCase()
+    : 'root'}</button
 >
 <svelte:component this={menu} {addToId} bind:menu />
 
@@ -25,14 +25,14 @@
     font-size: 1rem;
     margin: 1rem auto;
     padding: 0.5rem 1rem;
-    border-radius: 2rem;
-    color: var(--svestedarkteal);
+    border-radius: 0.5rem;
+    color: var(--primary);
     background-color: transparent;
-    border: 1px solid var(--svestedarkteal);
+    border: 1px solid var(--primary);
   }
   button:hover,
   button.active {
-    background-color: var(--svestedarkteal);
+    background-color: var(--primary);
     color: white;
   }
 </style>
