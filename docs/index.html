@@ -4,66 +4,117 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Sveste</title>
+    <title>Sveste | A no code GUI for writing great unit tests</title>
   </head>
   <body>
     <div class="container">
       <header>
-        <p>Sveste</p>
+        <a href="index.html">
+          <img
+            class="logo-header"
+            style="height: 35px"
+            src="./assets/SvesteLogo.png"
+          />
+        </a>
         <menu>
-          <li><a href="#">Github</a></li>
-          <li><a href="#">About</a></li>
-          <button class="cta alt">Try it</button>
+          <li>
+            <a href="https://github.com/oslabs-beta/Sveste" target="_blank"
+              >Github</a
+            >
+          </li>
+          <li><a href="about.html">About</a></li>
+          <a href="https://app.sveste.dev"
+            ><button class="cta alt">Try it</button></a
+          >
         </menu>
       </header>
       <div class="hero">
         <section class="hero-headline">
-          <h1>Sveste</h1>
+          <h1>
+            <span><img class="hero-logo" src="./assets/SvesteLogo.png" /></span
+            >Sveste
+          </h1>
           <p>A no code GUI for writing great unit tests.</p>
-          <button class="cta alt">Try it</button>
+          <a href="https://app.sveste.dev"
+            ><button class="cta alt">Try it</button></a
+          >
         </section>
       </div>
       <main>
-        <section class="feature center">
+        <section class="feature-center">
+          <h2>Write great tests with your non-technical experts.</h2>
+          <p>
+            Great unit tests focus on the <i>user</i> experience. But your
+            <i>user</i>
+            experts (i.e. your sales, marketing, and service reps) can't code.
+            Bring them into the process with our no-code GUI.
+          </p>
+        </section>
+        <section class="feature left">
           <div class="feature-content">
-            <h2>CTA</h2>
-            <p>Hook line sinker</p>
+            <h2>Craft tests using a no-code GUI</h2>
+            <ul>
+              <li>Assemble your test with easy-to-use "blocks."</li>
+              <li>Customize your "blocks" with a simple form input.</li>
+              <li>Navigate through your form with a convenient tree view</li>
+              <li>See your code generate in real-time</li>
+            </ul>
+            <button class="cta">Try it</button>
+          </div>
+          <img class="feature-img" src="./assets/mainDemo.gif" />
+        </section>
+        <section class="feature left">
+          <img class="feature-img" src="./assets/savetofavorites.gif" />
+          <div class="feature-content">
+            <h2>Save and update your work.</h2>
+            <ul>
+              <li>Secure log-in</li>
+              <li>Save test code for future use</li>
+              <li>Access and delete old tests in a "favorites" view</li>
+              <li>Copy and share formatted test code with a click</li>
+            </ul>
+            <a href="https://app.sveste.dev"
+              ><button class="cta">Try it</button></a
+            >
           </div>
         </section>
         <section class="feature left">
           <div class="feature-content">
-            <h2>Still haven't decided to try it?</h2>
-            <p>Here's more info</p>
-            <button class="cta">Try it</button>
+            <h2>Best practices, built-in.</h2>
+            <ul>
+              <li>Test "on screen" actions using screen() and userEvent()</li>
+              <li>Test for accessibility using getByRole()</li>
+              <li>Group all test logic into readable expect() statements</li>
+              <li>Simulate user actions like clicking, hovering, and typing</li>
+            </ul>
+
+            <a href="https://app.sveste.dev"
+              ><button class="cta">Try it</button></a
+            >
           </div>
-          <img class="feature-img" src="https://via.placeholder.com/400" />
+          <img class="feature-img" src="./assets/firstTestStatement.gif" />
         </section>
-        <section class="feature left">
-          <div class="feature-content">
-            <h2>Still haven't decided to try it?</h2>
-            <p>Here's more info</p>
-            <button class="cta">Try it</button>
-          </div>
-          <img class="feature-img" src="https://via.placeholder.com/400" />
-        </section>
-        <section class="feature left">
-          <div class="feature-content">
-            <h2>Still haven't decided to try it?</h2>
-            <p>Here's more info</p>
-            <button class="cta">Try it</button>
-          </div>
-          <img class="feature-img" src="https://via.placeholder.com/400" />
-        </section>
-        <section class="feature center">
-          <div class="feature-content">
-            <h2>CTA</h2>
-            <p>Hook line sinker</p>
-          </div>
+        <section class="feature-center" id="bottom-feature">
+          <h2>Get your team on the same page.</h2>
+          <p>
+            Align your development strategy and involve team members like never
+            before.
+          </p>
         </section>
       </main>
       <footer>
         <menu>
-          <a href="#">GitHub</a>
+          <a href="https://github.com/oslabs-beta/Sveste" target="_blank"
+            ><img
+              src="./assets/githubthumbnail.png"
+              alt="GitHub Icon"
+              style="max-height: 15px"
+            />
+            | GitHub</a
+          >
+          <a href="https://app.sveste.dev"
+            ><button class="cta alt">Try it</button></a
+          >
         </menu>
       </footer>
     </div>
