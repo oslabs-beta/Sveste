@@ -13,10 +13,13 @@
     background-color: transparent;
     border-radius: 0.25rem;
     border: 1px solid var(--primary);
-    padding: 0.5rem;
+    color: var(--text-light);
+    transition: all 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
   }
   button:hover {
-    background-color: white;
+    background-color: var(--text-light);
     color: var(--primary);
     cursor: pointer;
   }

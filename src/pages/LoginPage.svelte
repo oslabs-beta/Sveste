@@ -42,69 +42,184 @@
   };
 </script>
 
-<Header />
-<h1>Login</h1>
-<form class="form" on:submit|preventDefault={handleLogin}>
-  <div class="innerform">
-    <label class="form_label" for="emailAddress" type="text">E-Mail</label>
-    <input class="form_input" type="email" id="email" name="email" required />
+<div class="login-page">
+  <Header />
+  <div class="login-form">
+    <h1>Login</h1>
+    <div class="inputWrapper">
+      <form class="form" on:submit|preventDefault={handleLogin}>
+        <div class="input-field">
+          <input
+            class="form_input"
+            type="email"
+            id="email"
+            name="email"
+            required
+          />
+          <label for="email" value="email">Email</label>
+        </div>
+        <div class="input-field">
+          <input
+            class="form_input"
+            type="password"
+            id="password"
+            name="password"
+            required
+          />
+          <label for="password" value="email">Password</label>
+        </div>
+        <div id="buttondiv" class="action">
+          <button class="login_btn" type="submit" value="login">Login</button>
+          <button value="signup" on:click|preventDefault={() => push('/signup')}
+            >Sign Up</button
+          >
+        </div>
+      </form>
+    </div>
   </div>
-  <div class="innerform">
-    <label class="form_label" for="password">Password</label>
-    <input
-      class="form_input"
-      type="password"
-      id="password"
-      name="password"
-      required
-    />
+  <div class="footer">
+    <Footer />
   </div>
-  <div id="buttondiv">
-    <button class="login_btn" type="submit" value="login">Login</button>
-    <button value="signup" on:click|preventDefault={() => push('/signup')}
-      >Sign Up</button
-    >
-  </div>
-</form>
-<Footer />
+</div>
 
 <style>
-  .form {
-    height: 100%;
-    align-self: center;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+      'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  }
+  .login-page {
     display: flex;
     flex-direction: column;
-    align-items: baseline;
+    height: 100%;
   }
-  h1 {
-    align-self: center;
-  }
-  .form_input {
-    margin-left: 2rem;
-  }
-  #buttondiv {
-    width: 100%;
+  .login-form {
+    background: var(--background);
+    width: 500px;
+    margin: auto auto;
     display: flex;
-    justify-content: center;
-    margin: 0.8rem;
+    flex-direction: column;
+    border-radius: 4px;
+    box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
+    padding: 1rem 2rem;
   }
-
-  .login_btn {
-    margin-right: 1rem;
-    margin-left: 2.5rem;
+  .login-form h1 {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    font-weight: 300;
   }
-
-  .innerform {
+  .login-form .input-field {
+    padding: 12px 5px;
+  }
+  .login-form .input-field input {
+    font-size: 16px;
+    display: block;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 0.25rem;
+    padding: 10px 1px;
+    border: 0;
+    border-bottom: 1px solid #747474;
+    outline: none;
+    background: transparent;
   }
 
-  label {
+  .login-form .input-field input:focus {
+    border-color: #222;
+  }
+
+  .login-form .action {
+    display: flex;
     flex-direction: row;
-    justify-content: center;
-    width: 3rem;
-    margin: 0.25rem;
+    margin-bottom: 1rem;
+    gap: 0.5rem;
+  }
+  .login-form .action button {
+    width: 100%;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-family: inherit;
+    cursor: pointer;
+    text-transform: uppercase;
+    background: #e8e9ec;
+    color: #777;
+    letter-spacing: 0.2px;
+    outline: 0;
+    transition: all 0.3s;
+  }
+  .login-form .action button:hover {
+    background: #d8d8d8;
+  }
+  .login-form .action button:nth-child(2) {
+    background: var(--primary-mid);
+    color: var(--text-light);
+  }
+  .login-form .action button:nth-child(2):hover {
+    background: var(--primary);
+  }
+
+  .action {
+    margin-top: 4rem;
+  }
+  .footer {
+    margin-top: auto;
+  }
+
+  /*  */
+  .inputWrapper :global(div) {
+    display: flex;
+    flex-direction: row;
+    justify-self: start;
+    width: 90%;
+    position: relative;
+  }
+  .inputWrapper :global(label) {
+    position: absolute;
+    left: 0.25rem;
+    top: 0.5rem;
+    transform-origin: left top;
+    transition: transform 100ms ease-in-out;
+    color: var(--text-mid);
+  }
+
+  .inputWrapper :global(input) {
+    width: 100%;
+    font-size: 1rem;
+    height: 1.5rem;
+    padding: 0.5rem 0 0 0.25rem;
+    border: none;
+    border-bottom: 1px solid var(--shadow);
+    background-color: transparent;
+  }
+  .inputWrapper :global(select) {
+    width: auto;
+    height: 2.5rem;
+    padding-right: 1rem;
+    font-size: 1rem;
+    border: none;
+    background-color: transparent;
+  }
+  .inputWrapper :global(input:focus + label),
+  .inputWrapper :global(input:valid + label) {
+    transform: translateY(-50%) scale(0.7);
+    color: var(--text-mid);
+  }
+
+  .inputWrapper :global(select:focus + label),
+  .inputWrapper :global(select:valid + label) {
+    transform: translateY(-50%) scale(0.7);
+    color: var(--text-mid);
+  }
+
+  .inputWrapper :global(input:focus + label),
+  .inputWrapper :global(select:focus + label) {
+    color: var(--primary);
+  }
+
+  .inputWrapper :global(input:focus),
+  .inputWrapper :global(select:focus) {
+    outline: none;
   }
 </style>
