@@ -8,11 +8,11 @@
   --text-mid: rgba(0, 0, 0, 50%);
   --text-light: rgba(255, 255, 255, 90%);
   --shadow: rgba(0, 0, 0, 10%);
-  --highlight: rgb(220, 51, 0);
+  --highlight: rgb(255, 62, 1);
 }
 html {
-  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   font-weight: 400;
   font-size: 16px;
   height: 100%;

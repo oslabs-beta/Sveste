@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - 'main'
-      - 'dev'
 
 env:
   PIPELINE_EXECUTION_ROLE: 'arn:aws:iam::901379186108:role/aws-sam-cli-managed-dev-pipe-PipelineExecutionRole-6DKZZGH2CUJN'
