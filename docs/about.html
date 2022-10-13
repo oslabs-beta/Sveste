@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Sveste | About</title>
+  </head>
+  <body>
+    <header>
+      <a href="index.html">
+        <img
+          class="logo-header"
+          style="height: 35px"
+          src="./assets/SvesteLogo.png"
+        />
+      </a>
+      <menu>
+        <li>
+          <a href="https://github.com/oslabs-beta/Sveste" target="_blank"
+            >Github</a
+          >
+        </li>
+        <li><a href="about.html">About</a></li>
+        <a href="https://app.sveste.dev"
+          ><button class="cta alt">Try it</button></a
+        >
+      </menu>
+    </header>
+    <div class="container">
+      <article class="post">
+        <h1 id="Introducing Sveste">Introducing Sveste</h1>
+        <p>
+          Anyone can write a unit test. But a <strong>great</strong> unit test?
+        </p>
+        <p>
+          Great unit tests focus on what a user should see and do,
+          <a href="https://kentcdodds.com/blog/testing-implementation-details"
+            >not the implementation details</a
+          >. They fail when you break your UX. They don’t break when you
+          refactor your code.
+        </p>
+
+        <p>
+          <b>Great unit tests help you focus on your users, not yourself.</b>
+        </p>
+
+        <p>But this introduces a contradiction.</p>
+
+        <p>
+          Your sales and service reps talk to users every day. They understand
+          how people want to use your product, but don’t have the technical
+          skills to turn that knowledge into tests. Your engineers know how to
+          code, but don’t have the time to get on the phone with hundreds of
+          people a day.
+        </p>
+
+        <p>
+          The people that understand your users can’t write tests. And the
+          people that write tests don’t understand your users. So what do you
+          do?
+        </p>
+
+        <p>You sit in meetings and hope for the best.</p>
+
+        <p>But what if there was a better way?</p>
+
+        <h3>Enter Sveste: a no-code GUI for writing great unit tests.</h3>
+
+        <p>
+          Today, Sveste (Svelte + test) translates form inputs into executable
+          tests. It uses the
+          <a href="https://testing-library.com/">Testing Library</a> to focus on
+          best practices like testing what’s actually on screen. It uses
+          <a href="https://vitest.dev/">Vitest</a> so you can take advantage of
+          Vite’s fast build times and run unit tests as you code. It structures
+          your code so that each unit test is (human) readable and independent (
+          <a href="https://kentcdodds.com/blog/avoid-nesting-when-youre-testing"
+            >no nested mock statements here</a
+          >
+          ). Sveste ensures that your test code is concise, functional, and best
+          practice.
+        </p>
+
+        <p>
+          But this is just a first step to a bigger goal (literally, it’s
+          v0.2!).
+        </p>
+
+        <p>We want Sveste to help you write tests in plain English.</p>
+
+        <p>
+          Imagine if writing tests were as easy as Mad Libs? Imagine if you got
+          context-aware tips as you wrote your tests: guiding you towards
+          helpful resources, and steering you away from common testing mistakes?
+          Imagine if you could share unit tests with others, and build off of
+          each-other’s work to write application agnostic tests?
+        </p>
+
+        <h3>Help us make this vision a reality!</h3>
+
+        <p>
+          Sveste is open source, and looking for contributors. Check out our
+          <a href="https://app.sveste.dev">app</a> and
+          <a href="https://github.com/oslabs-beta/Sveste">repo</a> to get
+          started!
+        </p>
+      </article>
+    </div>
+    <footer>
+      <menu>
+        <a href="https://github.com/oslabs-beta/Sveste" target="_blank"
+          ><img
+            src="./assets/githubthumbnail.png"
+            alt="GitHub Icon"
+            style="max-height: 15px"
+          />
+          | GitHub</a
+        >
+        <a href="https://app.sveste.dev"
+          ><button class="cta alt">Try it</button></a
+        >
+      </menu>
+    </footer>
+  </body>
+</html>

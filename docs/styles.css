@@ -224,7 +224,20 @@ main h2 {
     grid-template-rows: auto auto;
   }
 }
-
+/* POST */
+.post {
+  margin: 2vh 2vw;
+  max-width: var(--max-width);
+}
+.post h1 {
+  margin-block-start: 0.5rem;
+}
+.post p {
+  line-height: 1.5rem;
+}
+.post a {
+  color: var(--primary-mid);
+}
 /* FOOTER */
 footer {
   display: grid;
