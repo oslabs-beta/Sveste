@@ -17,7 +17,7 @@ Sveste is open source, and looking for contributors. Check out our app and repo 
 ## How to get up and running
 
 1. Install AWS CLI - https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
-2. Create AWS account, install AWS SAM CLI + Docker - Installing the AWS SAM CLI - AWS Serverless Application Model
+2. Create AWS account, install AWS SAM CLI + Docker - https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html
 3. Set AWS Congifure w/ new IAM Access ID + key - https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html
 4. Run 'npm install' in terminal
 5. Start up docker in background
@@ -59,6 +59,7 @@ Vitest is a Vite-native testing framework that takes advantage of Vite’s speed
   Checkout the readme for more details.
 
 ### What’s your stack?
+
 Frontend: Svelte
 Backend: AWS Serverless (API Gateway, Lambda, DynamoDB)
 Build: AWS SAM, Vite
@@ -66,6 +67,7 @@ Testing: Svelte Testing Library, Vitest
 Languages: Svelte, TypeScript (mostly)
 
 ### How can I contribute?
+
 Sveste is an open source product, and thus open for contribution! Just visit our GitHub, fork it, and create or tackle any open issues!
 
 ### How else can I help?
@@ -78,7 +80,7 @@ Supporting other projects on OSLabs and OSLabs-Beta.
 
 ## Dev Setup Guide
 
-Install the AWS CLI,  AWS SAM CLI, and setup your AWS credentials.
+Install the AWS CLI, AWS SAM CLI, and setup your AWS credentials.
 
 Run `npm install`.
 Install and start Docker.

@@ -11,12 +11,11 @@ const componentImport = (componentName, path) =>
 const describeStatement = (value, body) =>
   `    describe("${value}"), () => {
     ${body}
-   };\n`;
+    };\n`;
 
-const modifierBlock = (value) => `${value};\n`;
+const modifierBlock = (value) => `${value}`;
 
-//render variable
-const renderBlock = (value) => `const view = await render(${value});\n`;
+const renderBlock = (value) => `const view = await render(${value});\n        `;
 /**
  *
  * @param {*} value
@@ -24,9 +23,9 @@ const renderBlock = (value) => `const view = await render(${value});\n`;
  * @returns Compiled test string with body being recursively populated in process children
  */
 const testStatement = (value, body) =>
-  `it("${value}", () => {
-    ${body}
-  });\n`;
+  `  it("${value}", () => {
+        ${body}
+      });`;
 
 const executionBlock = (value) => value;
 const actionBlock = (value) => value;

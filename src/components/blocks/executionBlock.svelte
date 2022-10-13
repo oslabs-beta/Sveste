@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { blockStore } from "../../models/store";
-  import { queries, roles } from "../../types/queryTypes";
-  import { matchers } from "../../types/matcherTypes";
+  import { blockStore } from '../../models/store';
+  import { queries, roles } from '../../types/queryTypes';
+  import { matchers } from '../../types/matcherTypes';
   export let id;
 
   let selectedQuery;
@@ -14,16 +14,16 @@
 
   function updateVal() {
     $blockStore[id][
-      "value"
+      'value'
     ] = `expect(() => screen.${selectedQuery}${selectedType}('${argument}'))${
-      isNot === "not"
-        ? `.${isNot}.${selectedMatcher}${matcherVal ? `(${matcherVal})` : "()"}`
-        : `.${selectedMatcher}${matcherVal ? `(${matcherVal})` : "()"}`
-    }\n`;
+      isNot === 'not'
+        ? `.${isNot}.${selectedMatcher}${matcherVal ? `(${matcherVal})` : '()'}`
+        : `.${selectedMatcher}${matcherVal ? `(${matcherVal})` : '();'}`
+    }\n        `;
   }
 
   //   const types = ['Role', 'Text'];
-  const nots = ["not", ""];
+  const nots = ['not', ''];
 </script>
 
 <p>expect</p>

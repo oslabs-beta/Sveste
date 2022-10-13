@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { blockStore } from "../../models/store";
-  import { queries, roles } from "../../types/queryTypes";
-  import { modifiers } from "../../types/modifierTypes";
+  import { blockStore } from '../../models/store';
+  import { queries, roles } from '../../types/queryTypes';
+  import { modifiers } from '../../types/modifierTypes';
   export let id;
 
   let selectedQuery;
@@ -11,8 +11,8 @@
   let val;
   function updateVal() {
     $blockStore[id][
-      "value"
-    ] = `screen.${selectedQuery}${selectedType}('${argument}').${attribute} = "${val}"`;
+      'value'
+    ] = `screen.${selectedQuery}${selectedType}('${argument}').${attribute} = '${val};'\n        `;
   }
 </script>
 

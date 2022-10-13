@@ -8,12 +8,15 @@
   let selectedType;
   let argument;
   let typeInput;
+  /*
+   * Inserts an action code line into the Codedisplay
+   */
   function updateVal() {
     if (action === 'type') console.log('im typing');
-    $blockStore[id]['value'] = `  const user = userEvent.setup();
-      await user.${action}(screen.${selectedQuery}${selectedType}('${argument}')${
+    $blockStore[id]['value'] = `const user = userEvent.setup();
+        await user.${action}(screen.${selectedQuery}${selectedType}('${argument}')${
       action === 'type' ? `,'${typeInput}')` : ')'
-    };\n`;
+    };\n        `;
   }
 </script>
 
