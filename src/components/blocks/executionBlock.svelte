@@ -1,29 +1,30 @@
 <script lang="ts">
-  import { blockStore } from "../../models/store";
-  import { queries, roles } from "../../types/queryTypes";
-  import { matchers } from "../../types/matcherTypes";
-  export let id;
-
-  let selectedQuery;
-  let selectedType;
-  let argument;
-  let isNot;
-  let selectedMatcher;
-  let matcherVal;
+  import { blockStore } from '../../models/store';
+  import { queries, roles } from '../../types/queryTypes';
+  import { matchers } from '../../types/matcherTypes';
+  export let id: Number;
+  let selectedQuery: String;
+  let selectedType: String;
+  let argument: String;
+  let isNot: String;
+  let selectedMatcher: String;
+  let matcherVal: String;
   let matcherStatement;
-
+  /*
+   * Inserts an execution code line into the Codedisplay, updates exported values based on user input
+   */
   function updateVal() {
     $blockStore[id][
-      "value"
-    ] = `expect(() => screen.${selectedQuery}${selectedType}('${argument}'))${
-      isNot === "not"
-        ? `.${isNot}.${selectedMatcher}${matcherVal ? `(${matcherVal})` : "()"}`
-        : `.${selectedMatcher}${matcherVal ? `(${matcherVal})` : "()"}`
+      'value'
+    ] = `        expect(() => screen.${selectedQuery}${selectedType}('${argument}'))${
+      isNot === 'not'
+        ? `.${isNot}.${selectedMatcher}${matcherVal ? `(${matcherVal})` : '()'}`
+        : `.${selectedMatcher}${matcherVal ? `(${matcherVal})` : '();'}`
     }\n`;
   }
 
   //   const types = ['Role', 'Text'];
-  const nots = ["not", ""];
+  const nots = ['not', ''];
 </script>
 
 <p>expect</p>

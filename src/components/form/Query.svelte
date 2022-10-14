@@ -1,3 +1,4 @@
+<!-- Currently not being used -->
 <script lang="ts">
   import { blockStore } from '../../models/store';
   export let id;
@@ -5,9 +6,6 @@
   let selectedQuery;
   let selectedType;
   let argument;
-  // let comparisonType;
-  // let modifier;
-  // let parentIsMock = false;
   // $: if($blockStore[id].parentId.includes('mock')) parentIsMock = true;
   function updateVal() {
     console.log($blockStore[id].parentId.includes('mock'));

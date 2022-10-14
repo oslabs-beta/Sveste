@@ -1,9 +1,12 @@
 <script lang="ts">
-  import Form from "./Form.svelte";
-  import InfoDisplay from "./InfoDisplay.svelte";
-  import { formHeight } from "../models/store";
+  import Form from './Form.svelte';
+  import InfoDisplay from './InfoDisplay.svelte';
+  import { formHeight } from '../models/store';
 </script>
 
+<!--
+@component Creates form component which user will enter/customize input to make the code tests appear.
+-->
 <div class="input-display">
   <div class="info-wrapper">
     <InfoDisplay />

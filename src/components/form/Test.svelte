@@ -1,3 +1,4 @@
+<!-- CUrrently not being used -->
 <script>
   import { blockStore } from '../../models/store';
   export let id;

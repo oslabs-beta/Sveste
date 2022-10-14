@@ -8,6 +8,9 @@
     const block = codeBlock;
     Prism.highlightElement(block);
   }
+  /*
+   * Upon clicking '-' button, sends DELETE request to server which deletes entry in database and updates page
+   */
   async function handleDelete() {
     try {
       const res = await fetch('/api/favorites', {
