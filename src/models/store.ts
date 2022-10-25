@@ -52,7 +52,6 @@ function createBlockStore() {
           }
           i++;
         }
-
         if (target === 0) {
           parent.children.shift();
         } else if (target === parent.children.length) {

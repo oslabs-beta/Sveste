@@ -1,5 +1,5 @@
 <script>
-  const src = "src/assets/githubthumbnail.png";
+  const src = 'src/assets/githubthumbnail.png';
 </script>
 
 <footer>

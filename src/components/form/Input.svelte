@@ -6,7 +6,7 @@
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
   const labelText = capitalizeFirstLetter(inputType);
-  const idText = inputType + 'Input';
+  const idText = id + inputType + 'Input';
 </script>
 
 <input required id={idText} name={idText} bind:value={$blockStore[id].value} />

@@ -1,24 +1,31 @@
 <script lang="ts">
   import { blockStore } from '../../models/store';
-  import { queries, roles } from '../../types/queryTypes';
-  import { modifiers } from '../../types/modifierTypes';
-  export let id: Number;
-  let selectedQuery: String;
-  let selectedType: String;
-  let argument: String;
-  let attribute: String;
-  let val: String;
-  /*
-   * Inserts a modifier code line into the Codedisplay, updates exported values based on user input
-   */
+  export let id;
+
+  let selectedQuery;
+  let selectedType;
+  let argument;
+  let attribute;
+  let val;
   function updateVal() {
     $blockStore[id][
       'value'
-    ] = `        screen.${selectedQuery}${selectedType}('${argument}').${attribute} = '${val};'\n`;
+    ] = `screen.${selectedQuery}${selectedType}('${argument}').${attribute} = "${val}"`;
   }
+
+  const queries = [
+    'getBy',
+    'queryBy',
+    'findBy',
+    'getAllBy',
+    'queryAllBy',
+    'findAllBy',
+  ];
+  const types = ['Role', 'Text'];
+  const attributes = ['innerHTML', 'value'];
 </script>
 
-<div {id}>
+<div>
   <div>
     <select
       required
@@ -42,7 +49,7 @@
       bind:value={selectedType}
       on:change={() => updateVal()}
     >
-      {#each roles as value}
+      {#each types as value}
         <option {value}>
           {value}
         </option>
@@ -69,7 +76,7 @@
       on:change={() => updateVal()}
     >
       <option>...</option>
-      {#each modifiers as value}
+      {#each attributes as value}
         <option {value}>
           {value}
         </option>

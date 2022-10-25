@@ -1,19 +1,19 @@
-import { compiledTestStore, submitSuccessful } from "../compiledTestStore";
-import axios from "axios";
-const url = "/test";
+import { compiledTestStore, submitSuccessful } from '../compiledTestStore';
+import axios from 'axios';
+const url = '/test';
 
 export async function POST(url, body) {
   try {
     let parsedBody = JSON.stringify(body, [
-      "id",
-      "type",
-      "parentId",
-      "value",
-      "children",
+      'id',
+      'type',
+      'parentId',
+      'value',
+      'children',
     ]);
     const response = await axios.post(url, parsedBody, {
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     });
     compiledTestStore.set(response.data);
@@ -26,8 +26,8 @@ export async function POST(url, body) {
 }
 
 export function handleFormSubmission(body) {
-  const form = document.querySelector("form");
+  const form = document.querySelector('form');
   const formData = new FormData(form);
 
-  let response = POST("/", JSON.stringify(body));
+  let response = POST('/', JSON.stringify(body));
 }
