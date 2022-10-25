@@ -5,7 +5,7 @@
   import type { Block } from '../controllers/blockClass';
   import {} from 'os';
 
-  let isOpen = false;
+  let isOpen = true;
   const toggleMenu = () => {
     isOpen = !isOpen;
   };
@@ -39,10 +39,12 @@
   on:click|preventDefault={toggleMenu}
 >
   {#if /describe|root/i.test(name)}
-    {#if isOpen}
-      <ExpandLess />
-    {:else}
-      <ExpandMore />
+    {#if children.length}
+      {#if isOpen}
+        <ExpandLess />
+      {:else}
+        <ExpandMore />
+      {/if}
     {/if}
   {/if}
   {name.replace(/([a-z]*)(Statement|Block|)/g, '$1').toLowerCase()}
